@@ -1,2600 +1,2496 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>DDSOLUTIONS — Digital Soch. Smart Solutions. Real Growth.</title>
-        <meta
-            name="description"
-            content="DDSOLUTIONS creates modern websites and smart digital solutions for growing businesses. Based in Kanpur, Uttar Pradesh."
-        />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap"
-            rel="stylesheet"
-        />
-        <style>
-            :root {
-                --bg: #070a14;
-                --s: #0f1527;
-                --s2: #161e36;
-                --t: #f2f5ff;
-                --m: #9aa5c0;
-                --l: rgba(255, 255, 255, 0.1);
-                --a: #8b7cff;
-                --b: #2ee6c5;
-                --c: #ff6bb5;
-            }
-
-            [data-theme="light"] {
-                --bg: #f5f7fc;
-                --s: #fff;
-                --s2: #eaeffa;
-                --t: #10162b;
-                --m: #5d6a87;
-                --l: rgba(16, 22, 43, 0.12);
-                --a: #6454f0;
-                --b: #00a08c;
-                --c: #e0388f;
-            }
-
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-
-            html {
-                scroll-behavior: smooth;
-                scroll-padding-top: 90px;
-            }
-
-            body {
-                font-family:
-                    Manrope, "Noto Sans Devanagari", system-ui, sans-serif;
-                background: var(--bg);
-                color: var(--t);
-                line-height: 1.6;
-                overflow-x: hidden;
-                transition:
-                    background 0.4s,
-                    color 0.4s;
-            }
-
-            h1,
-            h2,
-            h3 {
-                font-family:
-                    "Space Grotesk", Manrope, "Noto Sans Devanagari", sans-serif;
-                line-height: 1.12;
-                letter-spacing: -0.03em;
-            }
-
-            a {
-                color: inherit;
-                text-decoration: none;
-            }
-
-            p {
-                color: var(--m);
-            }
-
-            button,
-            select {
-                font: inherit;
-                cursor: pointer;
-            }
-
-            .wrap {
-                width: min(1180px, 92%);
-                margin: auto;
-            }
-
-            .g {
-                background: linear-gradient(
-                    90deg,
-                    var(--a),
-                    var(--b),
-                    var(--c),
-                    var(--a)
-                );
-                background-size: 300% 100%;
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
-                animation: flow 6s linear infinite;
-            }
-
-            @keyframes flow {
-                to {
-                    background-position: 300% 0;
-                }
-            }
-
-            #bar {
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 3px;
-                width: 0;
-                background: linear-gradient(90deg, var(--a), var(--b));
-                z-index: 99;
-            }
-
-            #glow {
-                position: fixed;
-                width: 420px;
-                height: 420px;
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: 0;
-                background: radial-gradient(
-                    circle,
-                    rgba(139, 124, 255, 0.22),
-                    transparent 65%
-                );
-                transform: translate(-50%, -50%);
-                left: 50%;
-                top: 30%;
-            }
-
-            nav {
-                position: fixed;
-                top: 14px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 50;
-                display: flex;
-                align-items: center;
-                gap: 6px;
-                padding: 8px 10px 8px 16px;
-                border-radius: 999px;
-                background: color-mix(in srgb, var(--s) 85%, transparent);
-                border: 1px solid var(--l);
-                backdrop-filter: blur(16px);
-                max-width: 96%;
-            }
-
-            .logo {
-                font-family: "Space Grotesk";
-                font-weight: 700;
-                margin-right: 10px;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                white-space: nowrap;
-            }
-
-            .logo b {
-                width: 30px;
-                height: 30px;
-                border-radius: 9px;
-                display: grid;
-                place-items: center;
-                font-size: 0.75rem;
-                color: #fff;
-                background: linear-gradient(135deg, var(--a), var(--b));
-            }
-
-            .links {
-                display: flex;
-                gap: 2px;
-                align-items: center;
-            }
-
-            nav a.l {
-                font-size: 0.82rem;
-                font-weight: 600;
-                color: var(--m);
-                padding: 7px 11px;
-                border-radius: 99px;
-                transition: 0.2s;
-            }
-
-            nav a.l:hover {
-                background: var(--s2);
-                color: var(--t);
-            }
-
-            .ctrl {
-                display: flex;
-                gap: 6px;
-                align-items: center;
-            }
-
-            .sel {
-                background: var(--s2);
-                color: var(--t);
-                border: 1px solid var(--l);
-                border-radius: 99px;
-                padding: 6px 10px;
-                font-size: 0.78rem;
-                font-weight: 700;
-                height: 34px;
-            }
-
-            .tg,
-            .burger {
-                width: 34px;
-                padding: 0;
-                display: grid;
-                place-items: center;
-                font-size: 1rem;
-                transition: transform 0.4s;
-            }
-
-            .tg:hover {
-                transform: rotate(25deg) scale(1.1);
-            }
-
-            .burger {
-                display: none;
-            }
-
-            section {
-                position: relative;
-                z-index: 1;
-                padding: 100px 0;
-            }
-
-            .eye {
-                font-size: 0.72rem;
-                font-weight: 800;
-                letter-spacing: 0.18em;
-                text-transform: uppercase;
-                color: var(--b);
-            }
-
-            .hd {
-                max-width: 700px;
-                margin-bottom: 44px;
-            }
-
-            .hd h2 {
-                font-size: clamp(2rem, 5vw, 3.6rem);
-                margin: 12px 0;
-            }
-
-            .btn {
-                display: inline-flex;
-                gap: 8px;
-                align-items: center;
-                padding: 14px 24px;
-                border-radius: 14px;
-                font-weight: 800;
-                border: 1px solid var(--l);
-                background: var(--s);
-                color: var(--t);
-                transition: 0.3s;
-                position: relative;
-                overflow: hidden;
-            }
-
-            .btn.p {
-                background: linear-gradient(110deg, var(--a), #5b8cff);
-                color: #fff;
-                border: 0;
-                box-shadow: 0 14px 36px rgba(110, 96, 240, 0.4);
-            }
-
-            .btn:hover {
-                transform: translateY(-4px) scale(1.03);
-            }
-
-            .btn.p:after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: -60%;
-                width: 40%;
-                height: 100%;
-                background: linear-gradient(
-                    100deg,
-                    transparent,
-                    rgba(255, 255, 255, 0.45),
-                    transparent
-                );
-                transform: skewX(-20deg);
-                animation: shine 3s infinite;
-            }
-
-            @keyframes shine {
-                to {
-                    left: 130%;
-                }
-            }
-
-            .hero {
-                min-height: 100vh;
-                display: grid;
-                place-items: center;
-                text-align: center;
-                padding-top: 130px;
-                overflow: hidden;
-            }
-
-            .blob {
-                position: absolute;
-                border-radius: 50%;
-                filter: blur(70px);
-                opacity: 0.5;
-                animation: drift 14s ease-in-out infinite alternate;
-            }
-
-            .b1 {
-                width: 360px;
-                height: 360px;
-                background: var(--a);
-                top: 8%;
-                left: 6%;
-            }
-
-            .b2 {
-                width: 320px;
-                height: 320px;
-                background: var(--b);
-                bottom: 6%;
-                right: 8%;
-                animation-delay: -6s;
-                opacity: 0.3;
-            }
-
-            .b3 {
-                width: 240px;
-                height: 240px;
-                background: var(--c);
-                top: 40%;
-                right: 30%;
-                animation-delay: -3s;
-                opacity: 0.25;
-            }
-
-            @keyframes drift {
-                to {
-                    transform: translate(60px, -50px) scale(1.2);
-                }
-            }
-
-            .pill {
-                display: inline-flex;
-                gap: 8px;
-                align-items: center;
-                padding: 7px 16px;
-                border: 1px solid var(--l);
-                border-radius: 99px;
-                background: var(--s);
-                font-size: 0.78rem;
-                font-weight: 700;
-                color: var(--m);
-            }
-
-            .pill i {
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                background: var(--b);
-                box-shadow: 0 0 0 0 var(--b);
-                animation: pulse 2s infinite;
-            }
-
-            @keyframes pulse {
-                70% {
-                    box-shadow: 0 0 0 10px transparent;
-                }
-            }
-
-            .hero h1 {
-                font-size: clamp(2.5rem, 8.5vw, 6.6rem);
-                margin: 26px auto;
-                max-width: 980px;
-            }
-
-            .hero p.sub {
-                max-width: 600px;
-                margin: 0 auto 34px;
-                font-size: 1.1rem;
-            }
-
-            .acts {
-                display: flex;
-                gap: 12px;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .rise {
-                opacity: 0;
-                transform: translateY(40px);
-                animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-            }
-
-            @keyframes rise {
-                to {
-                    opacity: 1;
-                    transform: none;
-                }
-            }
-
-            .floatc {
-                position: absolute;
-                padding: 12px 16px;
-                border-radius: 16px;
-                background: var(--s);
-                border: 1px solid var(--l);
-                font-weight: 800;
-                font-size: 0.8rem;
-                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-                animation: bob 5s ease-in-out infinite;
-            }
-
-            @keyframes bob {
-                50% {
-                    transform: translateY(-16px) rotate(2deg);
-                }
-            }
-
-            .f1 {
-                left: 6%;
-                top: 38%;
-            }
-
-            .f2 {
-                right: 6%;
-                top: 30%;
-                animation-delay: -2s;
-            }
-
-            .f3 {
-                left: 14%;
-                bottom: 12%;
-                animation-delay: -3.5s;
-            }
-
-            .mq {
-                overflow: hidden;
-                border-block: 1px solid var(--l);
-                background: var(--s);
-                padding: 18px 0;
-                position: relative;
-                z-index: 1;
-            }
-
-            .mq div {
-                display: flex;
-                gap: 46px;
-                width: max-content;
-                animation: mq 28s linear infinite;
-                font: 700 1.3rem "Space Grotesk";
-                color: var(--m);
-                white-space: nowrap;
-            }
-
-            .mq span:nth-child(odd) {
-                color: var(--t);
-            }
-
-            @keyframes mq {
-                to {
-                    transform: translateX(-50%);
-                }
-            }
-
-            .stats {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 14px;
-            }
-
-            .stat {
-                padding: 28px;
-                border-radius: 22px;
-                background: var(--s);
-                border: 1px solid var(--l);
-                text-align: center;
-            }
-
-            .stat b {
-                display: block;
-                font: 700 clamp(2rem, 4vw, 3.2rem) "Space Grotesk";
-            }
-
-            .stat span {
-                font-size: 0.85rem;
-                color: var(--m);
-            }
-
-            .bento {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 16px;
-            }
-
-            .card {
-                position: relative;
-                padding: 28px;
-                border-radius: 24px;
-                background: var(--s);
-                border: 1px solid var(--l);
-                overflow: hidden;
-                transition:
-                    transform 0.25s,
-                    border-color 0.3s;
-                transform-style: preserve-3d;
-            }
-
-            .card:hover {
-                border-color: var(--a);
-            }
-
-            .card:before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: radial-gradient(
-                    260px circle at var(--x, 50%) var(--y, 0),
-                    rgba(139, 124, 255, 0.22),
-                    transparent 70%
-                );
-                opacity: 0;
-                transition: 0.3s;
-            }
 
-            .card:hover:before {
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DDSOLUTIONS — Digital Soch. Smart Solutions. Real Growth.</title>
+    <meta name="description"
+        content="DDSOLUTIONS creates modern websites and smart digital solutions for growing businesses. Based in Kanpur, Uttar Pradesh." />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #070a14;
+            --s: #0f1527;
+            --s2: #161e36;
+            --t: #f2f5ff;
+            --m: #9aa5c0;
+            --l: rgba(255, 255, 255, .1);
+            --a: #8b7cff;
+            --b: #2ee6c5;
+            --c: #ff6bb5
+        }
+
+        [data-theme="light"] {
+            --bg: #f5f7fc;
+            --s: #fff;
+            --s2: #eaeffa;
+            --t: #10162b;
+            --m: #5d6a87;
+            --l: rgba(16, 22, 43, .12);
+            --a: #6454f0;
+            --b: #00a08c;
+            --c: #e0388f
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+            overflow-x: hidden;
+            max-width: 100%
+        }
+
+        body {
+            font-family: Manrope, "Noto Sans Devanagari", system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--t);
+            line-height: 1.6;
+            overflow-x: hidden;
+            max-width: 100%;
+            transition: background .4s, color .4s
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: "Space Grotesk", Manrope, "Noto Sans Devanagari", sans-serif;
+            line-height: 1.12;
+            letter-spacing: -.03em
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        p {
+            color: var(--m)
+        }
+
+        button,
+        select {
+            font: inherit;
+            cursor: pointer
+        }
+
+        .wrap {
+            width: min(1180px, 92%);
+            margin: auto
+        }
+
+        .g {
+            background: linear-gradient(90deg, var(--a), var(--b), var(--c), var(--a));
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: flow 6s linear infinite
+        }
+
+        @keyframes flow {
+            to {
+                background-position: 300% 0
+            }
+        }
+
+        #bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0;
+            background: linear-gradient(90deg, var(--a), var(--b));
+            z-index: 99
+        }
+
+        #glow {
+            position: fixed;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(circle, rgba(139, 124, 255, .22), transparent 65%);
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 30%
+        }
+
+        /* Normal fixed header (desktop + mobile) */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+            padding: 10px max(4%, calc((100% - 1180px)/2));
+            background: var(--s);
+            border-bottom: 1px solid var(--l)
+        }
+
+        .logo {
+            font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap
+        }
+
+        .logo b {
+            width: 30px;
+            height: 30px;
+            border-radius: 9px;
+            display: grid;
+            place-items: center;
+            font-size: .75rem;
+            color: #fff;
+            background: linear-gradient(135deg, var(--a), var(--b))
+        }
+
+        .links {
+            display: flex;
+            gap: 2px;
+            align-items: center
+        }
+
+        nav a.l {
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--m);
+            padding: 7px 11px;
+            border-radius: 99px
+        }
+
+        nav a.l:hover {
+            background: var(--s2);
+            color: var(--t)
+        }
+
+        .ctrl {
+            display: flex;
+            gap: 6px;
+            align-items: center
+        }
+
+        .sel {
+            background: var(--s2);
+            color: var(--t);
+            border: 1px solid var(--l);
+            border-radius: 99px;
+            padding: 6px 10px;
+            font-size: .78rem;
+            font-weight: 700;
+            height: 34px
+        }
+
+        .burger {
+            display: none
+        }
+
+        .tg,
+        .burger {
+            width: 34px;
+            padding: 0;
+            display: grid;
+            place-items: center;
+            font-size: 1rem
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0
+        }
+
+        .eye {
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--b)
+        }
+
+        .hd {
+            max-width: 700px;
+            margin-bottom: 44px
+        }
+
+        .hd h2 {
+            font-size: clamp(2rem, 5vw, 3.6rem);
+            margin: 12px 0
+        }
+
+        .btn {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 14px 24px;
+            border-radius: 14px;
+            font-weight: 800;
+            border: 1px solid var(--l);
+            background: var(--s);
+            color: var(--t);
+            transition: .3s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .btn.p {
+            background: linear-gradient(110deg, var(--a), #5b8cff);
+            color: #fff;
+            border: 0;
+            box-shadow: 0 14px 36px rgba(110, 96, 240, .4)
+        }
+
+        .btn:hover {
+            transform: translateY(-4px) scale(1.03)
+        }
+
+        .btn.p:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -60%;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .45), transparent);
+            transform: skewX(-20deg);
+            animation: shine 3s infinite
+        }
+
+        @keyframes shine {
+            to {
+                left: 130%
+            }
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding-top: 130px;
+            overflow: hidden
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: .5;
+            animation: drift 14s ease-in-out infinite alternate
+        }
+
+        .b1 {
+            width: 360px;
+            height: 360px;
+            background: var(--a);
+            top: 8%;
+            left: 6%
+        }
+
+        .b2 {
+            width: 320px;
+            height: 320px;
+            background: var(--b);
+            bottom: 6%;
+            right: 8%;
+            animation-delay: -6s;
+            opacity: .3
+        }
+
+        .b3 {
+            width: 240px;
+            height: 240px;
+            background: var(--c);
+            top: 40%;
+            right: 30%;
+            animation-delay: -3s;
+            opacity: .25
+        }
+
+        @keyframes drift {
+            to {
+                transform: translate(60px, -50px) scale(1.2)
+            }
+        }
+
+        .pill {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 7px 16px;
+            border: 1px solid var(--l);
+            border-radius: 99px;
+            background: var(--s);
+            font-size: .78rem;
+            font-weight: 700;
+            color: var(--m)
+        }
+
+        .pill i {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--b);
+            box-shadow: 0 0 0 0 var(--b);
+            animation: pulse 2s infinite
+        }
+
+        @keyframes pulse {
+            70% {
+                box-shadow: 0 0 0 10px transparent
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8.5vw, 6.6rem);
+            margin: 26px auto;
+            max-width: 980px
+        }
+
+        .hero p.sub {
+            max-width: 600px;
+            margin: 0 auto 34px;
+            font-size: 1.1rem
+        }
+
+        .acts {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+
+        .rise {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: rise .9s cubic-bezier(.2, .8, .2, 1) forwards
+        }
+
+        @keyframes rise {
+            to {
                 opacity: 1;
+                transform: none
+            }
+        }
+
+        .floatc {
+            position: absolute;
+            padding: 12px 16px;
+            border-radius: 16px;
+            background: var(--s);
+            border: 1px solid var(--l);
+            font-weight: 800;
+            font-size: .8rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+            animation: bob 5s ease-in-out infinite
+        }
+
+        @keyframes bob {
+            50% {
+                transform: translateY(-16px) rotate(2deg)
+            }
+        }
+
+        .f1 {
+            left: 6%;
+            top: 38%
+        }
+
+        .f2 {
+            right: 6%;
+            top: 30%;
+            animation-delay: -2s
+        }
+
+        .f3 {
+            left: 14%;
+            bottom: 12%;
+            animation-delay: -3.5s
+        }
+
+        .mq {
+            overflow: hidden;
+            border-block: 1px solid var(--l);
+            background: var(--s);
+            padding: 18px 0;
+            position: relative;
+            z-index: 1
+        }
+
+        .mq div {
+            display: flex;
+            gap: 46px;
+            width: max-content;
+            animation: mq 28s linear infinite;
+            font: 700 1.3rem "Space Grotesk";
+            color: var(--m);
+            white-space: nowrap
+        }
+
+        .mq span:nth-child(odd) {
+            color: var(--t)
+        }
+
+        @keyframes mq {
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px
+        }
+
+        .stat {
+            padding: 28px;
+            border-radius: 22px;
+            background: var(--s);
+            border: 1px solid var(--l);
+            text-align: center
+        }
+
+        .stat b {
+            display: block;
+            font: 700 clamp(2rem, 4vw, 3.2rem) "Space Grotesk"
+        }
+
+        .stat span {
+            font-size: .85rem;
+            color: var(--m)
+        }
+
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px
+        }
+
+        .card {
+            position: relative;
+            padding: 28px;
+            border-radius: 24px;
+            background: var(--s);
+            border: 1px solid var(--l);
+            overflow: hidden;
+            transition: transform .25s, border-color .3s;
+            transform-style: preserve-3d
+        }
+
+        .card:hover {
+            border-color: var(--a)
+        }
+
+        .card:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(260px circle at var(--x, 50%) var(--y, 0), rgba(139, 124, 255, .22), transparent 70%);
+            opacity: 0;
+            transition: .3s
+        }
+
+        .card:hover:before {
+            opacity: 1
+        }
+
+        .card>* {
+            position: relative
+        }
+
+        .bento .card:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+            background: linear-gradient(145deg, var(--s), var(--s2))
+        }
+
+        .bento .card:nth-child(4) {
+            grid-column: span 2
+        }
+
+        .ico {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: inline-block;
+            animation: bob 4s ease-in-out infinite
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px
+        }
+
+        .card p {
+            font-size: .9rem
+        }
+
+        .filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 28px
+        }
+
+        .fl {
+            padding: 9px 18px;
+            border-radius: 99px;
+            border: 1px solid var(--l);
+            background: transparent;
+            color: var(--m);
+            font-weight: 700;
+            font-size: .82rem;
+            transition: .2s
+        }
+
+        .fl.on,
+        .fl:hover {
+            background: var(--t);
+            color: var(--bg)
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px
+        }
+
+        .pc {
+            border-radius: 24px;
+            background: var(--bg);
+            border: 1px solid var(--l);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform .25s, box-shadow .3s, border-color .3s;
+            transform-style: preserve-3d;
+            color: inherit
+        }
+
+        .pc:hover {
+            box-shadow: 0 30px 70px rgba(0, 0, 0, .35);
+            border-color: var(--a)
+        }
+
+        .shot {
+            position: relative;
+            aspect-ratio: 16/10;
+            overflow: hidden
+        }
+
+        .shot img,
+        .shot video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            z-index: 2
+        }
+
+        .shot img {
+            transition: transform 4s ease
+        }
+
+        .pc:hover .shot img {
+            transform: scale(1.06)
+        }
+
+        .shot video {
+            opacity: 0;
+            transition: opacity .45s
+        }
+
+        .pc.play video {
+            opacity: 1
+        }
+
+        .pc.play .shot img {
+            transform: none
+        }
+
+        .mock {
+            position: absolute;
+            inset: 0;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .mock .bar {
+            display: flex;
+            gap: 5px
+        }
+
+        .mock .bar i {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .5)
+        }
+
+        .mock .big {
+            font-size: 3.2rem;
+            margin: auto;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .4));
+            animation: bob 4s ease-in-out infinite
+        }
+
+        .mock .ln {
+            height: 8px;
+            border-radius: 9px;
+            background: rgba(255, 255, 255, .28)
+        }
+
+        .shot:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, .45));
+            z-index: 3;
+            pointer-events: none
+        }
+
+        .chip {
+            position: absolute;
+            z-index: 4;
+            left: 14px;
+            bottom: 12px;
+            font-size: .68rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #fff
+        }
+
+        .demo {
+            position: absolute;
+            z-index: 4;
+            right: 12px;
+            top: 12px;
+            padding: 5px 11px;
+            border-radius: 99px;
+            font-size: .68rem;
+            font-weight: 800;
+            background: rgba(0, 0, 0, .6);
+            color: #fff;
+            backdrop-filter: blur(6px);
+            display: none
+        }
+
+        .pc.hasv .demo {
+            display: block
+        }
+
+        .pc.play .demo {
+            display: none
+        }
+
+        .pb {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1
+        }
+
+        .pb small {
+            font-size: .7rem;
+            font-weight: 800;
+            color: var(--b);
+            letter-spacing: .12em
+        }
+
+        .pb h3 {
+            font-size: 1.2rem;
+            margin: 6px 0
+        }
+
+        .pb p {
+            font-size: .86rem;
+            flex: 1
+        }
+
+        .pb .go {
+            margin-top: 16px;
+            font-weight: 800;
+            font-size: .85rem;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--l);
+            padding-top: 12px
+        }
+
+        .pb .go .ar {
+            transition: .3s;
+            color: var(--b)
+        }
+
+        .pc:hover .go .ar {
+            transform: translate(5px, -5px)
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px
+        }
+
+        .step {
+            padding: 26px;
+            border-radius: 22px;
+            background: var(--s);
+            border: 1px solid var(--l)
+        }
+
+        .step b {
+            font: 700 3.4rem "Space Grotesk";
+            -webkit-text-stroke: 1.5px var(--a);
+            color: transparent;
+            display: block;
+            margin-bottom: 6px
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px
+        }
+
+        .step p {
+            font-size: .86rem
+        }
+
+        .cta {
+            padding: 70px 40px;
+            text-align: center;
+            border-radius: 32px;
+            background: linear-gradient(120deg, #5f50ea, #1f9aa6, #d34a9c);
+            background-size: 200% 200%;
+            animation: flow2 8s ease infinite;
+            color: #fff
+        }
+
+        @keyframes flow2 {
+            50% {
+                background-position: 100% 50%
+            }
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 5vw, 3.6rem);
+            max-width: 760px;
+            margin: 0 auto 14px
+        }
+
+        .cta p {
+            color: #e8ecff;
+            margin-bottom: 26px
+        }
+
+        .cta .btn {
+            background: #fff;
+            color: #241f55;
+            border: 0
+        }
+
+        .cg {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            gap: 44px
+        }
+
+        .ci {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            margin-top: 20px
+        }
+
+        .ci i {
+            font-style: normal;
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            background: var(--s);
+            border: 1px solid var(--l);
+            flex: none
+        }
+
+        .ci span {
+            display: block;
+            font-size: .74rem;
+            color: var(--m)
+        }
+
+        .ci b {
+            word-break: break-word
+        }
+
+        form {
+            padding: 28px;
+            border-radius: 24px;
+            background: var(--s);
+            border: 1px solid var(--l)
+        }
+
+        .r {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        label {
+            display: block;
+            font-size: .76rem;
+            font-weight: 800;
+            margin: 0 0 6px
+        }
+
+        input,
+        textarea,
+        select.f {
+            width: 100%;
+            padding: 13px;
+            border-radius: 12px;
+            border: 1px solid var(--l);
+            background: var(--bg);
+            color: var(--t);
+            font: inherit;
+            margin-bottom: 14px;
+            outline: none;
+            transition: .2s
+        }
+
+        input:focus,
+        textarea:focus,
+        select.f:focus {
+            border-color: var(--a);
+            box-shadow: 0 0 0 4px rgba(139, 124, 255, .18)
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical
+        }
+
+        form .btn {
+            width: 100%;
+            justify-content: center
+        }
+
+        footer {
+            position: relative;
+            z-index: 1;
+            padding: 28px 0;
+            border-top: 1px solid var(--l);
+            text-align: center;
+            font-size: .82rem;
+            color: var(--m)
+        }
+
+        .wa {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 60;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #25d366;
+            display: grid;
+            place-items: center;
+            font-size: 1.6rem;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, .5);
+            animation: pulse2 2.4s infinite
+        }
+
+        @keyframes pulse2 {
+            70% {
+                box-shadow: 0 0 0 18px rgba(37, 211, 102, 0)
+            }
+        }
+
+        .rv {
+            opacity: 0;
+            transform: translateY(34px);
+            transition: opacity .8s, transform .8s cubic-bezier(.2, .8, .2, 1)
+        }
+
+        .rv.v {
+            opacity: 1;
+            transform: none
+        }
+
+        .wgal {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px
+        }
+
+        .wcard {
+            background: var(--bg);
+            border: 1px solid var(--l);
+            border-radius: 22px;
+            overflow: hidden;
+            min-width: 0;
+            transition: transform .3s, border-color .3s
+        }
+
+        .wcard:hover {
+            transform: translateY(-7px);
+            border-color: var(--a)
+        }
+
+        .wimg {
+            position: relative;
+            height: 210px;
+            display: grid;
+            place-items: center;
+            font-size: 3.4rem;
+            background: linear-gradient(135deg, var(--s2), var(--a));
+            overflow: hidden
+        }
+
+        .wimg img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s
+        }
+
+        .wcard:hover .wimg img {
+            transform: scale(1.07)
+        }
+
+        .wcopy {
+            padding: 19px
+        }
+
+        .wcopy .num {
+            font: 700 .72rem "Space Grotesk";
+            color: var(--b);
+            letter-spacing: .12em
+        }
+
+        .wcopy h3 {
+            font-size: 1.08rem;
+            margin: 7px 0
+        }
+
+        .wcopy p {
+            font-size: .86rem
+        }
+
+        .wnote {
+            margin-top: 22px;
+            padding: 20px 24px;
+            border: 1px solid var(--l);
+            background: var(--bg);
+            border-radius: 18px;
+            color: var(--m)
+        }
+
+        .wnote strong {
+            color: var(--t)
+        }
+
+        .why {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .tech-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px
+        }
+
+        .tech {
+            padding: 13px 20px;
+            border: 1px solid var(--l);
+            border-radius: 12px;
+            background: var(--s);
+            font-weight: 800;
+            font-size: .86rem;
+            transition: .3s
+        }
+
+        .tech:hover {
+            transform: translateY(-4px);
+            border-color: var(--a);
+            color: var(--b)
+        }
+
+        .faq {
+            max-width: 820px
+        }
+
+        .fq {
+            border: 1px solid var(--l);
+            border-radius: 16px;
+            background: var(--s);
+            margin-bottom: 12px;
+            padding: 0 22px;
+            transition: border-color .3s
+        }
+
+        .fq[open] {
+            border-color: var(--a)
+        }
+
+        .fq summary {
+            cursor: pointer;
+            font-weight: 800;
+            padding: 18px 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px
+        }
+
+        .fq summary::-webkit-details-marker {
+            display: none
+        }
+
+        .fq summary:after {
+            content: "+";
+            color: var(--b);
+            font-size: 1.5rem;
+            line-height: 1;
+            transition: .3s
+        }
+
+        .fq[open] summary:after {
+            transform: rotate(45deg)
+        }
+
+        .fq p {
+            padding-bottom: 18px;
+            font-size: .92rem
+        }
+
+        .field-error {
+            display: block;
+            color: #ff7b91;
+            font-size: .75rem;
+            font-weight: 700;
+            margin: -9px 0 12px
+        }
+
+        input.error,
+        textarea.error,
+        select.f.error {
+            border-color: #ff6b81 !important;
+            box-shadow: 0 0 0 3px rgba(255, 107, 129, .12)
+        }
+
+        input.valid,
+        textarea.valid,
+        select.f.valid {
+            border-color: #2ee6c5
+        }
+
+        /* Reviews */
+        .rtrack {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+            position: relative
+        }
+
+        .rc {
+            grid-column: span 2;
+            padding: 26px;
+            border-radius: 22px;
+            background: var(--bg);
+            border: 1px solid var(--l)
+        }
+
+        .rc:nth-child(n+4) {
+            grid-column: span 3
+        }
+
+        .stars {
+            color: #ffc542;
+            letter-spacing: 3px;
+            margin-bottom: 12px
+        }
+
+        .rc p {
+            font-size: .92rem;
+            margin-bottom: 18px
+        }
+
+        .who {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .who b {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            font-size: .8rem;
+            background: linear-gradient(135deg, var(--a), var(--b));
+            flex: none
+        }
+
+        .who strong {
+            display: block;
+            font-size: .92rem
+        }
+
+        .who span {
+            font-size: .75rem;
+            color: var(--m)
+        }
+
+        @media(max-width:900px) {
+
+            .bento,
+            .stats,
+            .steps,
+            .grid,
+            .wgal,
+            .why {
+                grid-template-columns: 1fr 1fr
             }
 
-            .card > * {
-                position: relative;
-            }
-
-            .bento .card:nth-child(1) {
-                grid-column: span 2;
-                grid-row: span 2;
-                background: linear-gradient(145deg, var(--s), var(--s2));
-            }
-
+            .bento .card:nth-child(1),
             .bento .card:nth-child(4) {
                 grid-column: span 2;
-            }
-
-            .ico {
-                font-size: 2rem;
-                margin-bottom: 16px;
-                display: inline-block;
-                animation: bob 4s ease-in-out infinite;
-            }
-
-            .card h3 {
-                font-size: 1.25rem;
-                margin-bottom: 8px;
-            }
-
-            .card p {
-                font-size: 0.9rem;
-            }
-
-            .filters {
-                display: flex;
-                gap: 8px;
-                flex-wrap: wrap;
-                margin-bottom: 28px;
-            }
-
-            .fl {
-                padding: 9px 18px;
-                border-radius: 99px;
-                border: 1px solid var(--l);
-                background: transparent;
-                color: var(--m);
-                font-weight: 700;
-                font-size: 0.82rem;
-                transition: 0.2s;
-            }
-
-            .fl.on,
-            .fl:hover {
-                background: var(--t);
-                color: var(--bg);
-            }
-
-            .grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 22px;
-            }
-
-            .pc {
-                border-radius: 24px;
-                background: var(--bg);
-                border: 1px solid var(--l);
-                overflow: hidden;
-                display: flex;
-                flex-direction: column;
-                transition:
-                    transform 0.25s,
-                    box-shadow 0.3s;
-                transform-style: preserve-3d;
-            }
-
-            .pc:hover {
-                box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
-            }
-
-            .shot {
-                position: relative;
-                aspect-ratio: 16/10;
-                overflow: hidden;
-            }
-
-            .shot img {
-                position: absolute;
-                inset: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: top;
-                transition: transform 4s ease;
-                z-index: 2;
-            }
-
-            .pc:hover .shot img {
-                transform: scale(1.06);
-            }
-
-            .mock {
-                position: absolute;
-                inset: 0;
-                padding: 14px;
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .mock .bar {
-                display: flex;
-                gap: 5px;
-            }
-
-            .mock .bar i {
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.5);
-            }
-
-            .mock .big {
-                font-size: 3.2rem;
-                margin: auto;
-                filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
-                animation: bob 4s ease-in-out infinite;
-            }
-
-            .mock .ln {
-                height: 8px;
-                border-radius: 9px;
-                background: rgba(255, 255, 255, 0.28);
-            }
-
-            .shot:after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(
-                    180deg,
-                    transparent 60%,
-                    rgba(0, 0, 0, 0.45)
-                );
-                z-index: 3;
-                pointer-events: none;
-            }
-
-            .chip {
-                position: absolute;
-                z-index: 4;
-                left: 14px;
-                bottom: 12px;
-                font-size: 0.68rem;
-                font-weight: 800;
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-                color: #fff;
-            }
-
-            .pb {
-                padding: 20px;
-                display: flex;
-                flex-direction: column;
-                flex: 1;
-            }
-
-            .pb small {
-                font-size: 0.7rem;
-                font-weight: 800;
-                color: var(--b);
-                letter-spacing: 0.12em;
-            }
-
-            .pb h3 {
-                font-size: 1.2rem;
-                margin: 6px 0;
-            }
-
-            .pb p {
-                font-size: 0.86rem;
-                flex: 1;
-            }
-
-            .pb .go {
-                margin-top: 16px;
-                font-weight: 800;
-                font-size: 0.85rem;
-                display: flex;
-                justify-content: space-between;
-                border-top: 1px solid var(--l);
-                padding-top: 12px;
-            }
-
-            .pb .go .ar {
-                transition: 0.3s;
-                color: var(--b);
-            }
-
-            .pc:hover .go .ar {
-                transform: translate(5px, -5px);
-            }
-
-            .steps {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 16px;
-            }
-
-            .step {
-                padding: 26px;
-                border-radius: 22px;
-                background: var(--s);
-                border: 1px solid var(--l);
-            }
-
-            .step b {
-                font: 700 3.4rem "Space Grotesk";
-                -webkit-text-stroke: 1.5px var(--a);
-                color: transparent;
-                display: block;
-                margin-bottom: 6px;
-            }
-
-            .step h3 {
-                font-size: 1.1rem;
-                margin-bottom: 8px;
-            }
-
-            .step p {
-                font-size: 0.86rem;
-            }
-
-            .cta {
-                padding: 70px 40px;
-                text-align: center;
-                border-radius: 32px;
-                background: linear-gradient(120deg, #5f50ea, #1f9aa6, #d34a9c);
-                background-size: 200% 200%;
-                animation: flow2 8s ease infinite;
-                color: #fff;
-            }
-
-            @keyframes flow2 {
-                50% {
-                    background-position: 100% 50%;
-                }
-            }
-
-            .cta h2 {
-                font-size: clamp(2rem, 5vw, 3.6rem);
-                max-width: 760px;
-                margin: 0 auto 14px;
-            }
-
-            .cta p {
-                color: #e8ecff;
-                margin-bottom: 26px;
-            }
-
-            .cta .btn {
-                background: #fff;
-                color: #241f55;
-                border: 0;
+                grid-row: auto
             }
 
             .cg {
-                display: grid;
-                grid-template-columns: 0.9fr 1.1fr;
-                gap: 44px;
+                grid-template-columns: 1fr
             }
 
-            .ci {
+            .floatc {
+                display: none
+            }
+        }
+
+        @media(max-width:760px) {
+            nav {
+                padding: 8px 14px;
+                flex-wrap: nowrap
+            }
+
+            .logo {
+                font-size: .95rem;
+                gap: 6px;
+                min-width: 0
+            }
+
+            .logo b {
+                width: 26px;
+                height: 26px
+            }
+
+            .ctrl {
+                gap: 4px;
+                flex: none
+            }
+
+            .sel {
+                padding: 4px 8px;
+                font-size: .74rem;
+                height: 32px
+            }
+
+            .tg {
+                width: 32px
+            }
+
+            .burger {
+                display: grid
+            }
+
+            .links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 2px;
+                padding: 10px 14px 14px;
+                background: var(--s);
+                border-bottom: 1px solid var(--l);
+                box-shadow: 0 18px 40px rgba(0, 0, 0, .35)
+            }
+
+            .links.open {
+                display: flex
+            }
+
+            nav a.l {
+                padding: 13px 16px;
+                font-size: 1rem;
+                border-radius: 12px
+            }
+
+            html {
+                scroll-padding-top: 64px
+            }
+
+            .rtrack {
                 display: flex;
                 gap: 14px;
-                align-items: center;
-                margin-top: 20px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none
             }
 
-            .ci i {
-                font-style: normal;
-                width: 46px;
-                height: 46px;
-                display: grid;
-                place-items: center;
-                border-radius: 14px;
-                background: var(--s);
-                border: 1px solid var(--l);
-                flex: none;
+            .rtrack::-webkit-scrollbar {
+                display: none
             }
 
-            .ci span {
-                display: block;
-                font-size: 0.74rem;
-                color: var(--m);
+            .rc,
+            .rc:nth-child(n+4) {
+                flex: 0 0 86%;
+                scroll-snap-align: start
+            }
+        }
+
+        @media(max-width:600px) {
+
+            .bento,
+            .stats,
+            .steps,
+            .grid,
+            .r,
+            .wgal,
+            .why {
+                grid-template-columns: 1fr
             }
 
-            .ci b {
-                word-break: break-word;
+            .bento .card:nth-child(1),
+            .bento .card:nth-child(4) {
+                grid-column: auto
             }
 
-            form {
-                padding: 28px;
-                border-radius: 24px;
-                background: var(--s);
-                border: 1px solid var(--l);
+            section {
+                padding: 70px 0
             }
 
-            .r {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
+            .cta {
+                padding: 44px 22px
             }
 
-            label {
-                display: block;
-                font-size: 0.76rem;
-                font-weight: 800;
-                margin: 0 0 6px;
-            }
-
-            input,
-            textarea,
-            select.f {
-                width: 100%;
-                padding: 13px;
-                border-radius: 12px;
-                border: 1px solid var(--l);
-                background: var(--bg);
-                color: var(--t);
-                font: inherit;
-                margin-bottom: 14px;
-                outline: none;
-                transition: 0.2s;
-            }
-
-            input:focus,
-            textarea:focus,
-            select.f:focus {
-                border-color: var(--a);
-                box-shadow: 0 0 0 4px rgba(139, 124, 255, 0.18);
-            }
-
-            textarea {
-                min-height: 110px;
-                resize: vertical;
-            }
-
-            form .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            footer {
-                position: relative;
-                z-index: 1;
-                padding: 28px 0;
-                border-top: 1px solid var(--l);
-                text-align: center;
-                font-size: 0.82rem;
-                color: var(--m);
-            }
-
-            .wa {
-                position: fixed;
-                right: 20px;
-                bottom: 20px;
-                z-index: 60;
-                width: 56px;
-                height: 56px;
-                border-radius: 50%;
-                background: #25d366;
-                display: grid;
-                place-items: center;
-                font-size: 1.6rem;
-                box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
-                animation: pulse2 2.4s infinite;
-            }
-
-            @keyframes pulse2 {
-                70% {
-                    box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);
-                }
-            }
-
-            .rv {
-                opacity: 0;
-                transform: translateY(34px);
-                transition:
-                    opacity 0.8s,
-                    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-            }
-
-            .rv.v {
-                opacity: 1;
-                transform: none;
-            }
-
-            @media (max-width: 900px) {
-                .bento,
-                .stats,
-                .steps {
-                    grid-template-columns: 1fr 1fr;
-                }
-
-                .bento .card:nth-child(1),
-                .bento .card:nth-child(4) {
-                    grid-column: span 2;
-                    grid-row: auto;
-                }
-
-                .grid {
-                    grid-template-columns: 1fr 1fr;
-                }
-
-                .cg {
-                    grid-template-columns: 1fr;
-                }
-
-                .floatc {
-                    display: none;
-                }
-            }
-
-            @media (max-width: 760px) {
-                nav {
-                    width: calc(100% - 24px);
-                    justify-content: space-between;
-                    border-radius: 22px;
-                    top: 10px;
-                    padding: 8px 8px 8px 14px;
-                }
-
-                .logo {
-                    margin-right: 0;
-                }
-
-                .burger {
-                    display: grid;
-                }
-
-                .links {
-                    display: none;
-                    position: absolute;
-                    top: calc(100% + 8px);
-                    left: 0;
-                    right: 0;
-                    flex-direction: column;
-                    align-items: stretch;
-                    gap: 2px;
-                    padding: 10px;
-                    border-radius: 22px;
-                    background: var(--s);
-                    border: 1px solid var(--l);
-                    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-                }
-
-                .links.open {
-                    display: flex;
-                    animation: rise 0.35s forwards;
-                }
-
-                nav a.l {
-                    padding: 13px 16px;
-                    font-size: 1rem;
-                    border-radius: 14px;
-                }
-            }
-
-            @media (max-width: 600px) {
-                .bento,
-                .stats,
-                .steps,
-                .grid,
-                .r {
-                    grid-template-columns: 1fr;
-                }
-
-                .bento .card:nth-child(1),
-                .bento .card:nth-child(4) {
-                    grid-column: auto;
-                }
-
-                section {
-                    padding: 70px 0;
-                }
-
-                .cta {
-                    padding: 44px 22px;
-                }
-
-                .hero {
-                    padding-top: 110px;
-                }
-            }
-
-            @media (prefers-reduced-motion: reduce) {
-                * {
-                    animation: none !important;
-                    transition: none !important;
-                }
-
-                .rv,
-                .rise {
-                    opacity: 1;
-                    transform: none;
-                }
-            }
-
-            .pc {
-                color: inherit;
-            }
-
-            .pc:hover {
-                border-color: var(--a);
-            }
-
-            .shot video {
-                position: absolute;
-                inset: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: top;
-                z-index: 2;
-                opacity: 0;
-                transition: opacity 0.45s;
-            }
-
-            .pc.play video {
-                opacity: 1;
-            }
-
-            .pc.play .shot img {
-                transform: none;
-            }
-
-            .demo {
-                position: absolute;
-                z-index: 4;
-                right: 12px;
-                top: 12px;
-                padding: 5px 11px;
-                border-radius: 99px;
-                font-size: 0.68rem;
-                font-weight: 800;
-                background: rgba(0, 0, 0, 0.6);
-                color: #fff;
-                backdrop-filter: blur(6px);
-                display: none;
-            }
-
-            .pc.hasv .demo {
-                display: block;
-            }
-
-            .pc.play .demo {
-                display: none;
-            }
-
-            .wgal {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 16px;
-            }
-
-            .wcard {
-                background: var(--bg);
-                border: 1px solid var(--l);
-                border-radius: 22px;
-                overflow: hidden;
-                min-width: 0;
-                transition:
-                    transform 0.3s,
-                    border-color 0.3s;
-            }
-
-            .wcard:hover {
-                transform: translateY(-7px);
-                border-color: var(--a);
+            .hero {
+                padding-top: 110px
             }
 
             .wimg {
-                position: relative;
-                height: 210px;
-                display: grid;
-                place-items: center;
-                font-size: 3.4rem;
-                background: linear-gradient(135deg, var(--s2), var(--a));
-                overflow: hidden;
+                height: 220px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            * {
+                animation: none !important;
+                transition: none !important
             }
 
-            .wimg img {
-                position: absolute;
-                inset: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: transform 0.6s;
+            .rv,
+            .rise {
+                opacity: 1;
+                transform: none
             }
+        }
+    </style>
+</head>
 
-            .wcard:hover .wimg img {
-                transform: scale(1.07);
-            }
-
-            .wcopy {
-                padding: 19px;
-            }
-
-            .wcopy .num {
-                font: 700 0.72rem "Space Grotesk";
-                color: var(--b);
-                letter-spacing: 0.12em;
-            }
-
-            .wcopy h3 {
-                font-size: 1.08rem;
-                margin: 7px 0;
-            }
-
-            .wcopy p {
-                font-size: 0.86rem;
-            }
-
-            .wnote {
-                margin-top: 22px;
-                padding: 20px 24px;
-                border: 1px solid var(--l);
-                background: var(--bg);
-                border-radius: 18px;
-                color: var(--m);
-            }
-
-            .wnote strong {
-                color: var(--t);
-            }
-
-            .why {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-            }
-
-            .tech-wrap {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 12px;
-            }
-
-            .tech {
-                padding: 13px 20px;
-                border: 1px solid var(--l);
-                border-radius: 12px;
-                background: var(--s);
-                font-weight: 800;
-                font-size: 0.86rem;
-                transition: 0.3s;
-            }
-
-            .tech:hover {
-                transform: translateY(-4px);
-                border-color: var(--a);
-                color: var(--b);
-            }
-
-            .faq {
-                max-width: 820px;
-            }
-
-            .fq {
-                border: 1px solid var(--l);
-                border-radius: 16px;
-                background: var(--s);
-                margin-bottom: 12px;
-                padding: 0 22px;
-                transition: border-color 0.3s;
-            }
-
-            .fq[open] {
-                border-color: var(--a);
-            }
-
-            .fq summary {
-                cursor: pointer;
-                font-weight: 800;
-                padding: 18px 0;
-                list-style: none;
-                display: flex;
-                justify-content: space-between;
-                gap: 12px;
-            }
-
-            .fq summary::-webkit-details-marker {
-                display: none;
-            }
-
-            .fq summary:after {
-                content: "+";
-                color: var(--b);
-                font-size: 1.5rem;
-                line-height: 1;
-                transition: 0.3s;
-            }
-
-            .fq[open] summary:after {
-                transform: rotate(45deg);
-            }
-
-            .fq p {
-                padding-bottom: 18px;
-                font-size: 0.92rem;
-            }
-
-            .field-error {
-                display: block;
-                color: #ff7b91;
-                font-size: 0.75rem;
-                font-weight: 700;
-                margin: -9px 0 12px;
-            }
-
-            input.error,
-            textarea.error,
-            select.f.error {
-                border-color: #ff6b81 !important;
-                box-shadow: 0 0 0 3px rgba(255, 107, 129, 0.12);
-            }
-
-            input.valid,
-            textarea.valid,
-            select.f.valid {
-                border-color: #2ee6c5;
-            }
-
-            @media (max-width: 900px) {
-                .wgal {
-                    grid-template-columns: 1fr 1fr;
-                }
-
-                .why {
-                    grid-template-columns: 1fr 1fr;
-                }
-            }
-
-            @media (max-width: 600px) {
-                .wgal,
-                .why {
-                    grid-template-columns: 1fr;
-                }
-
-                .wimg {
-                    height: 220px;
-                }
-            }
-        </style>
-    </head>
-
-    <body>
-        <div id="bar"></div>
-        <div id="glow"></div>
-        <nav>
-            <a class="logo" href="#home"><b>DD</b>DDSOLUTIONS</a>
-            <div class="links" id="links">
-                <a class="l" href="#services" data-t="n1"></a
-                ><a class="l" href="#work" data-t="n2"></a
-                ><a class="l" href="#process" data-t="n3"></a
-                ><a class="l" href="#contact" data-t="n4"></a>
-            </div>
-            <div class="ctrl">
-                <select class="sel" id="lang" aria-label="Language">
-                    <option value="h">Hinglish</option>
-                    <option value="e">English</option>
-                    <option value="hi">हिंदी</option>
-                </select>
-                <button
-                    class="sel tg"
-                    id="tg"
-                    aria-label="Toggle light/dark theme"
-                ></button>
-                <button
-                    class="sel burger"
-                    id="bg"
-                    aria-label="Menu"
-                    aria-expanded="false"
-                >
-                    ☰
-                </button>
-            </div>
-        </nav>
-
-        <header class="hero" id="home">
-            <div class="blob b1"></div>
-            <div class="blob b2"></div>
-            <div class="blob b3"></div>
-            <div class="floatc f1" data-t="f1"></div>
-            <div class="floatc f2" data-t="f2"></div>
-            <div class="floatc f3" data-t="f3"></div>
-            <div class="wrap" style="position: relative; z-index: 2">
-                <span class="pill rise"
-                    ><i></i><span data-t="pill"></span
-                ></span>
-                <h1
-                    class="rise"
-                    style="animation-delay: 0.15s"
-                    data-t="h1"
-                ></h1>
-                <p
-                    class="sub rise"
-                    style="animation-delay: 0.3s"
-                    data-t="sub"
-                ></p>
-                <div class="acts rise" style="animation-delay: 0.45s">
-                    <a class="btn p" href="#work" data-t="c1"></a
-                    ><a class="btn" href="#contact" data-t="c2"></a>
-                </div>
-            </div>
-        </header>
-
-        <div class="mq">
-            <div id="mq"></div>
+<body>
+    <div id="bar"></div>
+    <div id="glow"></div>
+    <nav>
+        <a class="logo" href="#home"><b>DD</b>DDSOLUTIONS</a>
+        <div class="links" id="links">
+            <a class="l" href="#services" data-t="n1"></a><a class="l" href="#work" data-t="n2"></a><a
+                class="l" href="#process" data-t="n3"></a><a class="l" href="#reviews"
+                data-t="n5"></a><a class="l" href="#contact" data-t="n4"></a>
         </div>
+        <div class="ctrl">
+            <select class="sel" id="lang" aria-label="Language">
+                <option value="e">English</option>
+                <option value="h">Hinglish</option>
+                <option value="hi">हिंदी</option>
+            </select>
+            <button class="sel tg" id="tg" aria-label="Toggle light/dark theme"></button>
+            <button class="sel burger" id="bg" aria-label="Menu" aria-expanded="false">☰</button>
+        </div>
+    </nav>
 
-        <section style="padding: 70px 0 0">
-            <div class="wrap stats">
-                <div class="stat rv">
-                    <b data-n="10">0</b><span data-t="st1"></span>
+    <header class="hero" id="home">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <div class="blob b3"></div>
+        <div class="floatc f1" data-t="f1"></div>
+        <div class="floatc f2" data-t="f2"></div>
+        <div class="floatc f3" data-t="f3"></div>
+        <div class="wrap" style="position:relative;z-index:2">
+            <span class="pill rise"><i></i><span data-t="pill"></span></span>
+            <h1 class="rise" style="animation-delay:.15s" data-t="h1"></h1>
+            <p class="sub rise" style="animation-delay:.3s" data-t="sub"></p>
+            <div class="acts rise" style="animation-delay:.45s">
+                <a class="btn p" href="#work" data-t="hc1"></a><a class="btn" href="#contact"
+                    data-t="hc2"></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="mq">
+        <div id="mq"></div>
+    </div>
+
+    <section style="padding:70px 0 0">
+        <div class="wrap stats">
+            <div class="stat rv"><b data-n="10">0</b><span data-t="st1"></span></div>
+            <div class="stat rv"><b data-n="8">0</b><span data-t="st2"></span></div>
+            <div class="stat rv"><b data-n="100" data-s="%">0</b><span data-t="st3"></span></div>
+            <div class="stat rv"><b data-n="360" data-s="°">0</b><span data-t="st4"></span></div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="wrap">
+            <div class="hd rv"><span class="eye" data-t="s0"></span>
+                <h2 data-t="s1"></h2>
+            </div>
+            <div class="bento">
+                <div class="card rv">
+                    <div class="ico">🌐</div>
+                    <h3 data-t="v1t"></h3>
+                    <p data-t="v1d"></p>
                 </div>
-                <div class="stat rv">
-                    <b data-n="8">0</b><span data-t="st2"></span>
+                <div class="card rv">
+                    <div class="ico">🚀</div>
+                    <h3 data-t="v2t"></h3>
+                    <p data-t="v2d"></p>
                 </div>
-                <div class="stat rv">
-                    <b data-n="100" data-s="%">0</b><span data-t="st3"></span>
+                <div class="card rv">
+                    <div class="ico">💻</div>
+                    <h3 data-t="v3t"></h3>
+                    <p data-t="v3d"></p>
                 </div>
-                <div class="stat rv">
-                    <b data-n="360" data-s="°">0</b><span data-t="st4"></span>
+                <div class="card rv">
+                    <div class="ico">🛒</div>
+                    <h3 data-t="v4t"></h3>
+                    <p data-t="v4d"></p>
+                </div>
+                <div class="card rv">
+                    <div class="ico">📱</div>
+                    <h3 data-t="v5t"></h3>
+                    <p data-t="v5d"></p>
+                </div>
+                <div class="card rv">
+                    <div class="ico">🛠️</div>
+                    <h3 data-t="v6t"></h3>
+                    <p data-t="v6d"></p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="services">
-            <div class="wrap">
-                <div class="hd rv">
-                    <span class="eye" data-t="s0"></span>
-                    <h2 data-t="s1"></h2>
+    <section id="work" style="background:var(--s);border-block:1px solid var(--l)">
+        <div class="wrap">
+            <div class="hd rv"><span class="eye" data-t="w0"></span>
+                <h2 data-t="w1"></h2>
+            </div>
+            <div class="filters rv" id="fl">
+                <button class="fl on" data-f="all" data-t="fa"></button><button class="fl"
+                    data-f="business" data-t="fb"></button><button class="fl" data-f="services"
+                    data-t="fs"></button><button class="fl" data-f="commerce" data-t="fc"></button><button
+                    class="fl" data-f="media" data-t="fm"></button>
+            </div>
+            <div class="grid" id="grid"></div>
+        </div>
+    </section>
+
+    <section id="process">
+        <div class="wrap">
+            <div class="hd rv"><span class="eye" data-t="a0"></span>
+                <h2 data-t="a1"></h2>
+            </div>
+            <div class="steps">
+                <div class="step rv"><b>01</b>
+                    <h3 data-t="g1t"></h3>
+                    <p data-t="g1d"></p>
                 </div>
-                <div class="bento">
-                    <div class="card rv">
-                        <div class="ico">🌐</div>
-                        <h3 data-t="v1t"></h3>
-                        <p data-t="v1d"></p>
-                    </div>
-                    <div class="card rv">
-                        <div class="ico">🚀</div>
-                        <h3 data-t="v2t"></h3>
-                        <p data-t="v2d"></p>
-                    </div>
-                    <div class="card rv">
-                        <div class="ico">💻</div>
-                        <h3 data-t="v3t"></h3>
-                        <p data-t="v3d"></p>
-                    </div>
-                    <div class="card rv">
-                        <div class="ico">🛒</div>
-                        <h3 data-t="v4t"></h3>
-                        <p data-t="v4d"></p>
-                    </div>
-                    <div class="card rv">
-                        <div class="ico">📱</div>
-                        <h3 data-t="v5t"></h3>
-                        <p data-t="v5d"></p>
-                    </div>
-                    <div class="card rv">
-                        <div class="ico">🛠️</div>
-                        <h3 data-t="v6t"></h3>
-                        <p data-t="v6d"></p>
-                    </div>
+                <div class="step rv" style="transition-delay:.1s"><b>02</b>
+                    <h3 data-t="g2t"></h3>
+                    <p data-t="g2d"></p>
+                </div>
+                <div class="step rv" style="transition-delay:.2s"><b>03</b>
+                    <h3 data-t="g3t"></h3>
+                    <p data-t="g3d"></p>
+                </div>
+                <div class="step rv" style="transition-delay:.3s"><b>04</b>
+                    <h3 data-t="g4t"></h3>
+                    <p data-t="g4d"></p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section
-            id="work"
-            style="background: var(--s); border-block: 1px solid var(--l)"
-        >
-            <div class="wrap">
-                <div class="hd rv">
-                    <span class="eye" data-t="w0"></span>
-                    <h2 data-t="w1"></h2>
-                </div>
-                <div class="filters rv" id="fl">
-                    <button class="fl on" data-f="all" data-t="fa"></button
-                    ><button class="fl" data-f="business" data-t="fb"></button
-                    ><button class="fl" data-f="services" data-t="fs"></button
-                    ><button class="fl" data-f="commerce" data-t="fc"></button
-                    ><button class="fl" data-f="media" data-t="fm"></button>
-                </div>
-                <div class="grid" id="grid"></div>
+    <section id="client-workflow" style="background:var(--s);border-block:1px solid var(--l)">
+        <div class="wrap">
+            <div class="hd rv"><span class="eye" data-t="wf0"></span>
+                <h2 data-t="wf1"></h2>
+                <p data-t="wf2"></p>
             </div>
-        </section>
-
-        <section id="process">
-            <div class="wrap">
-                <div class="hd rv">
-                    <span class="eye" data-t="a0"></span>
-                    <h2 data-t="a1"></h2>
-                </div>
-                <div class="steps">
-                    <div class="step rv">
-                        <b>01</b>
-                        <h3 data-t="g1t"></h3>
-                        <p data-t="g1d"></p>
+            <div class="wgal">
+                <article class="wcard rv">
+                    <div class="wimg">🗣️<img loading="lazy" src="images/11.png" alt=""
+                            onerror="this.remove()" /></div>
+                    <div class="wcopy"><span class="num" data-t="wn1"></span>
+                        <h3 data-t="wt1"></h3>
+                        <p data-t="wd1"></p>
                     </div>
-                    <div class="step rv" style="transition-delay: 0.1s">
-                        <b>02</b>
-                        <h3 data-t="g2t"></h3>
-                        <p data-t="g2d"></p>
+                </article>
+                <article class="wcard rv" style="transition-delay:.1s">
+                    <div class="wimg">🧩<img loading="lazy" src="images/12.png" alt=""
+                            onerror="this.remove()" /></div>
+                    <div class="wcopy"><span class="num" data-t="wn2"></span>
+                        <h3 data-t="wt2"></h3>
+                        <p data-t="wd2"></p>
                     </div>
-                    <div class="step rv" style="transition-delay: 0.2s">
-                        <b>03</b>
-                        <h3 data-t="g3t"></h3>
-                        <p data-t="g3d"></p>
+                </article>
+                <article class="wcard rv" style="transition-delay:.2s">
+                    <div class="wimg">🎨<img loading="lazy" src="images/13.png" alt=""
+                            onerror="this.remove()" /></div>
+                    <div class="wcopy"><span class="num" data-t="wn3"></span>
+                        <h3 data-t="wt3"></h3>
+                        <p data-t="wd3"></p>
                     </div>
-                    <div class="step rv" style="transition-delay: 0.3s">
-                        <b>04</b>
-                        <h3 data-t="g4t"></h3>
-                        <p data-t="g4d"></p>
+                </article>
+                <article class="wcard rv" style="transition-delay:.3s">
+                    <div class="wimg">🚀<img loading="lazy" src="images/14.png" alt=""
+                            onerror="this.remove()" /></div>
+                    <div class="wcopy"><span class="num" data-t="wn4"></span>
+                        <h3 data-t="wt4"></h3>
+                        <p data-t="wd4"></p>
                     </div>
-                </div>
+                </article>
             </div>
-        </section>
+            <div class="wnote rv" data-t="wnote"></div>
+        </div>
+    </section>
 
-        <section
-            id="client-workflow"
-            style="background: var(--s); border-block: 1px solid var(--l)"
-        >
-            <div class="wrap">
-                <div class="hd rv">
-                    <span class="eye" data-t="wf0"></span>
-                    <h2 data-t="wf1"></h2>
-                    <p data-t="wf2"></p>
-                </div>
-                <div class="wgal">
-                    <article class="wcard rv">
-                        <div class="wimg">
-                            🗣️<img
-                                loading="lazy"
-                                src="images/11.png"
-                                alt=""
-                                onerror="this.remove()"
-                            />
-                        </div>
-                        <div class="wcopy">
-                            <span class="num" data-t="wn1"></span>
-                            <h3 data-t="wt1"></h3>
-                            <p data-t="wd1"></p>
-                        </div>
-                    </article>
-                    <article class="wcard rv" style="transition-delay: 0.1s">
-                        <div class="wimg">
-                            🧩<img
-                                loading="lazy"
-                                src="images/12.png"
-                                alt=""
-                                onerror="this.remove()"
-                            />
-                        </div>
-                        <div class="wcopy">
-                            <span class="num" data-t="wn2"></span>
-                            <h3 data-t="wt2"></h3>
-                            <p data-t="wd2"></p>
-                        </div>
-                    </article>
-                    <article class="wcard rv" style="transition-delay: 0.2s">
-                        <div class="wimg">
-                            🎨<img
-                                loading="lazy"
-                                src="images/13.png"
-                                alt=""
-                                onerror="this.remove()"
-                            />
-                        </div>
-                        <div class="wcopy">
-                            <span class="num" data-t="wn3"></span>
-                            <h3 data-t="wt3"></h3>
-                            <p data-t="wd3"></p>
-                        </div>
-                    </article>
-                    <article class="wcard rv" style="transition-delay: 0.3s">
-                        <div class="wimg">
-                            🚀<img
-                                loading="lazy"
-                                src="images/14.png"
-                                alt=""
-                                onerror="this.remove()"
-                            />
-                        </div>
-                        <div class="wcopy">
-                            <span class="num" data-t="wn4"></span>
-                            <h3 data-t="wt4"></h3>
-                            <p data-t="wd4"></p>
-                        </div>
-                    </article>
-                </div>
-                <div class="wnote rv" data-t="wnote"></div>
+    <section id="why">
+        <div class="wrap">
+            <div class="hd rv"><span class="eye" data-t="y0"></span>
+                <h2 data-t="y1"></h2>
             </div>
-        </section>
-
-        <section id="why">
-            <div class="wrap">
-                <div class="hd rv">
-                    <span class="eye" data-t="y0"></span>
-                    <h2 data-t="y1"></h2>
+            <div class="why">
+                <div class="card rv">
+                    <div class="ico">📲</div>
+                    <h3 data-t="yt1"></h3>
+                    <p data-t="yd1"></p>
                 </div>
-                <div class="why">
-                    <div class="card rv">
-                        <div class="ico">📲</div>
-                        <h3 data-t="yt1"></h3>
-                        <p data-t="yd1"></p>
-                    </div>
-                    <div class="card rv">
-                        <div class="ico">⚡</div>
-                        <h3 data-t="yt2"></h3>
-                        <p data-t="yd2"></p>
-                    </div>
-                    <div class="card rv">
-                        <div class="ico">🔍</div>
-                        <h3 data-t="yt3"></h3>
-                        <p data-t="yd3"></p>
-                    </div>
-                    <div class="card rv">
-                        <div class="ico">🤝</div>
-                        <h3 data-t="yt4"></h3>
-                        <p data-t="yd4"></p>
-                    </div>
-                    <div class="card rv">
-                        <div class="ico">🧼</div>
-                        <h3 data-t="yt5"></h3>
-                        <p data-t="yd5"></p>
-                    </div>
-                    <div class="card rv">
-                        <div class="ico">🛟</div>
-                        <h3 data-t="yt6"></h3>
-                        <p data-t="yd6"></p>
-                    </div>
+                <div class="card rv">
+                    <div class="ico">⚡</div>
+                    <h3 data-t="yt2"></h3>
+                    <p data-t="yd2"></p>
+                </div>
+                <div class="card rv">
+                    <div class="ico">🔍</div>
+                    <h3 data-t="yt3"></h3>
+                    <p data-t="yd3"></p>
+                </div>
+                <div class="card rv">
+                    <div class="ico">🤝</div>
+                    <h3 data-t="yt4"></h3>
+                    <p data-t="yd4"></p>
+                </div>
+                <div class="card rv">
+                    <div class="ico">🧼</div>
+                    <h3 data-t="yt5"></h3>
+                    <p data-t="yd5"></p>
+                </div>
+                <div class="card rv">
+                    <div class="ico">🛟</div>
+                    <h3 data-t="yt6"></h3>
+                    <p data-t="yd6"></p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section style="padding-top: 0">
-            <div class="wrap">
-                <div class="hd rv">
-                    <span class="eye" data-t="tc0"></span>
-                    <h2 data-t="tc1"></h2>
+    <section style="padding-top:0">
+        <div class="wrap">
+            <div class="hd rv"><span class="eye" data-t="tc0"></span>
+                <h2 data-t="tc1"></h2>
+            </div>
+            <div class="tech-wrap rv">
+                <span class="tech">HTML5</span><span class="tech">CSS3</span><span
+                    class="tech">JavaScript</span><span class="tech">jQuery</span><span
+                    class="tech">Bootstrap</span><span class="tech">PHP</span><span
+                    class="tech">Laravel</span><span class="tech">MySQL</span><span
+                    class="tech">Git</span><span class="tech">GitHub</span><span
+                    class="tech">Python</span><span class="tech">Django</span><span
+                    class="tech">Flask</span><span class="tech">React JS</span><span
+                    class="tech">Next.js</span><span class="tech">Node.js</span><span
+                    class="tech">Express.js</span><span class="tech">MongoDB</span><span
+                    class="tech">PostgreSQL</span><span class="tech">Firebase</span><span class="tech">Tailwind
+                    CSS</span><span class="tech">WordPress</span><span class="tech">REST APIs</span><span
+                    class="tech">Figma</span><span class="tech">Docker</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" style="background:var(--s);border-block:1px solid var(--l)">
+        <div class="wrap">
+            <div class="hd rv"><span class="eye" data-t="r0"></span>
+                <h2 data-t="r1"></h2>
+            </div>
+            <div class="rtrack" id="rtrack"></div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="wrap faq">
+            <div class="hd rv"><span class="eye" data-t="q0"></span>
+                <h2 data-t="q1"></h2>
+            </div>
+            <details class="fq rv">
+                <summary data-t="fq1"></summary>
+                <p data-t="fa1"></p>
+            </details>
+            <details class="fq rv">
+                <summary data-t="fq2"></summary>
+                <p data-t="fa2"></p>
+            </details>
+            <details class="fq rv">
+                <summary data-t="fq3"></summary>
+                <p data-t="fa3"></p>
+            </details>
+            <details class="fq rv">
+                <summary data-t="fq4"></summary>
+                <p data-t="fa4"></p>
+            </details>
+            <details class="fq rv">
+                <summary data-t="fq5"></summary>
+                <p data-t="fa5"></p>
+            </details>
+        </div>
+    </section>
+
+    <section style="padding-top:0">
+        <div class="wrap">
+            <div class="cta rv">
+                <h2 data-t="ct"></h2>
+                <p data-t="cd"></p><a class="btn" href="#contact" data-t="cb"></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="wrap cg">
+            <div class="rv">
+                <span class="eye" data-t="k0"></span>
+                <h2 style="font-size:clamp(2rem,4.5vw,3.2rem);margin:12px 0" data-t="k1"></h2>
+                <p data-t="k2"></p>
+                <div class="ci"><i>✉️</i>
+                    <div><span data-t="ke"></span><b>ddsolutions800@gmail.com</b></div>
                 </div>
-                <div class="tech-wrap rv">
-                    <span class="tech">HTML5</span><span class="tech">CSS3</span
-                    ><span class="tech">JavaScript</span
-                    ><span class="tech">jQuery</span
-                    ><span class="tech">Bootstrap</span
-                    ><span class="tech">PHP</span
-                    ><span class="tech">Laravel</span
-                    ><span class="tech">MySQL</span><span class="tech">Git</span
-                    ><span class="tech">GitHub</span
-                    ><span class="tech">Python</span
-                    ><span class="tech">Django</span
-                    ><span class="tech">Flask</span
-                    ><span class="tech">React JS</span
-                    ><span class="tech">Next.js</span
-                    ><span class="tech">Node.js</span
-                    ><span class="tech">Express.js</span
-                    ><span class="tech">MongoDB</span
-                    ><span class="tech">PostgreSQL</span
-                    ><span class="tech">Firebase</span
-                    ><span class="tech">Tailwind CSS</span
-                    ><span class="tech">WordPress</span
-                    ><span class="tech">REST APIs</span
-                    ><span class="tech">Figma</span
-                    ><span class="tech">Docker</span>
+                <div class="ci"><i>📍</i>
+                    <div><span data-t="kl"></span><b>Kanpur, Uttar Pradesh</b></div>
+                </div>
+                <div class="ci"><i>💬</i>
+                    <div><span data-t="kw"></span><b><a href="https://wa.me/919369822886" target="_blank"
+                                rel="noopener">+91 93698 22886</a></b></div>
+                </div>
+                <div class="ci"><i>⏱️</i>
+                    <div><span data-t="kr"></span><b data-t="krt"></b></div>
                 </div>
             </div>
-        </section>
-
-        <section id="faq" style="padding-top: 0">
-            <div class="wrap faq">
-                <div class="hd rv">
-                    <span class="eye" data-t="q0"></span>
-                    <h2 data-t="q1"></h2>
+            <form class="rv" id="cf">
+                <div class="r">
+                    <div><label for="name" data-t="l1"></label><input id="name" name="name" required
+                            data-tp="p1" /></div>
+                    <div><label for="phone" data-t="l2"></label><input id="phone" name="phone"
+                            placeholder="+91" /></div>
                 </div>
-                <details class="fq rv">
-                    <summary data-t="fq1"></summary>
-                    <p data-t="fa1"></p>
-                </details>
-                <details class="fq rv">
-                    <summary data-t="fq2"></summary>
-                    <p data-t="fa2"></p>
-                </details>
-                <details class="fq rv">
-                    <summary data-t="fq3"></summary>
-                    <p data-t="fa3"></p>
-                </details>
-                <details class="fq rv">
-                    <summary data-t="fq4"></summary>
-                    <p data-t="fa4"></p>
-                </details>
-                <details class="fq rv">
-                    <summary data-t="fq5"></summary>
-                    <p data-t="fa5"></p>
-                </details>
-            </div>
-        </section>
+                <label for="email" data-t="l3"></label><input type="email" id="email" name="email"
+                    required placeholder="you@example.com" />
+                <label for="service" data-t="l4"></label>
+                <select class="f" id="service" name="service">
+                    <option value="" data-t="o0"></option>
+                    <option value="Business Website" data-t="o1"></option>
+                    <option value="Landing Page" data-t="o2"></option>
+                    <option value="E-commerce Website" data-t="o3"></option>
+                    <option value="Web Application" data-t="o4"></option>
+                    <option value="Website Redesign" data-t="o5"></option>
+                    <option value="Other" data-t="o6"></option>
+                </select>
+                <label for="message" data-t="l5"></label>
+                <textarea id="message" name="message" required data-tp="p2"></textarea>
+                <button class="btn p" type="submit" data-t="send"></button>
+                <p style="font-size:.72rem;margin-top:10px" data-t="note"></p>
+            </form>
+        </div>
+    </section>
 
-        <section style="padding-top: 0">
-            <div class="wrap">
-                <div class="cta rv">
-                    <h2 data-t="ct"></h2>
-                    <p data-t="cd"></p>
-                    <a class="btn" href="#contact" data-t="cb"></a>
-                </div>
-            </div>
-        </section>
+    <footer>© <span id="yr"></span> DDSOLUTIONS · <span data-t="ft"></span></footer>
+    <a class="wa" href="https://wa.me/919369822886" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 
-        <section id="contact">
-            <div class="wrap cg">
-                <div class="rv">
-                    <span class="eye" data-t="k0"></span>
-                    <h2
-                        style="
-                            font-size: clamp(2rem, 4.5vw, 3.2rem);
-                            margin: 12px 0;
-                        "
-                        data-t="k1"
-                    ></h2>
-                    <p data-t="k2"></p>
-                    <div class="ci">
-                        <i>✉️</i>
-                        <div>
-                            <span data-t="ke"></span
-                            ><b>ddsolutions800@gmail.com</b>
-                        </div>
-                    </div>
-                    <div class="ci">
-                        <i>📍</i>
-                        <div>
-                            <span data-t="kl"></span
-                            ><b>Kanpur, Uttar Pradesh</b>
-                        </div>
-                    </div>
-                    <div class="ci">
-                        <i>💬</i>
-                        <div>
-                            <span data-t="kw"></span
-                            ><b
-                                ><a
-                                    href="https://wa.me/919369822886"
-                                    target="_blank"
-                                    rel="noopener"
-                                    >+91 93698 22886</a
-                                ></b
-                            >
-                        </div>
-                    </div>
-                    <div class="ci">
-                        <i>⏱️</i>
-                        <div><span data-t="kr"></span><b data-t="krt"></b></div>
-                    </div>
-                </div>
-                <form class="rv" id="cf">
-                    <div class="r">
-                        <div>
-                            <label for="name" data-t="l1"></label
-                            ><input
-                                id="name"
-                                name="name"
-                                required
-                                data-tp="p1"
-                            />
-                        </div>
-                        <div>
-                            <label for="phone" data-t="l2"></label
-                            ><input id="phone" name="phone" placeholder="+91" />
-                        </div>
-                    </div>
-                    <label for="email" data-t="l3"></label
-                    ><input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        placeholder="you@example.com"
-                    />
-                    <label for="service" data-t="l4"></label
-                    ><select class="f" id="service" name="service">
-                        <option value="" data-t="o0"></option>
-                        <option value="Business Website" data-t="o1"></option>
-                        <option value="Landing Page" data-t="o2"></option>
-                        <option value="E-commerce Website" data-t="o3"></option>
-                        <option value="Web Application" data-t="o4"></option>
-                        <option value="Website Redesign" data-t="o5"></option>
-                        <option value="Other" data-t="o6"></option>
-                    </select>
-                    <label for="message" data-t="l5"></label
-                    ><textarea
-                        id="message"
-                        name="message"
-                        required
-                        data-tp="p2"
-                    ></textarea>
-                    <button class="btn p" type="submit" data-t="send"></button>
-                    <p
-                        style="font-size: 0.72rem; margin-top: 10px"
-                        data-t="note"
-                    ></p>
-                </form>
-            </div>
-        </section>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+    <script>
+        const P = [
+            ["Property Dealer", "business", "https://ashutoshkutar80.github.io/property_dealer/", "Real Estate",
+                "#183b56", "#2b7884", "🏡"
+            ],
+            ["School Website", "business", "https://ashutoshkutar80.github.io/school/", "Education", "#24345e",
+                "#6478ad", "🎓"
+            ],
+            ["Restaurant Website", "commerce", "https://ashutoshkutar80.github.io/restaurant/", "Food & Beverage",
+                "#5b2e42", "#c27a64", "🍽️"
+            ],
+            ["Doctor Website", "services", "https://ashutoshkutar80.github.io/doctor/", "Healthcare", "#164e59",
+                "#3a9b91", "🩺"
+            ],
+            ["CA Firm Website", "services", "https://ashutoshkutar80.github.io/ca/", "Finance", "#293b64", "#8a78b8",
+                "🧮"
+            ],
+            ["Clothing Store", "commerce", "https://ashutoshkutar80.github.io/cloths/", "Fashion", "#633a57", "#c06e8d",
+                "👗"
+            ],
+            ["Advocate Website", "services", "https://ashutoshkutar80.github.io/advocate/", "Legal", "#27334d",
+                "#647d9b", "⚖️"
+            ],
+            ["ClickVyapar Logistics", "business", "https://logistics.clickvyapar.com", "Logistics", "#174b55",
+                "#358d9a", "🚚"
+            ],
+            ["UMCA Legal Services", "services", "https://umcalegalservices.com", "Legal Services", "#3a315d", "#8374bd",
+                "🏛️"
+            ],
+            ["Bharat Integrity Forum", "media", "https://bharatintegrityforum.com", "News & Media", "#3d2c36",
+                "#a64e5f", "📰"
+            ]
+        ];
 
-        <footer>
-            © <span id="yr"></span> DDSOLUTIONS · <span data-t="ft"></span>
-        </footer>
-        <a
-            class="wa"
-            href="https://wa.me/919369822886"
-            target="_blank"
-            rel="noopener"
-            aria-label="WhatsApp"
-            >💬</a
-        >
+        const T = {
+            e: {
+                n1: "Services",
+                n2: "Work",
+                n3: "Process",
+                n4: "Contact",
+                n5: "Reviews",
+                pill: "From Kanpur, for all of India",
+                h1: 'Websites that <span class="g">move your business</span> forward.',
+                sub: "Fast, responsive, business-focused websites — from a strong first impression to a smooth customer journey.",
+                hc1: "Explore our work →",
+                hc2: "Discuss your project",
+                f1: "⚡ Fast & responsive",
+                f2: "🎨 Modern design",
+                f3: "📈 Growth focused",
+                st1: "Live projects",
+                st2: "Industries",
+                st3: "Responsive",
+                st4: "End-to-end thinking",
+                s0: "What we do",
+                s1: 'Digital solutions built around <span class="g">your business.</span>',
+                v1t: "Business Websites",
+                v1d: "Professional websites that build trust, explain your services and turn visitors into enquiries.",
+                v2t: "Landing Pages",
+                v2d: "Conversion-ready pages for campaigns and lead generation.",
+                v3t: "Web Development",
+                v3d: "PHP, Laravel, MySQL and modern front-end solutions.",
+                v4t: "E-commerce",
+                v4d: "Online stores that make browsing and product enquiries simple.",
+                v5t: "Responsive Redesign",
+                v5d: "Refresh an outdated website with a clean, mobile-friendly look.",
+                v6t: "Maintenance & Support",
+                v6d: "Regular updates and ongoing improvements.",
+                w0: "Selected work",
+                w1: 'Different industries. <span class="g">One standard.</span>',
+                fa: "All",
+                fb: "Business",
+                fs: "Services",
+                fc: "Commerce",
+                fm: "Media",
+                live: "View live project",
+                d0: "Property-focused website to present listings and real estate services.",
+                d1: "Education website covering academics, facilities and admissions.",
+                d2: "Restaurant experience with menu, ambience and customer information.",
+                d3: "Healthcare profile and services, with essential information easy to find.",
+                d4: "Professional CA firm website to introduce services and build credibility.",
+                d5: "Fashion storefront with a modern shopping aesthetic.",
+                d6: "Legal website highlighting practice areas, profile and contact routes.",
+                d7: "Logistics website with clear services and customer journey.",
+                d8: "Legal services platform with a professional digital identity.",
+                d9: "Digital news platform with a structured reading experience.",
+                a0: "How we work",
+                a1: 'A clear process. <span class="g">A better outcome.</span>',
+                g1t: "Discover",
+                g1d: "We learn about your business, audience and goals.",
+                g2t: "Plan",
+                g2d: "Structure, content flow and design direction.",
+                g3t: "Design & Develop",
+                g3d: "A fast, responsive and clean build.",
+                g4t: "Review & Launch",
+                g4d: "Testing, feedback and launch support.",
+                ct: "Have a business idea? Let's turn it into a website.",
+                cd: "Share your plan — we'll suggest the right approach and next steps.",
+                cb: "Let's build something →",
+                k0: "Let's connect",
+                k1: 'Your next website starts with a <span class="g">conversation.</span>',
+                k2: "Tell us about your business and what you need. We'll get back to you.",
+                ke: "Email",
+                kl: "Based in",
+                kw: "WhatsApp / Call",
+                kr: "Response",
+                krt: "Usually within 1–2 business days",
+                l1: "Your name",
+                l2: "Phone / WhatsApp",
+                l3: "Email address",
+                l4: "What do you need?",
+                l5: "Tell us about your project",
+                p1: "Enter your name",
+                p2: "A few details about your idea...",
+                send: "Send project enquiry ✈️",
+                note: "Your enquiry opens in WhatsApp as a ready message — just press send.",
+                ft: "Digital Soch. Smart Solutions. Real Growth."
+            },
+            h: {
+                n1: "Services",
+                n2: "Projects",
+                n3: "Process",
+                n4: "Contact",
+                n5: "Reviews",
+                pill: "Kanpur se, poore Bharat ke liye",
+                h1: 'Websites jo aapke <span class="g">business ko udaan</span> dein.',
+                sub: "Fast, responsive aur business-focused websites — strong first impression se smooth customer journey tak.",
+                hc1: "Projects dekhein →",
+                hc2: "Project discuss karein",
+                f1: "⚡ Fast & responsive",
+                f2: "🎨 Modern design",
+                f3: "📈 Growth focused",
+                st1: "Live projects",
+                st2: "Industries",
+                st3: "Responsive",
+                st4: "End-to-end approach",
+                s0: "Hum kya karte hain",
+                s1: 'Aapke business ke liye <span class="g">digital solutions.</span>',
+                v1t: "Business Websites",
+                v1d: "Professional websites jo trust build karein, services explain karein aur visitors ko enquiries mein convert karein.",
+                v2t: "Landing Pages",
+                v2d: "Campaigns aur lead generation ke liye conversion-ready pages.",
+                v3t: "Web Development",
+                v3d: "PHP, Laravel, MySQL aur modern front-end solutions.",
+                v4t: "E-commerce",
+                v4d: "Online store jahan browsing aur product enquiry simple ho.",
+                v5t: "Responsive Redesign",
+                v5d: "Purani website ko clean, mobile-friendly look dena.",
+                v6t: "Maintenance & Support",
+                v6d: "Regular updates aur ongoing improvements.",
+                w0: "Selected projects",
+                w1: 'Alag industries. <span class="g">Same quality.</span>',
+                fa: "All",
+                fb: "Business",
+                fs: "Services",
+                fc: "Commerce",
+                fm: "Media",
+                live: "Live project dekhein",
+                d0: "Property listings aur real estate services showcase karne wala website.",
+                d1: "School ki academics, facilities aur admissions ki information.",
+                d2: "Menu, ambience aur customer info ke saath restaurant experience.",
+                d3: "Doctor profile aur healthcare services ko easy to find banane wali website.",
+                d4: "Services aur professional credibility ke liye CA firm website.",
+                d5: "Modern shopping aesthetic ke saath fashion storefront.",
+                d6: "Practice areas, profile aur contact details highlight karne wali legal website.",
+                d7: "Logistics services aur clear customer journey wali business website.",
+                d8: "Legal services ki professional digital identity.",
+                d9: "Structured reading experience wala digital news platform.",
+                a0: "Kaam karne ka tareeka",
+                a1: 'Clear process. <span class="g">Better outcome.</span>',
+                g1t: "Discover",
+                g1d: "Business, audience aur goals samajhte hain.",
+                g2t: "Plan",
+                g2d: "Structure, content flow aur design direction.",
+                g3t: "Design & Develop",
+                g3d: "Fast, responsive aur clean build.",
+                g4t: "Review & Launch",
+                g4d: "Testing, feedback aur launch support.",
+                ct: "Business idea hai? Chaliye use website bana dete hain.",
+                cd: "Apna plan share karein — hum right approach aur next steps batayenge.",
+                cb: "Let's build something →",
+                k0: "Let's connect",
+                k1: 'Aapki next website ek <span class="g">conversation</span> se start hoti hai.',
+                k2: "Apne business aur requirements ke baare mein batayein. Hum aapse contact karenge.",
+                ke: "Email",
+                kl: "Based in",
+                kw: "WhatsApp / Call",
+                kr: "Response time",
+                krt: "Usually 1–2 business days mein",
+                l1: "Aapka naam",
+                l2: "Phone / WhatsApp",
+                l3: "Email address",
+                l4: "Aapko kya chahiye?",
+                l5: "Project ke baare mein batayein",
+                p1: "Apna naam likhein",
+                p2: "Apne idea ki kuch details...",
+                send: "Project enquiry bhejein ✈️",
+                note: "Submit karte hi enquiry WhatsApp par ready message ke roop mein open hogi — bas send dabayein.",
+                ft: "Digital Soch. Smart Solutions. Real Growth."
+            },
+            hi: {
+                n1: "सेवाएँ",
+                n2: "प्रोजेक्ट",
+                n3: "प्रक्रिया",
+                n4: "संपर्क",
+                n5: "रिव्यू",
+                pill: "कानपुर से, पूरे भारत के लिए",
+                h1: 'ऐसी वेबसाइट जो आपके <span class="g">बिज़नेस को उड़ान</span> दे।',
+                sub: "तेज़, responsive और बिज़नेस पर केंद्रित वेबसाइट — बेहतरीन पहली छाप से आसान ग्राहक अनुभव तक।",
+                hc1: "हमारा काम देखें →",
+                hc2: "अपने प्रोजेक्ट पर बात करें",
+                f1: "⚡ तेज़ और responsive",
+                f2: "🎨 आधुनिक डिज़ाइन",
+                f3: "📈 ग्रोथ पर फोकस",
+                st1: "लाइव प्रोजेक्ट",
+                st2: "इंडस्ट्री",
+                st3: "रेस्पॉन्सिव",
+                st4: "शुरू से अंत तक",
+                s0: "हम क्या करते हैं",
+                s1: 'आपके बिज़नेस के लिए <span class="g">डिजिटल समाधान।</span>',
+                v1t: "बिज़नेस वेबसाइट",
+                v1d: "प्रोफेशनल वेबसाइट जो भरोसा बनाए, सेवाएँ समझाए और visitors को enquiries में बदले।",
+                v2t: "लैंडिंग पेज",
+                v2d: "कैंपेन और लीड जनरेशन के लिए conversion-ready पेज।",
+                v3t: "वेब डेवलपमेंट",
+                v3d: "PHP, Laravel, MySQL और आधुनिक front-end समाधान।",
+                v4t: "ई-कॉमर्स",
+                v4d: "ऑनलाइन स्टोर जहाँ प्रोडक्ट देखना और पूछताछ करना आसान हो।",
+                v5t: "वेबसाइट रीडिज़ाइन",
+                v5d: "पुरानी वेबसाइट को साफ़ और मोबाइल-फ्रेंडली रूप देना।",
+                v6t: "मेंटेनेंस और सपोर्ट",
+                v6d: "नियमित अपडेट और लगातार सुधार।",
+                w0: "चुने हुए प्रोजेक्ट",
+                w1: 'अलग-अलग इंडस्ट्री। <span class="g">एक ही क्वालिटी।</span>',
+                fa: "सभी",
+                fb: "बिज़नेस",
+                fs: "सर्विस",
+                fc: "कॉमर्स",
+                fm: "मीडिया",
+                live: "लाइव प्रोजेक्ट देखें",
+                d0: "प्रॉपर्टी लिस्टिंग और रियल एस्टेट सेवाएँ दिखाने वाली वेबसाइट।",
+                d1: "स्कूल की पढ़ाई, सुविधाएँ और एडमिशन की जानकारी।",
+                d2: "मेन्यू, माहौल और ज़रूरी जानकारी के साथ रेस्टोरेंट अनुभव।",
+                d3: "डॉक्टर की प्रोफाइल और हेल्थकेयर सेवाओं की आसान जानकारी।",
+                d4: "सेवाओं और प्रोफेशनल पहचान के लिए CA फर्म वेबसाइट।",
+                d5: "आधुनिक शॉपिंग अनुभव वाला फैशन स्टोर।",
+                d6: "प्रैक्टिस एरिया, प्रोफाइल और संपर्क जानकारी वाली लीगल वेबसाइट।",
+                d7: "लॉजिस्टिक्स सेवाओं को साफ़ दिखाने वाली बिज़नेस वेबसाइट।",
+                d8: "लीगल सेवाओं की प्रोफेशनल डिजिटल पहचान।",
+                d9: "व्यवस्थित पढ़ने के अनुभव वाला डिजिटल न्यूज़ प्लेटफॉर्म।",
+                a0: "हम कैसे काम करते हैं",
+                a1: 'स्पष्ट प्रक्रिया। <span class="g">बेहतर परिणाम।</span>',
+                g1t: "समझना",
+                g1d: "आपके बिज़नेस, ग्राहकों और लक्ष्य को समझते हैं।",
+                g2t: "प्लानिंग",
+                g2d: "स्ट्रक्चर, कंटेंट और डिज़ाइन की दिशा तय करते हैं।",
+                g3t: "डिज़ाइन और डेवलपमेंट",
+                g3d: "तेज़, responsive और साफ़ वेबसाइट बनाते हैं।",
+                g4t: "रिव्यू और लॉन्च",
+                g4d: "टेस्टिंग, फीडबैक और लॉन्च में मदद।",
+                ct: "बिज़नेस का आइडिया है? उसे वेबसाइट में बदलते हैं।",
+                cd: "अपना प्लान बताइए — हम सही तरीका और अगले कदम बताएँगे।",
+                cb: "चलो कुछ बनाते हैं →",
+                k0: "संपर्क करें",
+                k1: 'आपकी अगली वेबसाइट की शुरुआत एक <span class="g">बातचीत</span> से होगी।',
+                k2: "अपने बिज़नेस और ज़रूरत के बारे में बताइए। हम आपसे संपर्क करेंगे।",
+                ke: "ईमेल",
+                kl: "लोकेशन",
+                kw: "WhatsApp / कॉल",
+                kr: "जवाब",
+                krt: "आमतौर पर 1–2 कार्यदिवस में",
+                l1: "आपका नाम",
+                l2: "फोन / WhatsApp",
+                l3: "ईमेल एड्रेस",
+                l4: "आपको क्या चाहिए?",
+                l5: "अपने प्रोजेक्ट के बारे में बताएं",
+                p1: "अपना नाम लिखें",
+                p2: "अपने आइडिया की कुछ जानकारी...",
+                send: "प्रोजेक्ट enquiry भेजें ✈️",
+                note: "Submit करते ही enquiry WhatsApp पर तैयार message के रूप में खुलेगी — बस send दबाएँ।",
+                ft: "डिजिटल सोच। स्मार्ट समाधान। असली ग्रोथ।"
+            }
+        };
 
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
-        <script>
-            const P = [
-                [
-                    "Property Dealer",
-                    "business",
-                    "https://ashutoshkutar80.github.io/property_dealer/",
-                    "Real Estate",
-                    "#183b56",
-                    "#2b7884",
-                    "🏡",
-                ],
-                [
-                    "School Website",
-                    "business",
-                    "https://ashutoshkutar80.github.io/school/",
-                    "Education",
-                    "#24345e",
-                    "#6478ad",
-                    "🎓",
-                ],
-                [
-                    "Restaurant Website",
-                    "commerce",
-                    "https://ashutoshkutar80.github.io/restaurant/",
-                    "Food & Beverage",
-                    "#5b2e42",
-                    "#c27a64",
-                    "🍽️",
-                ],
-                [
-                    "Doctor Website",
-                    "services",
-                    "https://ashutoshkutar80.github.io/doctor/",
-                    "Healthcare",
-                    "#164e59",
-                    "#3a9b91",
-                    "🩺",
-                ],
-                [
-                    "CA Firm Website",
-                    "services",
-                    "https://ashutoshkutar80.github.io/ca/",
-                    "Finance",
-                    "#293b64",
-                    "#8a78b8",
-                    "🧮",
-                ],
-                [
-                    "Clothing Store",
-                    "commerce",
-                    "https://ashutoshkutar80.github.io/cloths/",
-                    "Fashion",
-                    "#633a57",
-                    "#c06e8d",
-                    "👗",
-                ],
-                [
-                    "Advocate Website",
-                    "services",
-                    "https://ashutoshkutar80.github.io/advocate/",
-                    "Legal",
-                    "#27334d",
-                    "#647d9b",
-                    "⚖️",
-                ],
-                [
-                    "ClickVyapar Logistics",
-                    "business",
-                    "https://logistics.clickvyapar.com",
-                    "Logistics",
-                    "#174b55",
-                    "#358d9a",
-                    "🚚",
-                ],
-                [
-                    "UMCA Legal Services",
-                    "services",
-                    "https://umcalegalservices.com",
-                    "Legal Services",
-                    "#3a315d",
-                    "#8374bd",
-                    "🏛️",
-                ],
-                [
-                    "Bharat Integrity Forum",
-                    "media",
-                    "https://bharatintegrityforum.com",
-                    "News & Media",
-                    "#3d2c36",
-                    "#a64e5f",
-                    "📰",
-                ],
-            ];
+        const X = {
+            e: {
+                title: "DDSOLUTIONS — Digital Soch. Smart Solutions. Real Growth.",
+                mq: ["Websites", "Landing Pages", "E-commerce", "Web Apps", "Redesign", "Support"],
+                demo: "▶ Live demo",
+                c0: "Real Estate",
+                c1: "Education",
+                c2: "Food & Beverage",
+                c3: "Healthcare",
+                c4: "Finance",
+                c5: "Fashion",
+                c6: "Legal",
+                c7: "Logistics",
+                c8: "Legal Services",
+                c9: "News & Media",
+                o0: "Select a service",
+                o1: "Business Website",
+                o2: "Landing Page",
+                o3: "E-commerce Website",
+                o4: "Web Application",
+                o5: "Website Redesign",
+                o6: "Other",
+                wf0: "Client journey · DDSOLUTIONS",
+                wf1: 'From idea to <span class="g">live website</span> — every step planned.',
+                wf2: "We work with you to understand requirements, share design previews, collect feedback and — after approval — develop and launch your website.",
+                wn1: "01 / DISCOVERY",
+                wt1: "Client discussion & requirements",
+                wd1: "We understand your business goals, audience, pages, features, reference websites and required content in detail.",
+                wn2: "02 / PLANNING",
+                wt2: "Structure & wireframe planning",
+                wd2: "We plan the page structure, navigation, user journey and mobile layout, and show you the direction.",
+                wn3: "03 / DESIGN PREVIEW",
+                wt3: "Design presentation & feedback",
+                wd3: "We share the visual style and page previews with you, then finalize the changes you approve.",
+                wn4: "04 / DEVELOPMENT",
+                wt4: "Development, testing & launch",
+                wd4: "We turn the approved design into a responsive website, test the key screens and support you through launch.",
+                wnote: "<strong>Client communication:</strong> We share progress and previews at every important stage, so you always know which phase your project is in and what comes next.",
+                y0: "Why DDSOLUTIONS",
+                y1: 'Built to <span class="g">help you grow.</span>',
+                yt1: "Mobile-first design",
+                yd1: "Most visitors browse on phones, so every layout starts from the mobile screen.",
+                yt2: "Fast & lightweight",
+                yd2: "Clean code and optimized assets for quick loading.",
+                yt3: "SEO-friendly structure",
+                yd3: "Semantic markup and clear page structure that search engines understand.",
+                yt4: "Transparent communication",
+                yd4: "Regular previews and updates — no surprises at launch.",
+                yt5: "Clean, maintainable code",
+                yd5: "Well-organised code that is easy to update and extend later.",
+                yt6: "Post-launch support",
+                yd6: "Content changes, fixes and improvements after your site goes live.",
+                tc0: "Our toolkit",
+                tc1: 'The right tools for <span class="g">the right job.</span>',
+                q0: "FAQ",
+                q1: 'Questions? <span class="g">We have answers.</span>',
+                fq1: "How long does a website take?",
+                fa1: "It depends on the number of pages and features. After discussing your requirements we share a clear timeline.",
+                fq2: "Will my website work on mobile?",
+                fa2: "Yes. Every website we build is responsive and tested on common screen sizes.",
+                fq3: "Do you provide support after launch?",
+                fa3: "Yes. We help with updates, content changes and ongoing improvements.",
+                fq4: "Can you redesign my existing website?",
+                fa4: "Yes. We can refresh the layout, improve the mobile experience and keep your content.",
+                fq5: "What do I need to get started?",
+                fa5: "Just your business details and idea. A logo, content and reference sites help — but if you don't have them yet, we'll help you plan.",
+                vn1: "Please enter your name.",
+                vn2: "Name must be at least 2 characters.",
+                vn3: "Name is too long.",
+                vp1: "Please enter your WhatsApp/mobile number.",
+                vp2: "Enter a valid 10-digit Indian mobile number (optional +91).",
+                ve1: "Please enter your email address.",
+                ve2: "Please enter a valid email address.",
+                vs: "Please select a service.",
+                vm1: "Please tell us about your project.",
+                vm2: "Please add at least 15 characters.",
+                vm3: "Please keep your message under 1200 characters."
+            },
+            h: {
+                title: "DDSOLUTIONS — Digital Soch. Smart Solutions. Real Growth.",
+                mq: ["Websites", "Landing Pages", "E-commerce", "Web Apps", "Redesign", "Support"],
+                demo: "▶ Live demo",
+                c0: "Real Estate",
+                c1: "Education",
+                c2: "Food & Beverage",
+                c3: "Healthcare",
+                c4: "Finance",
+                c5: "Fashion",
+                c6: "Legal",
+                c7: "Logistics",
+                c8: "Legal Services",
+                c9: "News & Media",
+                o0: "Service select karein",
+                o1: "Business Website",
+                o2: "Landing Page",
+                o3: "E-commerce Website",
+                o4: "Web Application",
+                o5: "Website Redesign",
+                o6: "Other",
+                wf0: "Client journey · DDSOLUTIONS",
+                wf1: 'Idea se <span class="g">live website</span> tak — har step planned.',
+                wf2: "Hum client ke saath milkar requirements samajhte hain, design ka preview share karte hain, feedback lete hain aur approval ke baad website develop karke launch karte hain.",
+                wn1: "01 / DISCOVERY",
+                wt1: "Client discussion & requirements",
+                wd1: "Business goals, audience, pages, features, reference websites aur required content ko detail mein samajhte hain.",
+                wn2: "02 / PLANNING",
+                wt2: "Structure & wireframe planning",
+                wd2: "Website ka page structure, navigation, user journey aur mobile layout plan karke client ko direction dikhate hain.",
+                wn3: "03 / DESIGN PREVIEW",
+                wt3: "Design presentation & feedback",
+                wd3: "Visual style aur page previews client ke saath share karte hain. Feedback ke hisaab se agreed changes finalize karte hain.",
+                wn4: "04 / DEVELOPMENT",
+                wt4: "Development, testing & launch",
+                wd4: "Approved design ko responsive website mein convert karte hain, important screens test karte hain aur launch mein support dete hain.",
+                wnote: "<strong>Client communication:</strong> Har important stage par progress aur preview share kiya jata hai, taaki client ko pata rahe ki project kis phase mein hai aur next step kya hoga.",
+                y0: "Kyun DDSOLUTIONS",
+                y1: 'Aapki growth ke liye <span class="g">banaya gaya.</span>',
+                yt1: "Mobile-first design",
+                yd1: "Zyada visitors phone par browse karte hain, isliye har layout mobile screen se start hota hai.",
+                yt2: "Fast & lightweight",
+                yd2: "Clean code aur optimized assets ke saath quick loading.",
+                yt3: "SEO-friendly structure",
+                yd3: "Semantic markup aur clear page structure jo search engines samajh sakein.",
+                yt4: "Transparent communication",
+                yd4: "Regular previews aur updates — launch par koi surprise nahi.",
+                yt5: "Clean, maintainable code",
+                yd5: "Well-organised code jise baad mein update aur extend karna easy ho.",
+                yt6: "Post-launch support",
+                yd6: "Website live hone ke baad content changes, fixes aur improvements.",
+                tc0: "Our toolkit",
+                tc1: 'Right tools for <span class="g">the right job.</span>',
+                q0: "FAQ",
+                q1: 'Sawaal hain? <span class="g">Jawab yahan hain.</span>',
+                fq1: "Website banne mein kitna time lagta hai?",
+                fa1: "Yeh pages aur features ki sankhya par depend karta hai. Requirements discuss karne ke baad hum clear timeline share karte hain.",
+                fq2: "Kya meri website mobile par chalegi?",
+                fa2: "Haan. Hamari har website responsive hoti hai aur common screen sizes par test ki jaati hai.",
+                fq3: "Kya launch ke baad support milega?",
+                fa3: "Haan. Updates, content changes aur improvements mein help karte hain.",
+                fq4: "Kya aap meri existing website redesign kar sakte hain?",
+                fa4: "Haan. Hum layout refresh kar sakte hain, mobile experience better bana sakte hain aur aapka content rakh sakte hain.",
+                fq5: "Start karne ke liye mujhe kya chahiye?",
+                fa5: "Bas aapke business ki details aur idea. Logo, content aur reference sites help karte hain — nahi hain to hum plan karne mein madad karenge.",
+                vn1: "Kripya apna naam likhein.",
+                vn2: "Naam kam se kam 2 characters ka hona chahiye.",
+                vn3: "Naam bahut lamba hai.",
+                vp1: "Kripya WhatsApp/mobile number likhein.",
+                vp2: "Valid 10-digit Indian mobile number likhein (+91 optional).",
+                ve1: "Kripya email address likhein.",
+                ve2: "Kripya valid email address likhein.",
+                vs: "Kripya service select karein.",
+                vm1: "Kripya apne project ke baare mein batayein.",
+                vm2: "Kam se kam 15 characters likhein.",
+                vm3: "Message 1200 characters se kam rakhein."
+            },
+            hi: {
+                title: "DDSOLUTIONS — डिजिटल सोच। स्मार्ट सॉल्यूशंस। असली ग्रोथ।",
+                mq: ["वेबसाइट", "लैंडिंग पेज", "ई-कॉमर्स", "वेब ऐप", "रीडिज़ाइन", "सपोर्ट"],
+                demo: "▶ लाइव डेमो",
+                c0: "रियल एस्टेट",
+                c1: "शिक्षा",
+                c2: "फ़ूड एंड बेवरेज",
+                c3: "हेल्थकेयर",
+                c4: "फ़ाइनेंस",
+                c5: "फ़ैशन",
+                c6: "लीगल",
+                c7: "लॉजिस्टिक्स",
+                c8: "लीगल सर्विसेज़",
+                c9: "न्यूज़ और मीडिया",
+                o0: "सेवा चुनें",
+                o1: "बिज़नेस वेबसाइट",
+                o2: "लैंडिंग पेज",
+                o3: "ई-कॉमर्स वेबसाइट",
+                o4: "वेब एप्लिकेशन",
+                o5: "वेबसाइट रीडिज़ाइन",
+                o6: "अन्य",
+                wf0: "क्लाइंट जर्नी · DDSOLUTIONS",
+                wf1: 'आइडिया से <span class="g">लाइव वेबसाइट</span> तक — हर कदम प्लान्ड।',
+                wf2: "हम आपके साथ मिलकर ज़रूरतें समझते हैं, डिज़ाइन का प्रीव्यू दिखाते हैं, फीडबैक लेते हैं और अप्रूवल के बाद वेबसाइट बनाकर लॉन्च करते हैं।",
+                wn1: "01 / समझना",
+                wt1: "क्लाइंट चर्चा और ज़रूरतें",
+                wd1: "आपके बिज़नेस लक्ष्य, ग्राहक, पेज, फीचर्स, रेफ़रेंस वेबसाइट और ज़रूरी कंटेंट को विस्तार से समझते हैं।",
+                wn2: "02 / प्लानिंग",
+                wt2: "स्ट्रक्चर और वायरफ्रेम प्लानिंग",
+                wd2: "वेबसाइट का पेज स्ट्रक्चर, नेविगेशन, यूज़र जर्नी और मोबाइल लेआउट प्लान करके दिशा दिखाते हैं।",
+                wn3: "03 / डिज़ाइन प्रीव्यू",
+                wt3: "डिज़ाइन प्रेज़ेंटेशन और फीडबैक",
+                wd3: "विज़ुअल स्टाइल और पेज प्रीव्यू आपके साथ साझा करते हैं और आपके फीडबैक के अनुसार बदलाव फ़ाइनल करते हैं।",
+                wn4: "04 / डेवलपमेंट",
+                wt4: "डेवलपमेंट, टेस्टिंग और लॉन्च",
+                wd4: "अप्रूव्ड डिज़ाइन को responsive वेबसाइट में बदलते हैं, मुख्य स्क्रीन टेस्ट करते हैं और लॉन्च में मदद करते हैं।",
+                wnote: "<strong>क्लाइंट कम्युनिकेशन:</strong> हर अहम चरण पर प्रगति और प्रीव्यू साझा किया जाता है, ताकि आपको पता रहे कि प्रोजेक्ट किस चरण में है और आगे क्या होगा।",
+                y0: "DDSOLUTIONS क्यों",
+                y1: 'आपकी ग्रोथ के लिए <span class="g">बनाया गया।</span>',
+                yt1: "मोबाइल-फर्स्ट डिज़ाइन",
+                yd1: "ज़्यादातर लोग फोन पर ब्राउज़ करते हैं, इसलिए हर लेआउट मोबाइल स्क्रीन से शुरू होता है।",
+                yt2: "तेज़ और हल्की",
+                yd2: "साफ़ कोड और ऑप्टिमाइज़्ड एसेट्स के साथ तेज़ लोडिंग।",
+                yt3: "SEO-फ्रेंडली स्ट्रक्चर",
+                yd3: "सिमैंटिक मार्कअप और साफ़ पेज स्ट्रक्चर जिसे सर्च इंजन समझ सकें।",
+                yt4: "पारदर्शी कम्युनिकेशन",
+                yd4: "नियमित प्रीव्यू और अपडेट — लॉन्च पर कोई सरप्राइज़ नहीं।",
+                yt5: "साफ़ और आसान कोड",
+                yd5: "व्यवस्थित कोड जिसे बाद में अपडेट और बढ़ाना आसान हो।",
+                yt6: "लॉन्च के बाद सपोर्ट",
+                yd6: "वेबसाइट लाइव होने के बाद कंटेंट बदलाव, फिक्स और सुधार।",
+                tc0: "हमारी टेक्नोलॉजी",
+                tc1: 'सही काम के लिए <span class="g">सही टूल्स।</span>',
+                q0: "अक्सर पूछे जाने वाले सवाल",
+                q1: 'सवाल हैं? <span class="g">जवाब यहाँ हैं।</span>',
+                fq1: "वेबसाइट बनने में कितना समय लगता है?",
+                fa1: "यह पेज और फीचर्स की संख्या पर निर्भर करता है। ज़रूरतें समझने के बाद हम साफ़ टाइमलाइन बताते हैं।",
+                fq2: "क्या मेरी वेबसाइट मोबाइल पर चलेगी?",
+                fa2: "हाँ। हमारी हर वेबसाइट responsive होती है और आम स्क्रीन साइज़ पर टेस्ट की जाती है।",
+                fq3: "क्या लॉन्च के बाद सपोर्ट मिलेगा?",
+                fa3: "हाँ। अपडेट, कंटेंट बदलाव और सुधार में हम मदद करते हैं।",
+                fq4: "क्या आप मेरी मौजूदा वेबसाइट रीडिज़ाइन कर सकते हैं?",
+                fa4: "हाँ। हम लेआउट नया कर सकते हैं, मोबाइल अनुभव बेहतर बना सकते हैं और आपका कंटेंट रख सकते हैं।",
+                fq5: "शुरू करने के लिए मुझे क्या चाहिए?",
+                fa5: "बस आपके बिज़नेस की जानकारी और आइडिया। लोगो, कंटेंट और रेफ़रेंस साइट मदद करते हैं — न हों तो हम प्लानिंग में मदद करेंगे।",
+                vn1: "कृपया अपना नाम लिखें।",
+                vn2: "नाम कम से कम 2 अक्षरों का होना चाहिए।",
+                vn3: "नाम बहुत लंबा है।",
+                vp1: "कृपया WhatsApp/मोबाइल नंबर लिखें।",
+                vp2: "सही 10 अंकों का भारतीय मोबाइल नंबर लिखें (+91 वैकल्पिक)।",
+                ve1: "कृपया ईमेल एड्रेस लिखें।",
+                ve2: "कृपया सही ईमेल एड्रेस लिखें।",
+                vs: "कृपया सेवा चुनें।",
+                vm1: "कृपया अपने प्रोजेक्ट के बारे में बताएं।",
+                vm2: "कम से कम 15 अक्षर लिखें।",
+                vm3: "संदेश 1200 अक्षरों से कम रखें।"
+            }
+        };
+        for (const k in X) Object.assign(T[k], X[k]);
 
-            const T = {
-                e: {
-                    n1: "Services",
-                    n2: "Work",
-                    n3: "Process",
-                    n4: "Contact",
-                    pill: "From Kanpur, for all of India",
-                    h1: 'Websites that <span class="g">move your business</span> forward.',
-                    sub: "Fast, responsive, business-focused websites — from a strong first impression to a smooth customer journey.",
-                    c1: "Explore our work →",
-                    c2: "Discuss your project",
-                    f1: "⚡ Fast & responsive",
-                    f2: "🎨 Modern design",
-                    f3: "📈 Growth focused",
-                    st1: "Live projects",
-                    st2: "Industries",
-                    st3: "Responsive",
-                    st4: "End-to-end thinking",
-                    s0: "What we do",
-                    s1: 'Digital solutions built around <span class="g">your business.</span>',
-                    v1t: "Business Websites",
-                    v1d: "Professional websites that build trust, explain your services and turn visitors into enquiries.",
-                    v2t: "Landing Pages",
-                    v2d: "Conversion-ready pages for campaigns and lead generation.",
-                    v3t: "Web Development",
-                    v3d: "PHP, Laravel, MySQL and modern front-end solutions.",
-                    v4t: "E-commerce",
-                    v4d: "Online stores that make browsing and product enquiries simple.",
-                    v5t: "Responsive Redesign",
-                    v5d: "Refresh an outdated website with a clean, mobile-friendly look.",
-                    v6t: "Maintenance & Support",
-                    v6d: "Regular updates and ongoing improvements.",
-                    w0: "Selected work",
-                    w1: 'Different industries. <span class="g">One standard.</span>',
-                    fa: "All",
-                    fb: "Business",
-                    fs: "Services",
-                    fc: "Commerce",
-                    fm: "Media",
-                    live: "View live project",
-                    d0: "Property-focused website to present listings and real estate services.",
-                    d1: "Education website covering academics, facilities and admissions.",
-                    d2: "Restaurant experience with menu, ambience and customer information.",
-                    d3: "Healthcare profile and services, with essential information easy to find.",
-                    d4: "Professional CA firm website to introduce services and build credibility.",
-                    d5: "Fashion storefront with a modern shopping aesthetic.",
-                    d6: "Legal website highlighting practice areas, profile and contact routes.",
-                    d7: "Logistics website with clear services and customer journey.",
-                    d8: "Legal services platform with a professional digital identity.",
-                    d9: "Digital news platform with a structured reading experience.",
-                    a0: "How we work",
-                    a1: 'A clear process. <span class="g">A better outcome.</span>',
-                    g1t: "Discover",
-                    g1d: "We learn about your business, audience and goals.",
-                    g2t: "Plan",
-                    g2d: "Structure, content flow and design direction.",
-                    g3t: "Design & Develop",
-                    g3d: "A fast, responsive and clean build.",
-                    g4t: "Review & Launch",
-                    g4d: "Testing, feedback and launch support.",
-                    ct: "Have a business idea? Let's turn it into a website.",
-                    cd: "Share your plan — we'll suggest the right approach and next steps.",
-                    cb: "Let's build something →",
-                    k0: "Let's connect",
-                    k1: 'Your next website starts with a <span class="g">conversation.</span>',
-                    k2: "Tell us about your business and what you need. We'll get back to you.",
-                    ke: "Email",
-                    kl: "Based in",
-                    kw: "WhatsApp / Call",
-                    kr: "Response",
-                    krt: "Usually within 1–2 business days",
-                    l1: "Your name",
-                    l2: "Phone / WhatsApp",
-                    l3: "Email address",
-                    l4: "What do you need?",
-                    l5: "Tell us about your project",
-                    p1: "Enter your name",
-                    p2: "A few details about your idea...",
-                    send: "Send project enquiry ✈️",
-                    note: "Your enquiry opens in WhatsApp as a ready message — just press send.",
-                    ft: "Digital Soch. Smart Solutions. Real Growth.",
-                },
+        /* Next-project card + reviews translations */
+        Object.assign(T.e, {
+            nx1: "Your Project Next?",
+            nx2: "Your business could be the next success story here. Let's plan your website together.",
+            nx3: "Start your project",
+            nxc: "Next",
+            r0: "Client reviews",
+            r1: 'What our <span class="g">clients say.</span>',
+            rt1: "Our school website looks professional and parents find admission details easily. Quick communication throughout.",
+            rt2: "The clinic website runs very smoothly on mobile, and appointment enquiries have increased.",
+            rt3: "Clean design and clear services. Clients now take our firm more seriously.",
+            rt4: "Menu and photos look amazing. Delivered on time with all my changes done.",
+            rt5: "Showing listings is so much easier now. Fast, responsive, and support even after launch."
+        });
+        Object.assign(T.h, {
+            nx1: "Next: Aapka Project?",
+            nx2: "Agla success story aapka business ho sakta hai. Chaliye saath mein website plan karte hain.",
+            nx3: "Project start karein",
+            nxc: "Next",
+            r0: "Client reviews",
+            r1: 'Hamare clients <span class="g">kya kehte hain.</span>',
+            rt1: "Hamare school ki website bahut professional lagti hai aur parents ko admission details aasani se mil jaati hain. Communication bhi fast tha.",
+            rt2: "Clinic ki website mobile par bahut smooth chalti hai, appointment enquiries badh gayi hain.",
+            rt3: "Clean design aur clear services. Ab clients hamari firm ko zyada seriously lete hain.",
+            rt4: "Menu aur photos kamaal ke lagte hain. Time par delivery mili aur saare changes bhi hue.",
+            rt5: "Ab listings dikhana bahut easy ho gaya. Fast, responsive aur launch ke baad bhi support."
+        });
+        Object.assign(T.hi, {
+            nx1: "अगला प्रोजेक्ट आपका?",
+            nx2: "अगली सफलता की कहानी आपका बिज़नेस हो सकता है। चलिए साथ मिलकर वेबसाइट प्लान करते हैं।",
+            nx3: "प्रोजेक्ट शुरू करें",
+            nxc: "अगला",
+            r0: "क्लाइंट रिव्यू",
+            r1: 'हमारे क्लाइंट <span class="g">क्या कहते हैं।</span>',
+            rt1: "हमारे स्कूल की वेबसाइट बहुत प्रोफेशनल लगती है और पैरेंट्स को एडमिशन की जानकारी आसानी से मिल जाती है।",
+            rt2: "क्लिनिक की वेबसाइट मोबाइल पर बहुत स्मूद चलती है और अपॉइंटमेंट की पूछताछ बढ़ी है।",
+            rt3: "साफ़ डिज़ाइन और स्पष्ट सेवाएँ। अब क्लाइंट हमारी फर्म को ज़्यादा गंभीरता से लेते हैं।",
+            rt4: "मेन्यू और फोटो शानदार लगते हैं। समय पर डिलीवरी मिली और सारे बदलाव भी हुए।",
+            rt5: "अब लिस्टिंग दिखाना बहुत आसान हो गया। तेज़, responsive और लॉन्च के बाद भी सपोर्ट।"
+        });
 
-                h: {
-                    n1: "Services",
-                    n2: "Projects",
-                    n3: "Process",
-                    n4: "Contact",
-                    pill: "Kanpur se, poore Bharat ke liye",
-                    h1: 'Websites jo aapke <span class="g">business ko udaan</span> dein.',
-                    sub: "Fast, responsive aur business-focused websites — strong first impression se smooth customer journey tak.",
-                    c1: "Projects dekhein →",
-                    c2: "Project discuss karein",
-                    f1: "⚡ Fast & responsive",
-                    f2: "🎨 Modern design",
-                    f3: "📈 Growth focused",
-                    st1: "Live projects",
-                    st2: "Industries",
-                    st3: "Responsive",
-                    st4: "End-to-end approach",
-                    s0: "Hum kya karte hain",
-                    s1: 'Aapke business ke liye <span class="g">digital solutions.</span>',
-                    v1t: "Business Websites",
-                    v1d: "Professional websites jo trust build karein, services explain karein aur visitors ko enquiries mein convert karein.",
-                    v2t: "Landing Pages",
-                    v2d: "Campaigns aur lead generation ke liye conversion-ready pages.",
-                    v3t: "Web Development",
-                    v3d: "PHP, Laravel, MySQL aur modern front-end solutions.",
-                    v4t: "E-commerce",
-                    v4d: "Online store jahan browsing aur product enquiry simple ho.",
-                    v5t: "Responsive Redesign",
-                    v5d: "Purani website ko clean, mobile-friendly look dena.",
-                    v6t: "Maintenance & Support",
-                    v6d: "Regular updates aur ongoing improvements.",
-                    w0: "Selected projects",
-                    w1: 'Alag industries. <span class="g">Same quality.</span>',
-                    fa: "All",
-                    fb: "Business",
-                    fs: "Services",
-                    fc: "Commerce",
-                    fm: "Media",
-                    live: "Live project dekhein",
-                    d0: "Property listings aur real estate services showcase karne wala website.",
-                    d1: "School ki academics, facilities aur admissions ki information.",
-                    d2: "Menu, ambience aur customer info ke saath restaurant experience.",
-                    d3: "Doctor profile aur healthcare services ko easy to find banane wali website.",
-                    d4: "Services aur professional credibility ke liye CA firm website.",
-                    d5: "Modern shopping aesthetic ke saath fashion storefront.",
-                    d6: "Practice areas, profile aur contact details highlight karne wali legal website.",
-                    d7: "Logistics services aur clear customer journey wali business website.",
-                    d8: "Legal services ki professional digital identity.",
-                    d9: "Structured reading experience wala digital news platform.",
-                    a0: "Kaam karne ka tareeka",
-                    a1: 'Clear process. <span class="g">Better outcome.</span>',
-                    g1t: "Discover",
-                    g1d: "Business, audience aur goals samajhte hain.",
-                    g2t: "Plan",
-                    g2d: "Structure, content flow aur design direction.",
-                    g3t: "Design & Develop",
-                    g3d: "Fast, responsive aur clean build.",
-                    g4t: "Review & Launch",
-                    g4d: "Testing, feedback aur launch support.",
-                    ct: "Business idea hai? Chaliye use website bana dete hain.",
-                    cd: "Apna plan share karein — hum right approach aur next steps batayenge.",
-                    cb: "Let's build something →",
-                    k0: "Let's connect",
-                    k1: 'Aapki next website ek <span class="g">conversation</span> se start hoti hai.',
-                    k2: "Apne business aur requirements ke baare mein batayein. Hum aapse contact karenge.",
-                    ke: "Email",
-                    kl: "Based in",
-                    kw: "WhatsApp / Call",
-                    kr: "Response time",
-                    krt: "Usually 1–2 business days mein",
-                    l1: "Aapka naam",
-                    l2: "Phone / WhatsApp",
-                    l3: "Email address",
-                    l4: "Aapko kya chahiye?",
-                    l5: "Project ke baare mein batayein",
-                    p1: "Apna naam likhein",
-                    p2: "Apne idea ki kuch details...",
-                    send: "Project enquiry bhejein ✈️",
-                    note: "Submit karte hi enquiry WhatsApp par ready message ke roop mein open hogi — bas send dabayein.",
-                    ft: "Digital Soch. Smart Solutions. Real Growth.",
-                },
+        let cur = "e";
+        const $ = s => document.querySelector(s),
+            $$ = s => [...document.querySelectorAll(s)];
 
-                hi: {
-                    n1: "सेवाएँ",
-                    n2: "प्रोजेक्ट",
-                    n3: "प्रक्रिया",
-                    n4: "संपर्क",
-                    pill: "कानपुर से, पूरे भारत के लिए",
-                    h1: 'ऐसी वेबसाइट जो आपके <span class="g">बिज़नेस को उड़ान</span> दे।',
-                    sub: "तेज़, responsive और बिज़नेस पर केंद्रित वेबसाइट — बेहतरीन पहली छाप से आसान ग्राहक अनुभव तक।",
-                    c1: "हमारा काम देखें →",
-                    c2: "अपने प्रोजेक्ट पर बात करें",
-                    f1: "⚡ तेज़ और responsive",
-                    f2: "🎨 आधुनिक डिज़ाइन",
-                    f3: "📈 ग्रोथ पर फोकस",
-                    st1: "लाइव प्रोजेक्ट",
-                    st2: "इंडस्ट्री",
-                    st3: "रेस्पॉन्सिव",
-                    st4: "शुरू से अंत तक",
-                    s0: "हम क्या करते हैं",
-                    s1: 'आपके बिज़नेस के लिए <span class="g">डिजिटल समाधान।</span>',
-                    v1t: "बिज़नेस वेबसाइट",
-                    v1d: "प्रोफेशनल वेबसाइट जो भरोसा बनाए, सेवाएँ समझाए और visitors को enquiries में बदले।",
-                    v2t: "लैंडिंग पेज",
-                    v2d: "कैंपेन और लीड जनरेशन के लिए conversion-ready पेज।",
-                    v3t: "वेब डेवलपमेंट",
-                    v3d: "PHP, Laravel, MySQL और आधुनिक front-end समाधान।",
-                    v4t: "ई-कॉमर्स",
-                    v4d: "ऑनलाइन स्टोर जहाँ प्रोडक्ट देखना और पूछताछ करना आसान हो।",
-                    v5t: "वेबसाइट रीडिज़ाइन",
-                    v5d: "पुरानी वेबसाइट को साफ़ और मोबाइल-फ्रेंडली रूप देना।",
-                    v6t: "मेंटेनेंस और सपोर्ट",
-                    v6d: "नियमित अपडेट और लगातार सुधार।",
-                    w0: "चुने हुए प्रोजेक्ट",
-                    w1: 'अलग-अलग इंडस्ट्री। <span class="g">एक ही क्वालिटी।</span>',
-                    fa: "सभी",
-                    fb: "बिज़नेस",
-                    fs: "सर्विस",
-                    fc: "कॉमर्स",
-                    fm: "मीडिया",
-                    live: "लाइव प्रोजेक्ट देखें",
-                    d0: "प्रॉपर्टी लिस्टिंग और रियल एस्टेट सेवाएँ दिखाने वाली वेबसाइट।",
-                    d1: "स्कूल की पढ़ाई, सुविधाएँ और एडमिशन की जानकारी।",
-                    d2: "मेन्यू, माहौल और ज़रूरी जानकारी के साथ रेस्टोरेंट अनुभव।",
-                    d3: "डॉक्टर की प्रोफाइल और हेल्थकेयर सेवाओं की आसान जानकारी।",
-                    d4: "सेवाओं और प्रोफेशनल पहचान के लिए CA फर्म वेबसाइट।",
-                    d5: "आधुनिक शॉपिंग अनुभव वाला फैशन स्टोर।",
-                    d6: "प्रैक्टिस एरिया, प्रोफाइल और संपर्क जानकारी वाली लीगल वेबसाइट।",
-                    d7: "लॉजिस्टिक्स सेवाओं को साफ़ दिखाने वाली बिज़नेस वेबसाइट।",
-                    d8: "लीगल सेवाओं की प्रोफेशनल डिजिटल पहचान।",
-                    d9: "व्यवस्थित पढ़ने के अनुभव वाला डिजिटल न्यूज़ प्लेटफॉर्म।",
-                    a0: "हम कैसे काम करते हैं",
-                    a1: 'स्पष्ट प्रक्रिया। <span class="g">बेहतर परिणाम।</span>',
-                    g1t: "समझना",
-                    g1d: "आपके बिज़नेस, ग्राहकों और लक्ष्य को समझते हैं।",
-                    g2t: "प्लानिंग",
-                    g2d: "स्ट्रक्चर, कंटेंट और डिज़ाइन की दिशा तय करते हैं।",
-                    g3t: "डिज़ाइन और डेवलपमेंट",
-                    g3d: "तेज़, responsive और साफ़ वेबसाइट बनाते हैं।",
-                    g4t: "रिव्यू और लॉन्च",
-                    g4d: "टेस्टिंग, फीडबैक और लॉन्च में मदद।",
-                    ct: "बिज़नेस का आइडिया है? उसे वेबसाइट में बदलते हैं।",
-                    cd: "अपना प्लान बताइए — हम सही तरीका और अगले कदम बताएँगे।",
-                    cb: "चलो कुछ बनाते हैं →",
-                    k0: "संपर्क करें",
-                    k1: 'आपकी अगली वेबसाइट की शुरुआत एक <span class="g">बातचीत</span> से होगी।',
-                    k2: "अपने बिज़नेस और ज़रूरत के बारे में बताइए। हम आपसे संपर्क करेंगे।",
-                    ke: "ईमेल",
-                    kl: "लोकेशन",
-                    kw: "WhatsApp / कॉल",
-                    kr: "जवाब",
-                    krt: "आमतौर पर 1–2 कार्यदिवस में",
-                    l1: "आपका नाम",
-                    l2: "फोन / WhatsApp",
-                    l3: "ईमेल एड्रेस",
-                    l4: "आपको क्या चाहिए?",
-                    l5: "अपने प्रोजेक्ट के बारे में बताएं",
-                    p1: "अपना नाम लिखें",
-                    p2: "अपने आइडिया की कुछ जानकारी...",
-                    send: "प्रोजेक्ट enquiry भेजें ✈️",
-                    note: "Submit करते ही enquiry WhatsApp पर तैयार message के रूप में खुलेगी — बस send दबाएँ।",
-                    ft: "डिजिटल सोच। स्मार्ट समाधान। असली ग्रोथ।",
-                },
-            };
+        const NEXT =
+            `<a class="pc nx rv" data-c="next" href="#contact" aria-label="Your project">
+<div class="shot" style="background:linear-gradient(135deg,var(--a),var(--c))"><div class="mock"><div class="bar"><i></i><i></i><i></i></div><div class="big">✨</div><div class="ln" style="width:70%"></div><div class="ln" style="width:45%"></div></div><span class="chip" data-t="nxc"></span></div>
+<div class="pb"><small>11 / ∞</small><h3 data-t="nx1"></h3><p data-t="nx2"></p><span class="go"><span data-t="nx3"></span><span class="ar">↗</span></span></div></a>`;
 
-            const X = {
-                e: {
-                    title: "DDSOLUTIONS — Digital Soch. Smart Solutions. Real Growth.",
-                    mq: [
-                        "Websites",
-                        "Landing Pages",
-                        "E-commerce",
-                        "Web Apps",
-                        "Redesign",
-                        "Support",
-                    ],
-                    demo: "▶ Live demo",
-                    c0: "Real Estate",
-                    c1: "Education",
-                    c2: "Food & Beverage",
-                    c3: "Healthcare",
-                    c4: "Finance",
-                    c5: "Fashion",
-                    c6: "Legal",
-                    c7: "Logistics",
-                    c8: "Legal Services",
-                    c9: "News & Media",
-                    o0: "Select a service",
-                    o1: "Business Website",
-                    o2: "Landing Page",
-                    o3: "E-commerce Website",
-                    o4: "Web Application",
-                    o5: "Website Redesign",
-                    o6: "Other",
-                    wf0: "Client journey · DDSOLUTIONS",
-                    wf1: 'From idea to <span class="g">live website</span> — every step planned.',
-                    wf2: "We work with you to understand requirements, share design previews, collect feedback and — after approval — develop and launch your website.",
-                    wn1: "01 / DISCOVERY",
-                    wt1: "Client discussion & requirements",
-                    wd1: "We understand your business goals, audience, pages, features, reference websites and required content in detail.",
-                    wn2: "02 / PLANNING",
-                    wt2: "Structure & wireframe planning",
-                    wd2: "We plan the page structure, navigation, user journey and mobile layout, and show you the direction.",
-                    wn3: "03 / DESIGN PREVIEW",
-                    wt3: "Design presentation & feedback",
-                    wd3: "We share the visual style and page previews with you, then finalize the changes you approve.",
-                    wn4: "04 / DEVELOPMENT",
-                    wt4: "Development, testing & launch",
-                    wd4: "We turn the approved design into a responsive website, test the key screens and support you through launch.",
-                    wnote: "<strong>Client communication:</strong> We share progress and previews at every important stage, so you always know which phase your project is in and what comes next.",
-                    y0: "Why DDSOLUTIONS",
-                    y1: 'Built to <span class="g">help you grow.</span>',
-                    yt1: "Mobile-first design",
-                    yd1: "Most visitors browse on phones, so every layout starts from the mobile screen.",
-                    yt2: "Fast & lightweight",
-                    yd2: "Clean code and optimized assets for quick loading.",
-                    yt3: "SEO-friendly structure",
-                    yd3: "Semantic markup and clear page structure that search engines understand.",
-                    yt4: "Transparent communication",
-                    yd4: "Regular previews and updates — no surprises at launch.",
-                    yt5: "Clean, maintainable code",
-                    yd5: "Well-organised code that is easy to update and extend later.",
-                    yt6: "Post-launch support",
-                    yd6: "Content changes, fixes and improvements after your site goes live.",
-                    tc0: "Our toolkit",
-                    tc1: 'The right tools for <span class="g">the right job.</span>',
-                    q0: "FAQ",
-                    q1: 'Questions? <span class="g">We have answers.</span>',
-                    fq1: "How long does a website take?",
-                    fa1: "It depends on the number of pages and features. After discussing your requirements we share a clear timeline.",
-                    fq2: "Will my website work on mobile?",
-                    fa2: "Yes. Every website we build is responsive and tested on common screen sizes.",
-                    fq3: "Do you provide support after launch?",
-                    fa3: "Yes. We help with updates, content changes and ongoing improvements.",
-                    fq4: "Can you redesign my existing website?",
-                    fa4: "Yes. We can refresh the layout, improve the mobile experience and keep your content.",
-                    fq5: "What do I need to get started?",
-                    fa5: "Just your business details and idea. A logo, content and reference sites help — but if you don't have them yet, we'll help you plan.",
-                    vn1: "Please enter your name.",
-                    vn2: "Name must be at least 2 characters.",
-                    vn3: "Name is too long.",
-                    vp1: "Please enter your WhatsApp/mobile number.",
-                    vp2: "Enter a valid 10-digit Indian mobile number (optional +91).",
-                    ve1: "Please enter your email address.",
-                    ve2: "Please enter a valid email address.",
-                    vs: "Please select a service.",
-                    vm1: "Please tell us about your project.",
-                    vm2: "Please add at least 15 characters.",
-                    vm3: "Please keep your message under 1200 characters.",
-                },
-                h: {
-                    title: "DDSOLUTIONS — Digital Soch. Smart Solutions. Real Growth.",
-                    mq: [
-                        "Websites",
-                        "Landing Pages",
-                        "E-commerce",
-                        "Web Apps",
-                        "Redesign",
-                        "Support",
-                    ],
-                    demo: "▶ Live demo",
-                    c0: "Real Estate",
-                    c1: "Education",
-                    c2: "Food & Beverage",
-                    c3: "Healthcare",
-                    c4: "Finance",
-                    c5: "Fashion",
-                    c6: "Legal",
-                    c7: "Logistics",
-                    c8: "Legal Services",
-                    c9: "News & Media",
-                    o0: "Service select karein",
-                    o1: "Business Website",
-                    o2: "Landing Page",
-                    o3: "E-commerce Website",
-                    o4: "Web Application",
-                    o5: "Website Redesign",
-                    o6: "Other",
-                    wf0: "Client journey · DDSOLUTIONS",
-                    wf1: 'Idea se <span class="g">live website</span> tak — har step planned.',
-                    wf2: "Hum client ke saath milkar requirements samajhte hain, design ka preview share karte hain, feedback lete hain aur approval ke baad website develop karke launch karte hain.",
-                    wn1: "01 / DISCOVERY",
-                    wt1: "Client discussion & requirements",
-                    wd1: "Business goals, audience, pages, features, reference websites aur required content ko detail mein samajhte hain.",
-                    wn2: "02 / PLANNING",
-                    wt2: "Structure & wireframe planning",
-                    wd2: "Website ka page structure, navigation, user journey aur mobile layout plan karke client ko direction dikhate hain.",
-                    wn3: "03 / DESIGN PREVIEW",
-                    wt3: "Design presentation & feedback",
-                    wd3: "Visual style aur page previews client ke saath share karte hain. Feedback ke hisaab se agreed changes finalize karte hain.",
-                    wn4: "04 / DEVELOPMENT",
-                    wt4: "Development, testing & launch",
-                    wd4: "Approved design ko responsive website mein convert karte hain, important screens test karte hain aur launch mein support dete hain.",
-                    wnote: "<strong>Client communication:</strong> Har important stage par progress aur preview share kiya jata hai, taaki client ko pata rahe ki project kis phase mein hai aur next step kya hoga.",
-                    y0: "Kyun DDSOLUTIONS",
-                    y1: 'Aapki growth ke liye <span class="g">banaya gaya.</span>',
-                    yt1: "Mobile-first design",
-                    yd1: "Zyada visitors phone par browse karte hain, isliye har layout mobile screen se start hota hai.",
-                    yt2: "Fast & lightweight",
-                    yd2: "Clean code aur optimized assets ke saath quick loading.",
-                    yt3: "SEO-friendly structure",
-                    yd3: "Semantic markup aur clear page structure jo search engines samajh sakein.",
-                    yt4: "Transparent communication",
-                    yd4: "Regular previews aur updates — launch par koi surprise nahi.",
-                    yt5: "Clean, maintainable code",
-                    yd5: "Well-organised code jise baad mein update aur extend karna easy ho.",
-                    yt6: "Post-launch support",
-                    yd6: "Website live hone ke baad content changes, fixes aur improvements.",
-                    tc0: "Our toolkit",
-                    tc1: 'Right tools for <span class="g">the right job.</span>',
-                    q0: "FAQ",
-                    q1: 'Sawaal hain? <span class="g">Jawab yahan hain.</span>',
-                    fq1: "Website banne mein kitna time lagta hai?",
-                    fa1: "Yeh pages aur features ki sankhya par depend karta hai. Requirements discuss karne ke baad hum clear timeline share karte hain.",
-                    fq2: "Kya meri website mobile par chalegi?",
-                    fa2: "Haan. Hamari har website responsive hoti hai aur common screen sizes par test ki jaati hai.",
-                    fq3: "Kya launch ke baad support milega?",
-                    fa3: "Haan. Updates, content changes aur improvements mein help karte hain.",
-                    fq4: "Kya aap meri existing website redesign kar sakte hain?",
-                    fa4: "Haan. Hum layout refresh kar sakte hain, mobile experience better bana sakte hain aur aapka content rakh sakte hain.",
-                    fq5: "Start karne ke liye mujhe kya chahiye?",
-                    fa5: "Bas aapke business ki details aur idea. Logo, content aur reference sites help karte hain — nahi hain to hum plan karne mein madad karenge.",
-                    vn1: "Kripya apna naam likhein.",
-                    vn2: "Naam kam se kam 2 characters ka hona chahiye.",
-                    vn3: "Naam bahut lamba hai.",
-                    vp1: "Kripya WhatsApp/mobile number likhein.",
-                    vp2: "Valid 10-digit Indian mobile number likhein (+91 optional).",
-                    ve1: "Kripya email address likhein.",
-                    ve2: "Kripya valid email address likhein.",
-                    vs: "Kripya service select karein.",
-                    vm1: "Kripya apne project ke baare mein batayein.",
-                    vm2: "Kam se kam 15 characters likhein.",
-                    vm3: "Message 1200 characters se kam rakhein.",
-                },
-                hi: {
-                    title: "DDSOLUTIONS — डिजिटल सोच। स्मार्ट सॉल्यूशंस। असली ग्रोथ।",
-                    mq: [
-                        "वेबसाइट",
-                        "लैंडिंग पेज",
-                        "ई-कॉमर्स",
-                        "वेब ऐप",
-                        "रीडिज़ाइन",
-                        "सपोर्ट",
-                    ],
-                    demo: "▶ लाइव डेमो",
-                    c0: "रियल एस्टेट",
-                    c1: "शिक्षा",
-                    c2: "फ़ूड एंड बेवरेज",
-                    c3: "हेल्थकेयर",
-                    c4: "फ़ाइनेंस",
-                    c5: "फ़ैशन",
-                    c6: "लीगल",
-                    c7: "लॉजिस्टिक्स",
-                    c8: "लीगल सर्विसेज़",
-                    c9: "न्यूज़ और मीडिया",
-                    o0: "सेवा चुनें",
-                    o1: "बिज़नेस वेबसाइट",
-                    o2: "लैंडिंग पेज",
-                    o3: "ई-कॉमर्स वेबसाइट",
-                    o4: "वेब एप्लिकेशन",
-                    o5: "वेबसाइट रीडिज़ाइन",
-                    o6: "अन्य",
-                    wf0: "क्लाइंट जर्नी · DDSOLUTIONS",
-                    wf1: 'आइडिया से <span class="g">लाइव वेबसाइट</span> तक — हर कदम प्लान्ड।',
-                    wf2: "हम आपके साथ मिलकर ज़रूरतें समझते हैं, डिज़ाइन का प्रीव्यू दिखाते हैं, फीडबैक लेते हैं और अप्रूवल के बाद वेबसाइट बनाकर लॉन्च करते हैं।",
-                    wn1: "01 / समझना",
-                    wt1: "क्लाइंट चर्चा और ज़रूरतें",
-                    wd1: "आपके बिज़नेस लक्ष्य, ग्राहक, पेज, फीचर्स, रेफ़रेंस वेबसाइट और ज़रूरी कंटेंट को विस्तार से समझते हैं।",
-                    wn2: "02 / प्लानिंग",
-                    wt2: "स्ट्रक्चर और वायरफ्रेम प्लानिंग",
-                    wd2: "वेबसाइट का पेज स्ट्रक्चर, नेविगेशन, यूज़र जर्नी और मोबाइल लेआउट प्लान करके दिशा दिखाते हैं।",
-                    wn3: "03 / डिज़ाइन प्रीव्यू",
-                    wt3: "डिज़ाइन प्रेज़ेंटेशन और फीडबैक",
-                    wd3: "विज़ुअल स्टाइल और पेज प्रीव्यू आपके साथ साझा करते हैं और आपके फीडबैक के अनुसार बदलाव फ़ाइनल करते हैं।",
-                    wn4: "04 / डेवलपमेंट",
-                    wt4: "डेवलपमेंट, टेस्टिंग और लॉन्च",
-                    wd4: "अप्रूव्ड डिज़ाइन को responsive वेबसाइट में बदलते हैं, मुख्य स्क्रीन टेस्ट करते हैं और लॉन्च में मदद करते हैं।",
-                    wnote: "<strong>क्लाइंट कम्युनिकेशन:</strong> हर अहम चरण पर प्रगति और प्रीव्यू साझा किया जाता है, ताकि आपको पता रहे कि प्रोजेक्ट किस चरण में है और आगे क्या होगा।",
-                    y0: "DDSOLUTIONS क्यों",
-                    y1: 'आपकी ग्रोथ के लिए <span class="g">बनाया गया।</span>',
-                    yt1: "मोबाइल-फर्स्ट डिज़ाइन",
-                    yd1: "ज़्यादातर लोग फोन पर ब्राउज़ करते हैं, इसलिए हर लेआउट मोबाइल स्क्रीन से शुरू होता है।",
-                    yt2: "तेज़ और हल्की",
-                    yd2: "साफ़ कोड और ऑप्टिमाइज़्ड एसेट्स के साथ तेज़ लोडिंग।",
-                    yt3: "SEO-फ्रेंडली स्ट्रक्चर",
-                    yd3: "सिमैंटिक मार्कअप और साफ़ पेज स्ट्रक्चर जिसे सर्च इंजन समझ सकें।",
-                    yt4: "पारदर्शी कम्युनिकेशन",
-                    yd4: "नियमित प्रीव्यू और अपडेट — लॉन्च पर कोई सरप्राइज़ नहीं।",
-                    yt5: "साफ़ और आसान कोड",
-                    yd5: "व्यवस्थित कोड जिसे बाद में अपडेट और बढ़ाना आसान हो।",
-                    yt6: "लॉन्च के बाद सपोर्ट",
-                    yd6: "वेबसाइट लाइव होने के बाद कंटेंट बदलाव, फिक्स और सुधार।",
-                    tc0: "हमारी टेक्नोलॉजी",
-                    tc1: 'सही काम के लिए <span class="g">सही टूल्स।</span>',
-                    q0: "अक्सर पूछे जाने वाले सवाल",
-                    q1: 'सवाल हैं? <span class="g">जवाब यहाँ हैं।</span>',
-                    fq1: "वेबसाइट बनने में कितना समय लगता है?",
-                    fa1: "यह पेज और फीचर्स की संख्या पर निर्भर करता है। ज़रूरतें समझने के बाद हम साफ़ टाइमलाइन बताते हैं।",
-                    fq2: "क्या मेरी वेबसाइट मोबाइल पर चलेगी?",
-                    fa2: "हाँ। हमारी हर वेबसाइट responsive होती है और आम स्क्रीन साइज़ पर टेस्ट की जाती है।",
-                    fq3: "क्या लॉन्च के बाद सपोर्ट मिलेगा?",
-                    fa3: "हाँ। अपडेट, कंटेंट बदलाव और सुधार में हम मदद करते हैं।",
-                    fq4: "क्या आप मेरी मौजूदा वेबसाइट रीडिज़ाइन कर सकते हैं?",
-                    fa4: "हाँ। हम लेआउट नया कर सकते हैं, मोबाइल अनुभव बेहतर बना सकते हैं और आपका कंटेंट रख सकते हैं।",
-                    fq5: "शुरू करने के लिए मुझे क्या चाहिए?",
-                    fa5: "बस आपके बिज़नेस की जानकारी और आइडिया। लोगो, कंटेंट और रेफ़रेंस साइट मदद करते हैं — न हों तो हम प्लानिंग में मदद करेंगे।",
-                    vn1: "कृपया अपना नाम लिखें।",
-                    vn2: "नाम कम से कम 2 अक्षरों का होना चाहिए।",
-                    vn3: "नाम बहुत लंबा है।",
-                    vp1: "कृपया WhatsApp/मोबाइल नंबर लिखें।",
-                    vp2: "सही 10 अंकों का भारतीय मोबाइल नंबर लिखें (+91 वैकल्पिक)।",
-                    ve1: "कृपया ईमेल एड्रेस लिखें।",
-                    ve2: "कृपया सही ईमेल एड्रेस लिखें।",
-                    vs: "कृपया सेवा चुनें।",
-                    vm1: "कृपया अपने प्रोजेक्ट के बारे में बताएं।",
-                    vm2: "कम से कम 15 अक्षर लिखें।",
-                    vm3: "संदेश 1200 अक्षरों से कम रखें।",
-                },
-            };
-            for (const k in X) Object.assign(T[k], X[k]);
-            let cur = "h";
-            const $ = (s) => document.querySelector(s),
-                $$ = (s) => [...document.querySelectorAll(s)];
-            $("#grid").innerHTML = P.map(
-                (
-                    p,
-                    i,
-                ) => `<a class="pc rv" data-c="${p[1]}" href="${p[2]}" target="_blank" rel="noopener" aria-label="${p[0]}" style="transition-delay:${(i % 3) * 0.1}s">
+        $("#grid").innerHTML = P.map((p, i) =>
+            `<a class="pc rv" data-c="${p[1]}" href="${p[2]}" target="_blank" rel="noopener" aria-label="${p[0]}" style="transition-delay:${(i%3)*.1}s">
 <div class="shot" style="background:linear-gradient(135deg,${p[4]},${p[5]})"><div class="mock"><div class="bar"><i></i><i></i><i></i></div><div class="big">${p[6]}</div><div class="ln" style="width:70%"></div><div class="ln" style="width:45%"></div></div>
-<img loading="lazy" alt="${p[0]}" src="images/${i + 1}.png" onerror="this.remove()">
-<video muted loop playsinline preload="metadata" src="video/${i + 1}.mp4" onloadedmetadata="this.closest('.pc').classList.add('hasv')" onerror="this.remove()"></video>
+<img loading="lazy" alt="${p[0]}" src="images/${i+1}.png" onerror="this.remove()">
+<video muted loop playsinline preload="metadata" src="video/${i+1}.mp4" onloadedmetadata="this.closest('.pc').classList.add('hasv')" onerror="this.remove()"></video>
 <span class="demo" data-t="demo"></span><span class="chip" data-t="c${i}"></span></div>
-<div class="pb"><small>${String(i + 1).padStart(2, "0")} / 10</small><h3>${p[0]}</h3><p data-t="d${i}"></p><span class="go"><span data-t="live"></span><span class="ar">↗</span></span></div></a>`,
-            ).join("");
-            const play = (c) => {
-                    const v = c.querySelector("video");
-                    if (!v) return;
-                    v.muted = true;
-                    const r = v.play();
-                    if (r && r.then)
-                        r.then(() => c.classList.add("play")).catch(() => {});
-                    else c.classList.add("play");
-                },
-                stop = (c) => {
-                    c.classList.remove("play");
-                    const v = c.querySelector("video");
-                    if (v) {
-                        v.pause();
-                        try {
-                            v.currentTime = 0;
-                        } catch (e) {}
-                    }
-                };
-            const vio = new IntersectionObserver(
-                (es) =>
-                    es.forEach((e) =>
-                        e.isIntersecting ? play(e.target) : stop(e.target),
-                    ),
-                { threshold: 0.75 },
-            );
-            $$(".pc").forEach((c) => {
-                if (matchMedia("(hover:hover)").matches) {
-                    c.onmouseenter = () => play(c);
-                    c.onmouseleave = () => stop(c);
-                    c.onfocus = () => play(c);
-                    c.onblur = () => stop(c);
-                } else vio.observe(c);
-            });
+<div class="pb"><small>${String(i+1).padStart(2,"0")} / 10</small><h3>${p[0]}</h3><p data-t="d${i}"></p><span class="go"><span data-t="live"></span><span class="ar">↗</span></span></div></a>`
+            ).join("") + NEXT;
 
-            const get = (k) => {
+        /* Reviews */
+        const REV = [
+            ["Rajesh Tripathi", "Principal · Kanpur"],
+            ["Dr. Neha Srivastava", "Clinic Owner · Lucknow"],
+            ["CA Amit Agarwal", "CA Firm · Kanpur"],
+            ["Priya Sharma", "Restaurant Owner · Prayagraj"],
+            ["Vikram Singh Chauhan", "Property Dealer · Agra"]
+        ];
+        $("#rtrack").innerHTML = REV.map((r, i) =>
+            `<article class="rc"><div class="stars">★★★★★</div><p data-t="rt${i+1}"></p><div class="who"><b>${r[0].replace("Dr. ","").replace("CA ","").split(" ").map(w=>w[0]).slice(0,2).join("")}</b><div><strong>${r[0]}</strong><span>${r[1]}</span></div></div></article>`
+            ).join("");
+        (() => {
+            const rt = $("#rtrack");
+            let ri = 0,
+                hold = false,
+                t;
+            const pause = () => {
+                hold = true;
+                clearTimeout(t);
+                t = setTimeout(() => {
+                    hold = false;
+                    ri = Math.round(rt.scrollLeft / (rt.children[0].offsetWidth + 14))
+                }, 4000)
+            };
+            rt.addEventListener("touchstart", pause, {
+                passive: true
+            });
+            rt.addEventListener("touchmove", pause, {
+                passive: true
+            });
+            setInterval(() => {
+                if (hold || !matchMedia("(max-width:760px)").matches) return;
+                ri = (ri + 1) % rt.children.length;
+                rt.scrollTo({
+                    left: rt.children[ri].offsetLeft,
+                    behavior: "smooth"
+                });
+            }, 3000);
+        })();
+
+        const play = c => {
+                const v = c.querySelector("video");
+                if (!v) return;
+                v.muted = true;
+                const r = v.play();
+                if (r && r.then) r.then(() => c.classList.add("play")).catch(() => {});
+                else c.classList.add("play")
+            },
+            stop = c => {
+                c.classList.remove("play");
+                const v = c.querySelector("video");
+                if (v) {
+                    v.pause();
                     try {
-                        return localStorage.getItem(k);
-                    } catch (e) {
-                        return null;
+                        v.currentTime = 0
+                    } catch (e) {}
+                }
+            };
+        const vio = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? play(e.target) : stop(e.target)), {
+            threshold: .75
+        });
+        $$(".pc").forEach(c => {
+            if (matchMedia("(hover:hover)").matches) {
+                c.onmouseenter = () => play(c);
+                c.onmouseleave = () => stop(c);
+                c.onfocus = () => play(c);
+                c.onblur = () => stop(c)
+            } else vio.observe(c);
+        });
+
+        const get = k => {
+                try {
+                    return localStorage.getItem(k)
+                } catch (e) {
+                    return null
+                }
+            },
+            set = (k, v) => {
+                try {
+                    localStorage.setItem(k, v)
+                } catch (e) {}
+            };
+
+        function lang(l) {
+            if (!T[l]) l = "e";
+            const d = T[l];
+            $$("[data-t]").forEach(e => {
+                if (d[e.dataset.t] !== undefined) e.innerHTML = d[e.dataset.t]
+            });
+            $$("[data-tp]").forEach(e => e.placeholder = d[e.dataset.tp]);
+            cur = l;
+            $("#mq").innerHTML = [...d.mq, ...d.mq, ...d.mq, ...d.mq].map(w => `<span>${w}</span><span>✦</span>`).join("");
+            document.title = d.title;
+            const vd = window.jQuery && jQuery("#cf").data("validator");
+            if (vd) jQuery("#cf .error").each((i, e) => vd.element(e));
+            document.documentElement.lang = l === "hi" ? "hi" : "en";
+            $("#lang").value = l;
+            set("dd-l", l);
+        }
+
+        function theme(t) {
+            document.documentElement.dataset.theme = t;
+            $("#tg").textContent = t === "dark" ? "☀️" : "🌙";
+            $("#tg").title = t === "dark" ? "Light mode" : "Dark mode";
+            set("dd-t", t);
+        }
+        lang(get("dd-l") || "e");
+        theme(get("dd-t") || "dark");
+        $("#lang").onchange = e => lang(e.target.value);
+        $("#tg").onclick = () => theme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+        const menu = o => {
+            $("#links").classList.toggle("open", o);
+            $("#bg").textContent = o ? "✕" : "☰";
+            $("#bg").setAttribute("aria-expanded", o)
+        };
+        $("#bg").onclick = e => {
+            e.stopPropagation();
+            menu(!$("#links").classList.contains("open"))
+        };
+        $$("#links a").forEach(a => a.onclick = () => menu(false));
+        document.addEventListener("click", e => {
+            if (!e.target.closest("nav")) menu(false)
+        });
+        $("#yr").textContent = new Date().getFullYear();
+
+        $("#fl").onclick = e => {
+            const b = e.target.closest(".fl");
+            if (!b) return;
+            $$(".fl").forEach(x => x.classList.remove("on"));
+            b.classList.add("on");
+            $$(".pc").forEach(c => c.style.display = b.dataset.f === "all" || c.dataset.c === b.dataset.f || c.classList
+                .contains("nx") ? "" : "none");
+        };
+
+        const io = new IntersectionObserver(es => es.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add("v");
+                io.unobserve(e.target);
+                const n = e.target.querySelector("[data-n]");
+                if (n) {
+                    const to = +n.dataset.n,
+                        s = n.dataset.s || "+";
+                    let t0 = null;
+                    const f = t => {
+                        t0 = t0 || t;
+                        const p = Math.min((t - t0) / 1400, 1);
+                        n.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + (p === 1 ? s : "");
+                        if (p < 1) requestAnimationFrame(f)
+                    };
+                    requestAnimationFrame(f);
+                }
+            }
+        }), {
+            threshold: .12
+        });
+        $$(".rv").forEach(e => io.observe(e));
+
+        addEventListener("scroll", () => {
+            const h = document.documentElement;
+            $("#bar").style.width = (scrollY / (h.scrollHeight - innerHeight)) * 100 + "%"
+        }, {
+            passive: true
+        });
+        document.addEventListener("mousemove", e => {
+            const g = $("#glow");
+            g.style.left = e.clientX + "px";
+            g.style.top = e.clientY + "px";
+            const c = e.target.closest && e.target.closest(".card,.pc");
+            $$(".card,.pc").forEach(x => {
+                if (x !== c) x.style.transform = ""
+            });
+            if (!c) return;
+            const r = c.getBoundingClientRect(),
+                x = (e.clientX - r.left) / r.width,
+                y = (e.clientY - r.top) / r.height;
+            c.style.setProperty("--x", x * 100 + "%");
+            c.style.setProperty("--y", y * 100 + "%");
+            c.style.transform =
+                `perspective(900px) rotateX(${(.5-y)*7}deg) rotateY(${(x-.5)*9}deg) translateY(-6px)`;
+        });
+
+        jQuery(function($) {
+            const m = k => () => T[cur][k];
+            $("#cf").validate({
+                errorElement: "span",
+                errorClass: "field-error",
+                errorPlacement: (er, el) => er.insertAfter(el),
+                highlight: el => $(el).addClass("error").removeClass("valid"),
+                unhighlight: el => $(el).removeClass("error").addClass("valid"),
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 60
+                    },
+                    phone: {
+                        required: true,
+                        normalizer: v => $.trim(v),
+                        pattern: /^(?:\+91[- ]?)?[6-9]\d{9}$/
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    service: {
+                        required: true
+                    },
+                    message: {
+                        required: true,
+                        minlength: 15,
+                        maxlength: 1200
                     }
                 },
-                set = (k, v) => {
-                    try {
-                        localStorage.setItem(k, v);
-                    } catch (e) {}
-                };
-            function lang(l) {
-                if (!T[l]) l = "h";
-                const d = T[l];
-                $$("[data-t]").forEach((e) => {
-                    if (d[e.dataset.t] !== undefined)
-                        e.innerHTML = d[e.dataset.t];
-                });
-                $$("[data-tp]").forEach(
-                    (e) => (e.placeholder = d[e.dataset.tp]),
-                );
-                cur = l;
-                $("#mq").innerHTML = [...d.mq, ...d.mq, ...d.mq, ...d.mq]
-                    .map((w) => `<span>${w}</span><span>✦</span>`)
-                    .join("");
-                document.title = d.title;
-                const vd = window.jQuery && jQuery("#cf").data("validator");
-                if (vd) jQuery("#cf .error").each((i, e) => vd.element(e));
-                document.documentElement.lang = l === "hi" ? "hi" : "en";
-                $("#lang").value = l;
-                set("dd-l", l);
-            }
-            function theme(t) {
-                document.documentElement.dataset.theme = t;
-                $("#tg").textContent = t === "dark" ? "☀️" : "🌙";
-                $("#tg").title = t === "dark" ? "Light mode" : "Dark mode";
-                set("dd-t", t);
-            }
-            lang(get("dd-l") || "h");
-            theme(get("dd-t") || "dark");
-            $("#lang").onchange = (e) => lang(e.target.value);
-            $("#tg").onclick = () =>
-                theme(
-                    document.documentElement.dataset.theme === "dark"
-                        ? "light"
-                        : "dark",
-                );
-            const menu = (o) => {
-                $("#links").classList.toggle("open", o);
-                $("#bg").textContent = o ? "✕" : "☰";
-                $("#bg").setAttribute("aria-expanded", o);
-            };
-            $("#bg").onclick = (e) => {
-                e.stopPropagation();
-                menu(!$("#links").classList.contains("open"));
-            };
-            $$("#links a").forEach((a) => (a.onclick = () => menu(false)));
-            document.addEventListener("click", (e) => {
-                if (!e.target.closest("nav")) menu(false);
-            });
-            $("#yr").textContent = new Date().getFullYear();
-            $("#fl").onclick = (e) => {
-                const b = e.target.closest(".fl");
-                if (!b) return;
-                $$(".fl").forEach((x) => x.classList.remove("on"));
-                b.classList.add("on");
-                $$(".pc").forEach(
-                    (c) =>
-                        (c.style.display =
-                            b.dataset.f === "all" || c.dataset.c === b.dataset.f
-                                ? ""
-                                : "none"),
-                );
-            };
-            const io = new IntersectionObserver(
-                (es) =>
-                    es.forEach((e) => {
-                        if (e.isIntersecting) {
-                            e.target.classList.add("v");
-                            io.unobserve(e.target);
-                            const n = e.target.querySelector("[data-n]");
-                            if (n) {
-                                const to = +n.dataset.n,
-                                    s = n.dataset.s || "+";
-                                let t0 = null;
-                                const f = (t) => {
-                                    t0 = t0 || t;
-                                    const p = Math.min((t - t0) / 1400, 1);
-                                    n.textContent =
-                                        Math.round(
-                                            to * (1 - Math.pow(1 - p, 3)),
-                                        ) + (p === 1 ? s : "");
-                                    if (p < 1) requestAnimationFrame(f);
-                                };
-                                requestAnimationFrame(f);
-                            }
-                        }
-                    }),
-                { threshold: 0.12 },
-            );
-            $$(".rv").forEach((e) => io.observe(e));
-            addEventListener(
-                "scroll",
-                () => {
-                    const h = document.documentElement;
-                    $("#bar").style.width =
-                        (scrollY / (h.scrollHeight - innerHeight)) * 100 + "%";
+                messages: {
+                    name: {
+                        required: m("vn1"),
+                        minlength: m("vn2"),
+                        maxlength: m("vn3")
+                    },
+                    phone: {
+                        required: m("vp1"),
+                        pattern: m("vp2")
+                    },
+                    email: {
+                        required: m("ve1"),
+                        email: m("ve2")
+                    },
+                    service: {
+                        required: m("vs")
+                    },
+                    message: {
+                        required: m("vm1"),
+                        minlength: m("vm2"),
+                        maxlength: m("vm3")
+                    }
                 },
-                { passive: true },
-            );
-            document.addEventListener("mousemove", (e) => {
-                const g = $("#glow");
-                g.style.left = e.clientX + "px";
-                g.style.top = e.clientY + "px";
-                const c = e.target.closest && e.target.closest(".card,.pc");
-                $$(".card,.pc").forEach((x) => {
-                    if (x !== c) x.style.transform = "";
-                });
-                if (!c) return;
-                const r = c.getBoundingClientRect(),
-                    x = (e.clientX - r.left) / r.width,
-                    y = (e.clientY - r.top) / r.height;
-                c.style.setProperty("--x", x * 100 + "%");
-                c.style.setProperty("--y", y * 100 + "%");
-                c.style.transform = `perspective(900px) rotateX(${(0.5 - y) * 7}deg) rotateY(${(x - 0.5) * 9}deg) translateY(-6px)`;
+                submitHandler: form => {
+                    const d = Object.fromEntries(new FormData(form));
+                    const b =
+                        `New Website Enquiry - DDSOLUTIONS\n\nName: ${d.name}\nPhone: ${d.phone}\nEmail: ${d.email}\nService: ${d.service}\n\nDetails: ${d.message}`;
+                    window.open("https://wa.me/919369822886?text=" + encodeURIComponent(b), "_blank",
+                        "noopener,noreferrer");
+                }
             });
-            jQuery(function ($) {
-                const m = (k) => () => T[cur][k];
-                $("#cf").validate({
-                    errorElement: "span",
-                    errorClass: "field-error",
-                    errorPlacement: (er, el) => er.insertAfter(el),
-                    highlight: (el) =>
-                        $(el).addClass("error").removeClass("valid"),
-                    unhighlight: (el) =>
-                        $(el).removeClass("error").addClass("valid"),
-                    rules: {
-                        name: { required: true, minlength: 2, maxlength: 60 },
-                        phone: {
-                            required: true,
-                            normalizer: (v) => $.trim(v),
-                            pattern: /^(?:\+91[- ]?)?[6-9]\d{9}$/,
-                        },
-                        email: { required: true, email: true },
-                        service: { required: true },
-                        message: {
-                            required: true,
-                            minlength: 15,
-                            maxlength: 1200,
-                        },
-                    },
-                    messages: {
-                        name: {
-                            required: m("vn1"),
-                            minlength: m("vn2"),
-                            maxlength: m("vn3"),
-                        },
-                        phone: { required: m("vp1"), pattern: m("vp2") },
-                        email: { required: m("ve1"), email: m("ve2") },
-                        service: { required: m("vs") },
-                        message: {
-                            required: m("vm1"),
-                            minlength: m("vm2"),
-                            maxlength: m("vm3"),
-                        },
-                    },
-                    submitHandler: (form) => {
-                        const d = Object.fromEntries(new FormData(form));
-                        const b = `New Website Enquiry - DDSOLUTIONS\n\nName: ${d.name}\nPhone: ${d.phone}\nEmail: ${d.email}\nService: ${d.service}\n\nDetails: ${d.message}`;
-                        window.open(
-                            "https://wa.me/919369822886?text=" +
-                                encodeURIComponent(b),
-                            "_blank",
-                            "noopener,noreferrer",
-                        );
-                    },
-                });
-            });
-        </script>
-    </body>
+        });
+    </script>
+</body>
+
 </html>
