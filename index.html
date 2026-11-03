@@ -7,6 +7,7 @@
     <title>DDSOLUTIONS — Digital Soch. Smart Solutions. Real Growth.</title>
     <meta name="description"
         content="DDSOLUTIONS creates modern websites and smart digital solutions for growing businesses. Based in Kanpur, Uttar Pradesh." />
+    <link rel="icon" type="image/png" href="ddfevi.png" />
     <link
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet" />
@@ -124,7 +125,6 @@
             top: 30%
         }
 
-        /* Normal fixed header (desktop + mobile) */
         nav {
             position: fixed;
             top: 0;
@@ -158,6 +158,13 @@
             font-size: .75rem;
             color: #fff;
             background: linear-gradient(135deg, var(--a), var(--b))
+        }
+
+        .logo-img {
+            height: 34px;
+            width: auto;
+            display: block;
+            object-fit: contain
         }
 
         .links {
@@ -196,17 +203,18 @@
             height: 34px
         }
 
-        .burger {
-            display: none
-        }
-
         .tg,
-        .burger {
+        .sel.burger {
             width: 34px;
             padding: 0;
             display: grid;
             place-items: center;
             font-size: 1rem
+        }
+
+        /* FIX: burger hidden on desktop (higher specificity than .tg,.burger) */
+        .sel.burger {
+            display: none
         }
 
         section {
@@ -897,16 +905,6 @@
             justify-content: center
         }
 
-        footer {
-            position: relative;
-            z-index: 1;
-            padding: 28px 0;
-            border-top: 1px solid var(--l);
-            text-align: center;
-            font-size: .82rem;
-            color: var(--m)
-        }
-
         .wa {
             position: fixed;
             right: 20px;
@@ -1171,6 +1169,97 @@
             color: var(--m)
         }
 
+        /* Footer */
+        footer.site-footer {
+            position: relative;
+            z-index: 1;
+            padding: 56px 0 24px;
+            border-top: 1px solid var(--l);
+            background: var(--s);
+            font-size: .86rem;
+            color: var(--m);
+            text-align: left
+        }
+
+        .ft-top {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: 36px;
+            padding-bottom: 36px;
+            border-bottom: 1px solid var(--l)
+        }
+
+        .ft-brand .ft-logo {
+            height: 46px;
+            width: auto;
+            margin-bottom: 14px;
+            display: block
+        }
+
+        .ft-brand p {
+            font-size: .85rem;
+            max-width: 260px
+        }
+
+        .ft-col {
+            display: flex;
+            flex-direction: column;
+            gap: 9px
+        }
+
+        .ft-col h4 {
+            font-family: "Space Grotesk", Manrope, sans-serif;
+            font-size: .82rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--t);
+            margin-bottom: 4px
+        }
+
+        .ft-col a,
+        .ft-col span {
+            color: var(--m);
+            font-size: .84rem;
+            transition: color .2s;
+            word-break: break-word
+        }
+
+        .ft-col a:hover {
+            color: var(--b)
+        }
+
+        .ft-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            padding-top: 22px;
+            font-size: .8rem
+        }
+
+        .ft-social {
+            display: flex;
+            gap: 10px
+        }
+
+        .ft-social a {
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--s2);
+            border: 1px solid var(--l);
+            font-size: 1rem;
+            transition: .25s
+        }
+
+        .ft-social a:hover {
+            transform: translateY(-3px);
+            border-color: var(--a)
+        }
+
         @media(max-width:900px) {
 
             .bento,
@@ -1195,6 +1284,10 @@
             .floatc {
                 display: none
             }
+
+            .ft-top {
+                grid-template-columns: 1fr 1fr
+            }
         }
 
         @media(max-width:760px) {
@@ -1214,6 +1307,10 @@
                 height: 26px
             }
 
+            .logo-img {
+                height: 28px
+            }
+
             .ctrl {
                 gap: 4px;
                 flex: none
@@ -1229,7 +1326,7 @@
                 width: 32px
             }
 
-            .burger {
+            .sel.burger {
                 display: grid
             }
 
@@ -1313,6 +1410,16 @@
             .wimg {
                 height: 220px
             }
+
+            .ft-top {
+                grid-template-columns: 1fr;
+                gap: 28px
+            }
+
+            .ft-bottom {
+                justify-content: center;
+                text-align: center
+            }
         }
 
         @media(prefers-reduced-motion:reduce) {
@@ -1327,6 +1434,10 @@
                 transform: none
             }
         }
+
+        .rv.v {
+            transition: opacity .8s, transform .25s, border-color .3s, box-shadow .3s
+        }
     </style>
 </head>
 
@@ -1334,17 +1445,16 @@
     <div id="bar"></div>
     <div id="glow"></div>
     <nav>
-        <a class="logo" href="#home"><b>DD</b>DDSOLUTIONS</a>
+        <a class="logo" href="#home"><img src="ddlogo.png" alt="DDSOLUTIONS logo" class="logo-img" /></a>
         <div class="links" id="links">
-            <a class="l" href="#services" data-t="n1"></a><a class="l" href="#work" data-t="n2"></a><a
-                class="l" href="#process" data-t="n3"></a><a class="l" href="#reviews"
-                data-t="n5"></a><a class="l" href="#contact" data-t="n4"></a>
+            <a class="l" href="#services" data-t="n1"></a><a class="l" href="#work" data-t="n2"></a><a class="l"
+                href="#process" data-t="n3"></a><a class="l" href="#reviews" data-t="n5"></a><a class="l"
+                href="#contact" data-t="n4"></a>
         </div>
         <div class="ctrl">
             <select class="sel" id="lang" aria-label="Language">
                 <option value="e">English</option>
                 <option value="h">Hinglish</option>
-                <option value="hi">हिंदी</option>
             </select>
             <button class="sel tg" id="tg" aria-label="Toggle light/dark theme"></button>
             <button class="sel burger" id="bg" aria-label="Menu" aria-expanded="false">☰</button>
@@ -1362,10 +1472,8 @@
             <span class="pill rise"><i></i><span data-t="pill"></span></span>
             <h1 class="rise" style="animation-delay:.15s" data-t="h1"></h1>
             <p class="sub rise" style="animation-delay:.3s" data-t="sub"></p>
-            <div class="acts rise" style="animation-delay:.45s">
-                <a class="btn p" href="#work" data-t="hc1"></a><a class="btn" href="#contact"
-                    data-t="hc2"></a>
-            </div>
+            <div class="acts rise" style="animation-delay:.45s"><a class="btn p" href="#work" data-t="hc1"></a><a
+                    class="btn" href="#contact" data-t="hc2"></a></div>
         </div>
     </header>
 
@@ -1387,38 +1495,7 @@
             <div class="hd rv"><span class="eye" data-t="s0"></span>
                 <h2 data-t="s1"></h2>
             </div>
-            <div class="bento">
-                <div class="card rv">
-                    <div class="ico">🌐</div>
-                    <h3 data-t="v1t"></h3>
-                    <p data-t="v1d"></p>
-                </div>
-                <div class="card rv">
-                    <div class="ico">🚀</div>
-                    <h3 data-t="v2t"></h3>
-                    <p data-t="v2d"></p>
-                </div>
-                <div class="card rv">
-                    <div class="ico">💻</div>
-                    <h3 data-t="v3t"></h3>
-                    <p data-t="v3d"></p>
-                </div>
-                <div class="card rv">
-                    <div class="ico">🛒</div>
-                    <h3 data-t="v4t"></h3>
-                    <p data-t="v4d"></p>
-                </div>
-                <div class="card rv">
-                    <div class="ico">📱</div>
-                    <h3 data-t="v5t"></h3>
-                    <p data-t="v5d"></p>
-                </div>
-                <div class="card rv">
-                    <div class="ico">🛠️</div>
-                    <h3 data-t="v6t"></h3>
-                    <p data-t="v6d"></p>
-                </div>
-            </div>
+            <div class="bento" id="svc"></div>
         </div>
     </section>
 
@@ -1428,10 +1505,9 @@
                 <h2 data-t="w1"></h2>
             </div>
             <div class="filters rv" id="fl">
-                <button class="fl on" data-f="all" data-t="fa"></button><button class="fl"
-                    data-f="business" data-t="fb"></button><button class="fl" data-f="services"
-                    data-t="fs"></button><button class="fl" data-f="commerce" data-t="fc"></button><button
-                    class="fl" data-f="media" data-t="fm"></button>
+                <button class="fl on" data-f="all" data-t="fa"></button><button class="fl" data-f="business"
+                    data-t="fb"></button><button class="fl" data-f="services" data-t="fs"></button><button class="fl"
+                    data-f="commerce" data-t="fc"></button><button class="fl" data-f="media" data-t="fm"></button>
             </div>
             <div class="grid" id="grid"></div>
         </div>
@@ -1442,24 +1518,7 @@
             <div class="hd rv"><span class="eye" data-t="a0"></span>
                 <h2 data-t="a1"></h2>
             </div>
-            <div class="steps">
-                <div class="step rv"><b>01</b>
-                    <h3 data-t="g1t"></h3>
-                    <p data-t="g1d"></p>
-                </div>
-                <div class="step rv" style="transition-delay:.1s"><b>02</b>
-                    <h3 data-t="g2t"></h3>
-                    <p data-t="g2d"></p>
-                </div>
-                <div class="step rv" style="transition-delay:.2s"><b>03</b>
-                    <h3 data-t="g3t"></h3>
-                    <p data-t="g3d"></p>
-                </div>
-                <div class="step rv" style="transition-delay:.3s"><b>04</b>
-                    <h3 data-t="g4t"></h3>
-                    <p data-t="g4d"></p>
-                </div>
-            </div>
+            <div class="steps" id="steps"></div>
         </div>
     </section>
 
@@ -1469,40 +1528,7 @@
                 <h2 data-t="wf1"></h2>
                 <p data-t="wf2"></p>
             </div>
-            <div class="wgal">
-                <article class="wcard rv">
-                    <div class="wimg">🗣️<img loading="lazy" src="images/11.png" alt=""
-                            onerror="this.remove()" /></div>
-                    <div class="wcopy"><span class="num" data-t="wn1"></span>
-                        <h3 data-t="wt1"></h3>
-                        <p data-t="wd1"></p>
-                    </div>
-                </article>
-                <article class="wcard rv" style="transition-delay:.1s">
-                    <div class="wimg">🧩<img loading="lazy" src="images/12.png" alt=""
-                            onerror="this.remove()" /></div>
-                    <div class="wcopy"><span class="num" data-t="wn2"></span>
-                        <h3 data-t="wt2"></h3>
-                        <p data-t="wd2"></p>
-                    </div>
-                </article>
-                <article class="wcard rv" style="transition-delay:.2s">
-                    <div class="wimg">🎨<img loading="lazy" src="images/13.png" alt=""
-                            onerror="this.remove()" /></div>
-                    <div class="wcopy"><span class="num" data-t="wn3"></span>
-                        <h3 data-t="wt3"></h3>
-                        <p data-t="wd3"></p>
-                    </div>
-                </article>
-                <article class="wcard rv" style="transition-delay:.3s">
-                    <div class="wimg">🚀<img loading="lazy" src="images/14.png" alt=""
-                            onerror="this.remove()" /></div>
-                    <div class="wcopy"><span class="num" data-t="wn4"></span>
-                        <h3 data-t="wt4"></h3>
-                        <p data-t="wd4"></p>
-                    </div>
-                </article>
-            </div>
+            <div class="wgal" id="wgal"></div>
             <div class="wnote rv" data-t="wnote"></div>
         </div>
     </section>
@@ -1512,38 +1538,7 @@
             <div class="hd rv"><span class="eye" data-t="y0"></span>
                 <h2 data-t="y1"></h2>
             </div>
-            <div class="why">
-                <div class="card rv">
-                    <div class="ico">📲</div>
-                    <h3 data-t="yt1"></h3>
-                    <p data-t="yd1"></p>
-                </div>
-                <div class="card rv">
-                    <div class="ico">⚡</div>
-                    <h3 data-t="yt2"></h3>
-                    <p data-t="yd2"></p>
-                </div>
-                <div class="card rv">
-                    <div class="ico">🔍</div>
-                    <h3 data-t="yt3"></h3>
-                    <p data-t="yd3"></p>
-                </div>
-                <div class="card rv">
-                    <div class="ico">🤝</div>
-                    <h3 data-t="yt4"></h3>
-                    <p data-t="yd4"></p>
-                </div>
-                <div class="card rv">
-                    <div class="ico">🧼</div>
-                    <h3 data-t="yt5"></h3>
-                    <p data-t="yd5"></p>
-                </div>
-                <div class="card rv">
-                    <div class="ico">🛟</div>
-                    <h3 data-t="yt6"></h3>
-                    <p data-t="yd6"></p>
-                </div>
-            </div>
+            <div class="why" id="whyg"></div>
         </div>
     </section>
 
@@ -1552,20 +1547,7 @@
             <div class="hd rv"><span class="eye" data-t="tc0"></span>
                 <h2 data-t="tc1"></h2>
             </div>
-            <div class="tech-wrap rv">
-                <span class="tech">HTML5</span><span class="tech">CSS3</span><span
-                    class="tech">JavaScript</span><span class="tech">jQuery</span><span
-                    class="tech">Bootstrap</span><span class="tech">PHP</span><span
-                    class="tech">Laravel</span><span class="tech">MySQL</span><span
-                    class="tech">Git</span><span class="tech">GitHub</span><span
-                    class="tech">Python</span><span class="tech">Django</span><span
-                    class="tech">Flask</span><span class="tech">React JS</span><span
-                    class="tech">Next.js</span><span class="tech">Node.js</span><span
-                    class="tech">Express.js</span><span class="tech">MongoDB</span><span
-                    class="tech">PostgreSQL</span><span class="tech">Firebase</span><span class="tech">Tailwind
-                    CSS</span><span class="tech">WordPress</span><span class="tech">REST APIs</span><span
-                    class="tech">Figma</span><span class="tech">Docker</span>
-            </div>
+            <div class="tech-wrap rv" id="tech"></div>
         </div>
     </section>
 
@@ -1583,26 +1565,7 @@
             <div class="hd rv"><span class="eye" data-t="q0"></span>
                 <h2 data-t="q1"></h2>
             </div>
-            <details class="fq rv">
-                <summary data-t="fq1"></summary>
-                <p data-t="fa1"></p>
-            </details>
-            <details class="fq rv">
-                <summary data-t="fq2"></summary>
-                <p data-t="fa2"></p>
-            </details>
-            <details class="fq rv">
-                <summary data-t="fq3"></summary>
-                <p data-t="fa3"></p>
-            </details>
-            <details class="fq rv">
-                <summary data-t="fq4"></summary>
-                <p data-t="fa4"></p>
-            </details>
-            <details class="fq rv">
-                <summary data-t="fq5"></summary>
-                <p data-t="fa5"></p>
-            </details>
+            <div id="faqs"></div>
         </div>
     </section>
 
@@ -1635,15 +1598,15 @@
                     <div><span data-t="kr"></span><b data-t="krt"></b></div>
                 </div>
             </div>
-            <form class="rv" id="cf">
+            <form class="rv" id="cf" novalidate>
                 <div class="r">
-                    <div><label for="name" data-t="l1"></label><input id="name" name="name" required
-                            data-tp="p1" /></div>
-                    <div><label for="phone" data-t="l2"></label><input id="phone" name="phone"
-                            placeholder="+91" /></div>
+                    <div><label for="name" data-t="l1"></label><input id="name" name="name" data-tp="p1"
+                            autocomplete="name" /></div>
+                    <div><label for="phone" data-t="l2"></label><input id="phone" name="phone" type="tel"
+                            inputmode="tel" autocomplete="tel" placeholder="+91" /></div>
                 </div>
                 <label for="email" data-t="l3"></label><input type="email" id="email" name="email"
-                    required placeholder="you@example.com" />
+                    placeholder="you@example.com" autocomplete="email" />
                 <label for="service" data-t="l4"></label>
                 <select class="f" id="service" name="service">
                     <option value="" data-t="o0"></option>
@@ -1655,838 +1618,266 @@
                     <option value="Other" data-t="o6"></option>
                 </select>
                 <label for="message" data-t="l5"></label>
-                <textarea id="message" name="message" required data-tp="p2"></textarea>
+                <textarea id="message" name="message" data-tp="p2"></textarea>
                 <button class="btn p" type="submit" data-t="send"></button>
                 <p style="font-size:.72rem;margin-top:10px" data-t="note"></p>
             </form>
         </div>
     </section>
 
-    <footer>© <span id="yr"></span> DDSOLUTIONS · <span data-t="ft"></span></footer>
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="ft-top">
+                <div class="ft-brand"><img src="ddfooter.png" alt="DDSOLUTIONS" class="ft-logo" />
+                    <p data-t="ft"></p>
+                </div>
+                <div class="ft-col">
+                    <h4 data-t="fh1"></h4><a href="#services" data-t="vt1"></a><a href="#services" data-t="vt2"></a><a
+                        href="#services" data-t="vt3"></a><a href="#services" data-t="vt4"></a><a href="#services"
+                        data-t="vt5"></a>
+                </div>
+                <div class="ft-col">
+                    <h4 data-t="fh2"></h4><a href="#work" data-t="n2"></a><a href="#process" data-t="n3"></a><a
+                        href="#reviews" data-t="n5"></a><a href="#contact" data-t="n4"></a><a href="#faq"
+                        data-t="q0"></a>
+                </div>
+                <div class="ft-col">
+                    <h4 data-t="fh3"></h4><a href="mailto:ddsolutions800@gmail.com">ddsolutions800@gmail.com</a><a
+                        href="https://wa.me/919369822886" target="_blank" rel="noopener">+91 93698
+                        22886</a><span>Kanpur, Uttar Pradesh</span>
+                </div>
+            </div>
+            <div class="ft-bottom">
+                <span>© <span id="yr"></span> DDSOLUTIONS · <span data-t="ft"></span></span>
+                <div class="ft-social"><a href="https://wa.me/919369822886" target="_blank" rel="noopener"
+                        aria-label="WhatsApp">💬</a><a href="mailto:ddsolutions800@gmail.com" aria-label="Email">✉️</a>
+                </div>
+            </div>
+        </div>
+    </footer>
     <a class="wa" href="https://wa.me/919369822886" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
     <script>
+        /* ---------- DATA ---------- */
         const P = [
-            ["Property Dealer", "business", "https://ashutoshkutar80.github.io/property_dealer/", "Real Estate",
-                "#183b56", "#2b7884", "🏡"
-            ],
-            ["School Website", "business", "https://ashutoshkutar80.github.io/school/", "Education", "#24345e",
-                "#6478ad", "🎓"
-            ],
-            ["Restaurant Website", "commerce", "https://ashutoshkutar80.github.io/restaurant/", "Food & Beverage",
-                "#5b2e42", "#c27a64", "🍽️"
-            ],
-            ["Doctor Website", "services", "https://ashutoshkutar80.github.io/doctor/", "Healthcare", "#164e59",
-                "#3a9b91", "🩺"
-            ],
-            ["CA Firm Website", "services", "https://ashutoshkutar80.github.io/ca/", "Finance", "#293b64", "#8a78b8",
-                "🧮"
-            ],
-            ["Clothing Store", "commerce", "https://ashutoshkutar80.github.io/cloths/", "Fashion", "#633a57", "#c06e8d",
-                "👗"
-            ],
-            ["Advocate Website", "services", "https://ashutoshkutar80.github.io/advocate/", "Legal", "#27334d",
-                "#647d9b", "⚖️"
-            ],
-            ["ClickVyapar Logistics", "business", "https://logistics.clickvyapar.com", "Logistics", "#174b55",
-                "#358d9a", "🚚"
-            ],
-            ["UMCA Legal Services", "services", "https://umcalegalservices.com", "Legal Services", "#3a315d", "#8374bd",
-                "🏛️"
-            ],
-            ["Bharat Integrity Forum", "media", "https://bharatintegrityforum.com", "News & Media", "#3d2c36",
-                "#a64e5f", "📰"
-            ]
-        ];
+            ["Property Dealer", "business", "https://ashutoshkutar80.github.io/property_dealer/", "#183b56", "#2b7884", "🏡"],
+            ["School Website", "business", "https://ashutoshkutar80.github.io/school/", "#24345e", "#6478ad", "🎓"],
+            ["Restaurant Website", "commerce", "https://ashutoshkutar80.github.io/restaurant/", "#5b2e42", "#c27a64", "🍽️"],
+            ["Doctor Website", "services", "https://ashutoshkutar80.github.io/doctor/", "#164e59", "#3a9b91", "🩺"],
+            ["CA Firm Website", "services", "https://ashutoshkutar80.github.io/ca/", "#293b64", "#8a78b8", "🧮"],
+            ["Clothing Store", "commerce", "https://ashutoshkutar80.github.io/cloths/", "#633a57", "#c06e8d", "👗"],
+            ["Advocate Website", "services", "https://ashutoshkutar80.github.io/advocate/", "#27334d", "#647d9b", "⚖️"],
+            ["ClickVyapar Logistics", "business", "https://logistics.clickvyapar.com", "#174b55", "#358d9a", "🚚"],
+            ["UMCA Legal Services", "services", "https://umcalegalservices.com", "#3a315d", "#8374bd", "🏛️"],
+            ["Bharat Integrity Forum", "media", "https://bharatintegrityforum.com", "#3d2c36", "#a64e5f", "📰"]];
+        const REV = [["Rajesh Tripathi", "Principal · Kanpur"], ["Dr. Neha Srivastava", "Clinic Owner · Lucknow"], ["CA Amit Agarwal", "CA Firm · Kanpur"], ["Priya Sharma", "Restaurant Owner · Prayagraj"], ["Vikram Singh Chauhan", "Property Dealer · Agra"]];
+        const TECH = "HTML5,CSS3,JavaScript,jQuery,Bootstrap,PHP,Laravel,MySQL,Git,GitHub,Python,Django,Flask,React JS,Next.js,Node.js,Express.js,MongoDB,PostgreSQL,Firebase,Tailwind CSS,WordPress,REST APIs,Figma,Docker".split(",");
 
         const T = {
             e: {
-                n1: "Services",
-                n2: "Work",
-                n3: "Process",
-                n4: "Contact",
-                n5: "Reviews",
+                n1: "Services", n2: "Work", n3: "Process", n4: "Contact", n5: "Reviews",
                 pill: "From Kanpur, for all of India",
                 h1: 'Websites that <span class="g">move your business</span> forward.',
                 sub: "Fast, responsive, business-focused websites — from a strong first impression to a smooth customer journey.",
-                hc1: "Explore our work →",
-                hc2: "Discuss your project",
-                f1: "⚡ Fast & responsive",
-                f2: "🎨 Modern design",
-                f3: "📈 Growth focused",
-                st1: "Live projects",
-                st2: "Industries",
-                st3: "Responsive",
-                st4: "End-to-end thinking",
-                s0: "What we do",
-                s1: 'Digital solutions built around <span class="g">your business.</span>',
-                v1t: "Business Websites",
-                v1d: "Professional websites that build trust, explain your services and turn visitors into enquiries.",
-                v2t: "Landing Pages",
-                v2d: "Conversion-ready pages for campaigns and lead generation.",
-                v3t: "Web Development",
-                v3d: "PHP, Laravel, MySQL and modern front-end solutions.",
-                v4t: "E-commerce",
-                v4d: "Online stores that make browsing and product enquiries simple.",
-                v5t: "Responsive Redesign",
-                v5d: "Refresh an outdated website with a clean, mobile-friendly look.",
-                v6t: "Maintenance & Support",
-                v6d: "Regular updates and ongoing improvements.",
-                w0: "Selected work",
-                w1: 'Different industries. <span class="g">One standard.</span>',
-                fa: "All",
-                fb: "Business",
-                fs: "Services",
-                fc: "Commerce",
-                fm: "Media",
-                live: "View live project",
-                d0: "Property-focused website to present listings and real estate services.",
-                d1: "Education website covering academics, facilities and admissions.",
-                d2: "Restaurant experience with menu, ambience and customer information.",
-                d3: "Healthcare profile and services, with essential information easy to find.",
-                d4: "Professional CA firm website to introduce services and build credibility.",
-                d5: "Fashion storefront with a modern shopping aesthetic.",
-                d6: "Legal website highlighting practice areas, profile and contact routes.",
-                d7: "Logistics website with clear services and customer journey.",
-                d8: "Legal services platform with a professional digital identity.",
-                d9: "Digital news platform with a structured reading experience.",
-                a0: "How we work",
-                a1: 'A clear process. <span class="g">A better outcome.</span>',
-                g1t: "Discover",
-                g1d: "We learn about your business, audience and goals.",
-                g2t: "Plan",
-                g2d: "Structure, content flow and design direction.",
-                g3t: "Design & Develop",
-                g3d: "A fast, responsive and clean build.",
-                g4t: "Review & Launch",
-                g4d: "Testing, feedback and launch support.",
-                ct: "Have a business idea? Let's turn it into a website.",
-                cd: "Share your plan — we'll suggest the right approach and next steps.",
-                cb: "Let's build something →",
-                k0: "Let's connect",
-                k1: 'Your next website starts with a <span class="g">conversation.</span>',
-                k2: "Tell us about your business and what you need. We'll get back to you.",
-                ke: "Email",
-                kl: "Based in",
-                kw: "WhatsApp / Call",
-                kr: "Response",
-                krt: "Usually within 1–2 business days",
-                l1: "Your name",
-                l2: "Phone / WhatsApp",
-                l3: "Email address",
-                l4: "What do you need?",
-                l5: "Tell us about your project",
-                p1: "Enter your name",
-                p2: "A few details about your idea...",
-                send: "Send project enquiry ✈️",
-                note: "Your enquiry opens in WhatsApp as a ready message — just press send.",
-                ft: "Digital Soch. Smart Solutions. Real Growth."
+                hc1: "Explore our work →", hc2: "Discuss your project",
+                f1: "⚡ Fast & responsive", f2: "🎨 Modern design", f3: "📈 Growth focused",
+                st1: "Live projects", st2: "Industries", st3: "Responsive", st4: "End-to-end thinking",
+                mq: ["Websites", "Landing Pages", "E-commerce", "Web Apps", "Redesign", "Support"],
+                s0: "What we do", s1: 'Digital solutions built around <span class="g">your business.</span>',
+                sv: [["Business Websites", "Professional websites that build trust, explain your services and turn visitors into enquiries."], ["Landing Pages", "Conversion-ready pages for campaigns and lead generation."], ["Web Development", "PHP, Laravel, MySQL and modern front-end solutions."], ["E-commerce", "Online stores that make browsing and product enquiries simple."], ["Responsive Redesign", "Refresh an outdated website with a clean, mobile-friendly look."], ["Maintenance & Support", "Regular updates and ongoing improvements."]],
+                w0: "Selected work", w1: 'Different industries. <span class="g">One standard.</span>',
+                fa: "All", fb: "Business", fs: "Services", fc: "Commerce", fm: "Media", live: "View live project", demo: "▶ Live demo",
+                c: ["Real Estate", "Education", "Food & Beverage", "Healthcare", "Finance", "Fashion", "Legal", "Logistics", "Legal Services", "News & Media"],
+                d: ["Property-focused website to present listings and real estate services.", "Education website covering academics, facilities and admissions.", "Restaurant experience with menu, ambience and customer information.", "Healthcare profile and services, with essential information easy to find.", "Professional CA firm website to introduce services and build credibility.", "Fashion storefront with a modern shopping aesthetic.", "Legal website highlighting practice areas, profile and contact routes.", "Logistics website with clear services and customer journey.", "Legal services platform with a professional digital identity.", "Digital news platform with a structured reading experience."],
+                nx1: "Your Project Next?", nx2: "Your business could be the next success story here. Let's plan your website together.", nx3: "Start your project", nxc: "Next",
+                a0: "How we work", a1: 'A clear process. <span class="g">A better outcome.</span>',
+                pr: [["Discover", "We learn about your business, audience and goals."], ["Plan", "Structure, content flow and design direction."], ["Design & Develop", "A fast, responsive and clean build."], ["Review & Launch", "Testing, feedback and launch support."]],
+                wf0: "Client journey · DDSOLUTIONS", wf1: 'From idea to <span class="g">live website</span> — every step planned.',
+                wf2: "We work with you to understand requirements, share design previews, collect feedback and — after approval — develop and launch your website.",
+                wk: [["01 / DISCOVERY", "Client discussion & requirements", "We understand your business goals, audience, pages, features, reference websites and required content in detail."], ["02 / PLANNING", "Structure & wireframe planning", "We plan the page structure, navigation, user journey and mobile layout, and show you the direction."], ["03 / DESIGN PREVIEW", "Design presentation & feedback", "We share the visual style and page previews with you, then finalize the changes you approve."], ["04 / DEVELOPMENT", "Development, testing & launch", "We turn the approved design into a responsive website, test the key screens and support you through launch."]],
+                wnote: "<strong>Client communication:</strong> We share progress and previews at every important stage, so you always know which phase your project is in and what comes next.",
+                y0: "Why DDSOLUTIONS", y1: 'Built to <span class="g">help you grow.</span>',
+                wy: [["Mobile-first design", "Most visitors browse on phones, so every layout starts from the mobile screen."], ["Fast & lightweight", "Clean code and optimized assets for quick loading."], ["SEO-friendly structure", "Semantic markup and clear page structure that search engines understand."], ["Transparent communication", "Regular previews and updates — no surprises at launch."], ["Clean, maintainable code", "Well-organised code that is easy to update and extend later."], ["Post-launch support", "Content changes, fixes and improvements after your site goes live."]],
+                tc0: "Our toolkit", tc1: 'The right tools for <span class="g">the right job.</span>',
+                r0: "Client reviews", r1: 'What our <span class="g">clients say.</span>',
+                rt: ["Our school website looks professional and parents find admission details easily. Quick communication throughout.", "The clinic website runs very smoothly on mobile, and appointment enquiries have increased.", "Clean design and clear services. Clients now take our firm more seriously.", "Menu and photos look amazing. Delivered on time with all my changes done.", "Showing listings is so much easier now. Fast, responsive, and support even after launch."],
+                q0: "FAQ", q1: 'Questions? <span class="g">We have answers.</span>',
+                fq: [["How long does a website take?", "It depends on the number of pages and features. After discussing your requirements we share a clear timeline."], ["Will my website work on mobile?", "Yes. Every website we build is responsive and tested on common screen sizes."], ["Do you provide support after launch?", "Yes. We help with updates, content changes and ongoing improvements."], ["Can you redesign my existing website?", "Yes. We can refresh the layout, improve the mobile experience and keep your content."], ["What do I need to get started?", "Just your business details and idea. A logo, content and reference sites help — but if you don't have them yet, we'll help you plan."]],
+                ct: "Have a business idea? Let's turn it into a website.", cd: "Share your plan — we'll suggest the right approach and next steps.", cb: "Let's build something →",
+                k0: "Let's connect", k1: 'Your next website starts with a <span class="g">conversation.</span>', k2: "Tell us about your business and what you need. We'll get back to you.",
+                ke: "Email", kl: "Based in", kw: "WhatsApp / Call", kr: "Response", krt: "Usually within 1–2 business days",
+                l1: "Your name", l2: "Phone / WhatsApp", l3: "Email address", l4: "What do you need?", l5: "Tell us about your project",
+                p1: "Enter your name", p2: "A few details about your idea...",
+                o0: "Select a service", o1: "Business Website", o2: "Landing Page", o3: "E-commerce Website", o4: "Web Application", o5: "Website Redesign", o6: "Other",
+                send: "Send project enquiry ✈️", note: "Your enquiry opens in WhatsApp as a ready message — just press send.",
+                fh: ["Services", "Company", "Contact"], ft: "Digital Soch. Smart Solutions. Real Growth.",
+                vl: ["Please enter your name.", "Name must be at least 2 characters.", "Name is too long.", "Please enter your WhatsApp/mobile number.", "Enter a valid 10-digit Indian mobile number (optional +91).", "Please enter your email address.", "Please enter a valid email address.", "Please select a service.", "Please tell us about your project.", "Please add at least 15 characters.", "Please keep your message under 1200 characters."]
             },
             h: {
-                n1: "Services",
-                n2: "Projects",
-                n3: "Process",
-                n4: "Contact",
-                n5: "Reviews",
+                n1: "Services", n2: "Projects", n3: "Process", n4: "Contact", n5: "Reviews",
                 pill: "Kanpur se, poore Bharat ke liye",
                 h1: 'Websites jo aapke <span class="g">business ko udaan</span> dein.',
                 sub: "Fast, responsive aur business-focused websites — strong first impression se smooth customer journey tak.",
-                hc1: "Projects dekhein →",
-                hc2: "Project discuss karein",
-                f1: "⚡ Fast & responsive",
-                f2: "🎨 Modern design",
-                f3: "📈 Growth focused",
-                st1: "Live projects",
-                st2: "Industries",
-                st3: "Responsive",
-                st4: "End-to-end approach",
-                s0: "Hum kya karte hain",
-                s1: 'Aapke business ke liye <span class="g">digital solutions.</span>',
-                v1t: "Business Websites",
-                v1d: "Professional websites jo trust build karein, services explain karein aur visitors ko enquiries mein convert karein.",
-                v2t: "Landing Pages",
-                v2d: "Campaigns aur lead generation ke liye conversion-ready pages.",
-                v3t: "Web Development",
-                v3d: "PHP, Laravel, MySQL aur modern front-end solutions.",
-                v4t: "E-commerce",
-                v4d: "Online store jahan browsing aur product enquiry simple ho.",
-                v5t: "Responsive Redesign",
-                v5d: "Purani website ko clean, mobile-friendly look dena.",
-                v6t: "Maintenance & Support",
-                v6d: "Regular updates aur ongoing improvements.",
-                w0: "Selected projects",
-                w1: 'Alag industries. <span class="g">Same quality.</span>',
-                fa: "All",
-                fb: "Business",
-                fs: "Services",
-                fc: "Commerce",
-                fm: "Media",
-                live: "Live project dekhein",
-                d0: "Property listings aur real estate services showcase karne wala website.",
-                d1: "School ki academics, facilities aur admissions ki information.",
-                d2: "Menu, ambience aur customer info ke saath restaurant experience.",
-                d3: "Doctor profile aur healthcare services ko easy to find banane wali website.",
-                d4: "Services aur professional credibility ke liye CA firm website.",
-                d5: "Modern shopping aesthetic ke saath fashion storefront.",
-                d6: "Practice areas, profile aur contact details highlight karne wali legal website.",
-                d7: "Logistics services aur clear customer journey wali business website.",
-                d8: "Legal services ki professional digital identity.",
-                d9: "Structured reading experience wala digital news platform.",
-                a0: "Kaam karne ka tareeka",
-                a1: 'Clear process. <span class="g">Better outcome.</span>',
-                g1t: "Discover",
-                g1d: "Business, audience aur goals samajhte hain.",
-                g2t: "Plan",
-                g2d: "Structure, content flow aur design direction.",
-                g3t: "Design & Develop",
-                g3d: "Fast, responsive aur clean build.",
-                g4t: "Review & Launch",
-                g4d: "Testing, feedback aur launch support.",
-                ct: "Business idea hai? Chaliye use website bana dete hain.",
-                cd: "Apna plan share karein — hum right approach aur next steps batayenge.",
-                cb: "Let's build something →",
-                k0: "Let's connect",
-                k1: 'Aapki next website ek <span class="g">conversation</span> se start hoti hai.',
-                k2: "Apne business aur requirements ke baare mein batayein. Hum aapse contact karenge.",
-                ke: "Email",
-                kl: "Based in",
-                kw: "WhatsApp / Call",
-                kr: "Response time",
-                krt: "Usually 1–2 business days mein",
-                l1: "Aapka naam",
-                l2: "Phone / WhatsApp",
-                l3: "Email address",
-                l4: "Aapko kya chahiye?",
-                l5: "Project ke baare mein batayein",
-                p1: "Apna naam likhein",
-                p2: "Apne idea ki kuch details...",
-                send: "Project enquiry bhejein ✈️",
-                note: "Submit karte hi enquiry WhatsApp par ready message ke roop mein open hogi — bas send dabayein.",
-                ft: "Digital Soch. Smart Solutions. Real Growth."
-            },
-            hi: {
-                n1: "सेवाएँ",
-                n2: "प्रोजेक्ट",
-                n3: "प्रक्रिया",
-                n4: "संपर्क",
-                n5: "रिव्यू",
-                pill: "कानपुर से, पूरे भारत के लिए",
-                h1: 'ऐसी वेबसाइट जो आपके <span class="g">बिज़नेस को उड़ान</span> दे।',
-                sub: "तेज़, responsive और बिज़नेस पर केंद्रित वेबसाइट — बेहतरीन पहली छाप से आसान ग्राहक अनुभव तक।",
-                hc1: "हमारा काम देखें →",
-                hc2: "अपने प्रोजेक्ट पर बात करें",
-                f1: "⚡ तेज़ और responsive",
-                f2: "🎨 आधुनिक डिज़ाइन",
-                f3: "📈 ग्रोथ पर फोकस",
-                st1: "लाइव प्रोजेक्ट",
-                st2: "इंडस्ट्री",
-                st3: "रेस्पॉन्सिव",
-                st4: "शुरू से अंत तक",
-                s0: "हम क्या करते हैं",
-                s1: 'आपके बिज़नेस के लिए <span class="g">डिजिटल समाधान।</span>',
-                v1t: "बिज़नेस वेबसाइट",
-                v1d: "प्रोफेशनल वेबसाइट जो भरोसा बनाए, सेवाएँ समझाए और visitors को enquiries में बदले।",
-                v2t: "लैंडिंग पेज",
-                v2d: "कैंपेन और लीड जनरेशन के लिए conversion-ready पेज।",
-                v3t: "वेब डेवलपमेंट",
-                v3d: "PHP, Laravel, MySQL और आधुनिक front-end समाधान।",
-                v4t: "ई-कॉमर्स",
-                v4d: "ऑनलाइन स्टोर जहाँ प्रोडक्ट देखना और पूछताछ करना आसान हो।",
-                v5t: "वेबसाइट रीडिज़ाइन",
-                v5d: "पुरानी वेबसाइट को साफ़ और मोबाइल-फ्रेंडली रूप देना।",
-                v6t: "मेंटेनेंस और सपोर्ट",
-                v6d: "नियमित अपडेट और लगातार सुधार।",
-                w0: "चुने हुए प्रोजेक्ट",
-                w1: 'अलग-अलग इंडस्ट्री। <span class="g">एक ही क्वालिटी।</span>',
-                fa: "सभी",
-                fb: "बिज़नेस",
-                fs: "सर्विस",
-                fc: "कॉमर्स",
-                fm: "मीडिया",
-                live: "लाइव प्रोजेक्ट देखें",
-                d0: "प्रॉपर्टी लिस्टिंग और रियल एस्टेट सेवाएँ दिखाने वाली वेबसाइट।",
-                d1: "स्कूल की पढ़ाई, सुविधाएँ और एडमिशन की जानकारी।",
-                d2: "मेन्यू, माहौल और ज़रूरी जानकारी के साथ रेस्टोरेंट अनुभव।",
-                d3: "डॉक्टर की प्रोफाइल और हेल्थकेयर सेवाओं की आसान जानकारी।",
-                d4: "सेवाओं और प्रोफेशनल पहचान के लिए CA फर्म वेबसाइट।",
-                d5: "आधुनिक शॉपिंग अनुभव वाला फैशन स्टोर।",
-                d6: "प्रैक्टिस एरिया, प्रोफाइल और संपर्क जानकारी वाली लीगल वेबसाइट।",
-                d7: "लॉजिस्टिक्स सेवाओं को साफ़ दिखाने वाली बिज़नेस वेबसाइट।",
-                d8: "लीगल सेवाओं की प्रोफेशनल डिजिटल पहचान।",
-                d9: "व्यवस्थित पढ़ने के अनुभव वाला डिजिटल न्यूज़ प्लेटफॉर्म।",
-                a0: "हम कैसे काम करते हैं",
-                a1: 'स्पष्ट प्रक्रिया। <span class="g">बेहतर परिणाम।</span>',
-                g1t: "समझना",
-                g1d: "आपके बिज़नेस, ग्राहकों और लक्ष्य को समझते हैं।",
-                g2t: "प्लानिंग",
-                g2d: "स्ट्रक्चर, कंटेंट और डिज़ाइन की दिशा तय करते हैं।",
-                g3t: "डिज़ाइन और डेवलपमेंट",
-                g3d: "तेज़, responsive और साफ़ वेबसाइट बनाते हैं।",
-                g4t: "रिव्यू और लॉन्च",
-                g4d: "टेस्टिंग, फीडबैक और लॉन्च में मदद।",
-                ct: "बिज़नेस का आइडिया है? उसे वेबसाइट में बदलते हैं।",
-                cd: "अपना प्लान बताइए — हम सही तरीका और अगले कदम बताएँगे।",
-                cb: "चलो कुछ बनाते हैं →",
-                k0: "संपर्क करें",
-                k1: 'आपकी अगली वेबसाइट की शुरुआत एक <span class="g">बातचीत</span> से होगी।',
-                k2: "अपने बिज़नेस और ज़रूरत के बारे में बताइए। हम आपसे संपर्क करेंगे।",
-                ke: "ईमेल",
-                kl: "लोकेशन",
-                kw: "WhatsApp / कॉल",
-                kr: "जवाब",
-                krt: "आमतौर पर 1–2 कार्यदिवस में",
-                l1: "आपका नाम",
-                l2: "फोन / WhatsApp",
-                l3: "ईमेल एड्रेस",
-                l4: "आपको क्या चाहिए?",
-                l5: "अपने प्रोजेक्ट के बारे में बताएं",
-                p1: "अपना नाम लिखें",
-                p2: "अपने आइडिया की कुछ जानकारी...",
-                send: "प्रोजेक्ट enquiry भेजें ✈️",
-                note: "Submit करते ही enquiry WhatsApp पर तैयार message के रूप में खुलेगी — बस send दबाएँ।",
-                ft: "डिजिटल सोच। स्मार्ट समाधान। असली ग्रोथ।"
-            }
-        };
-
-        const X = {
-            e: {
-                title: "DDSOLUTIONS — Digital Soch. Smart Solutions. Real Growth.",
+                hc1: "Projects dekhein →", hc2: "Project discuss karein",
+                f1: "⚡ Fast & responsive", f2: "🎨 Modern design", f3: "📈 Growth focused",
+                st1: "Live projects", st2: "Industries", st3: "Responsive", st4: "End-to-end approach",
                 mq: ["Websites", "Landing Pages", "E-commerce", "Web Apps", "Redesign", "Support"],
-                demo: "▶ Live demo",
-                c0: "Real Estate",
-                c1: "Education",
-                c2: "Food & Beverage",
-                c3: "Healthcare",
-                c4: "Finance",
-                c5: "Fashion",
-                c6: "Legal",
-                c7: "Logistics",
-                c8: "Legal Services",
-                c9: "News & Media",
-                o0: "Select a service",
-                o1: "Business Website",
-                o2: "Landing Page",
-                o3: "E-commerce Website",
-                o4: "Web Application",
-                o5: "Website Redesign",
-                o6: "Other",
-                wf0: "Client journey · DDSOLUTIONS",
-                wf1: 'From idea to <span class="g">live website</span> — every step planned.',
-                wf2: "We work with you to understand requirements, share design previews, collect feedback and — after approval — develop and launch your website.",
-                wn1: "01 / DISCOVERY",
-                wt1: "Client discussion & requirements",
-                wd1: "We understand your business goals, audience, pages, features, reference websites and required content in detail.",
-                wn2: "02 / PLANNING",
-                wt2: "Structure & wireframe planning",
-                wd2: "We plan the page structure, navigation, user journey and mobile layout, and show you the direction.",
-                wn3: "03 / DESIGN PREVIEW",
-                wt3: "Design presentation & feedback",
-                wd3: "We share the visual style and page previews with you, then finalize the changes you approve.",
-                wn4: "04 / DEVELOPMENT",
-                wt4: "Development, testing & launch",
-                wd4: "We turn the approved design into a responsive website, test the key screens and support you through launch.",
-                wnote: "<strong>Client communication:</strong> We share progress and previews at every important stage, so you always know which phase your project is in and what comes next.",
-                y0: "Why DDSOLUTIONS",
-                y1: 'Built to <span class="g">help you grow.</span>',
-                yt1: "Mobile-first design",
-                yd1: "Most visitors browse on phones, so every layout starts from the mobile screen.",
-                yt2: "Fast & lightweight",
-                yd2: "Clean code and optimized assets for quick loading.",
-                yt3: "SEO-friendly structure",
-                yd3: "Semantic markup and clear page structure that search engines understand.",
-                yt4: "Transparent communication",
-                yd4: "Regular previews and updates — no surprises at launch.",
-                yt5: "Clean, maintainable code",
-                yd5: "Well-organised code that is easy to update and extend later.",
-                yt6: "Post-launch support",
-                yd6: "Content changes, fixes and improvements after your site goes live.",
-                tc0: "Our toolkit",
-                tc1: 'The right tools for <span class="g">the right job.</span>',
-                q0: "FAQ",
-                q1: 'Questions? <span class="g">We have answers.</span>',
-                fq1: "How long does a website take?",
-                fa1: "It depends on the number of pages and features. After discussing your requirements we share a clear timeline.",
-                fq2: "Will my website work on mobile?",
-                fa2: "Yes. Every website we build is responsive and tested on common screen sizes.",
-                fq3: "Do you provide support after launch?",
-                fa3: "Yes. We help with updates, content changes and ongoing improvements.",
-                fq4: "Can you redesign my existing website?",
-                fa4: "Yes. We can refresh the layout, improve the mobile experience and keep your content.",
-                fq5: "What do I need to get started?",
-                fa5: "Just your business details and idea. A logo, content and reference sites help — but if you don't have them yet, we'll help you plan.",
-                vn1: "Please enter your name.",
-                vn2: "Name must be at least 2 characters.",
-                vn3: "Name is too long.",
-                vp1: "Please enter your WhatsApp/mobile number.",
-                vp2: "Enter a valid 10-digit Indian mobile number (optional +91).",
-                ve1: "Please enter your email address.",
-                ve2: "Please enter a valid email address.",
-                vs: "Please select a service.",
-                vm1: "Please tell us about your project.",
-                vm2: "Please add at least 15 characters.",
-                vm3: "Please keep your message under 1200 characters."
-            },
-            h: {
-                title: "DDSOLUTIONS — Digital Soch. Smart Solutions. Real Growth.",
-                mq: ["Websites", "Landing Pages", "E-commerce", "Web Apps", "Redesign", "Support"],
-                demo: "▶ Live demo",
-                c0: "Real Estate",
-                c1: "Education",
-                c2: "Food & Beverage",
-                c3: "Healthcare",
-                c4: "Finance",
-                c5: "Fashion",
-                c6: "Legal",
-                c7: "Logistics",
-                c8: "Legal Services",
-                c9: "News & Media",
-                o0: "Service select karein",
-                o1: "Business Website",
-                o2: "Landing Page",
-                o3: "E-commerce Website",
-                o4: "Web Application",
-                o5: "Website Redesign",
-                o6: "Other",
-                wf0: "Client journey · DDSOLUTIONS",
-                wf1: 'Idea se <span class="g">live website</span> tak — har step planned.',
+                s0: "Hum kya karte hain", s1: 'Aapke business ke liye <span class="g">digital solutions.</span>',
+                sv: [["Business Websites", "Professional websites jo trust build karein, services explain karein aur visitors ko enquiries mein convert karein."], ["Landing Pages", "Campaigns aur lead generation ke liye conversion-ready pages."], ["Web Development", "PHP, Laravel, MySQL aur modern front-end solutions."], ["E-commerce", "Online store jahan browsing aur product enquiry simple ho."], ["Responsive Redesign", "Purani website ko clean, mobile-friendly look dena."], ["Maintenance & Support", "Regular updates aur ongoing improvements."]],
+                w0: "Selected projects", w1: 'Alag industries. <span class="g">Same quality.</span>',
+                fa: "All", fb: "Business", fs: "Services", fc: "Commerce", fm: "Media", live: "Live project dekhein", demo: "▶ Live demo",
+                c: ["Real Estate", "Education", "Food & Beverage", "Healthcare", "Finance", "Fashion", "Legal", "Logistics", "Legal Services", "News & Media"],
+                d: ["Property listings aur real estate services showcase karne wala website.", "School ki academics, facilities aur admissions ki information.", "Menu, ambience aur customer info ke saath restaurant experience.", "Doctor profile aur healthcare services ko easy to find banane wali website.", "Services aur professional credibility ke liye CA firm website.", "Modern shopping aesthetic ke saath fashion storefront.", "Practice areas, profile aur contact details highlight karne wali legal website.", "Logistics services aur clear customer journey wali business website.", "Legal services ki professional digital identity.", "Structured reading experience wala digital news platform."],
+                nx1: "Next: Aapka Project?", nx2: "Agla success story aapka business ho sakta hai. Chaliye saath mein website plan karte hain.", nx3: "Project start karein", nxc: "Next",
+                a0: "Kaam karne ka tareeka", a1: 'Clear process. <span class="g">Better outcome.</span>',
+                pr: [["Discover", "Business, audience aur goals samajhte hain."], ["Plan", "Structure, content flow aur design direction."], ["Design & Develop", "Fast, responsive aur clean build."], ["Review & Launch", "Testing, feedback aur launch support."]],
+                wf0: "Client journey · DDSOLUTIONS", wf1: 'Idea se <span class="g">live website</span> tak — har step planned.',
                 wf2: "Hum client ke saath milkar requirements samajhte hain, design ka preview share karte hain, feedback lete hain aur approval ke baad website develop karke launch karte hain.",
-                wn1: "01 / DISCOVERY",
-                wt1: "Client discussion & requirements",
-                wd1: "Business goals, audience, pages, features, reference websites aur required content ko detail mein samajhte hain.",
-                wn2: "02 / PLANNING",
-                wt2: "Structure & wireframe planning",
-                wd2: "Website ka page structure, navigation, user journey aur mobile layout plan karke client ko direction dikhate hain.",
-                wn3: "03 / DESIGN PREVIEW",
-                wt3: "Design presentation & feedback",
-                wd3: "Visual style aur page previews client ke saath share karte hain. Feedback ke hisaab se agreed changes finalize karte hain.",
-                wn4: "04 / DEVELOPMENT",
-                wt4: "Development, testing & launch",
-                wd4: "Approved design ko responsive website mein convert karte hain, important screens test karte hain aur launch mein support dete hain.",
+                wk: [["01 / DISCOVERY", "Client discussion & requirements", "Business goals, audience, pages, features, reference websites aur required content ko detail mein samajhte hain."], ["02 / PLANNING", "Structure & wireframe planning", "Website ka page structure, navigation, user journey aur mobile layout plan karke client ko direction dikhate hain."], ["03 / DESIGN PREVIEW", "Design presentation & feedback", "Visual style aur page previews client ke saath share karte hain. Feedback ke hisaab se agreed changes finalize karte hain."], ["04 / DEVELOPMENT", "Development, testing & launch", "Approved design ko responsive website mein convert karte hain, important screens test karte hain aur launch mein support dete hain."]],
                 wnote: "<strong>Client communication:</strong> Har important stage par progress aur preview share kiya jata hai, taaki client ko pata rahe ki project kis phase mein hai aur next step kya hoga.",
-                y0: "Kyun DDSOLUTIONS",
-                y1: 'Aapki growth ke liye <span class="g">banaya gaya.</span>',
-                yt1: "Mobile-first design",
-                yd1: "Zyada visitors phone par browse karte hain, isliye har layout mobile screen se start hota hai.",
-                yt2: "Fast & lightweight",
-                yd2: "Clean code aur optimized assets ke saath quick loading.",
-                yt3: "SEO-friendly structure",
-                yd3: "Semantic markup aur clear page structure jo search engines samajh sakein.",
-                yt4: "Transparent communication",
-                yd4: "Regular previews aur updates — launch par koi surprise nahi.",
-                yt5: "Clean, maintainable code",
-                yd5: "Well-organised code jise baad mein update aur extend karna easy ho.",
-                yt6: "Post-launch support",
-                yd6: "Website live hone ke baad content changes, fixes aur improvements.",
-                tc0: "Our toolkit",
-                tc1: 'Right tools for <span class="g">the right job.</span>',
-                q0: "FAQ",
-                q1: 'Sawaal hain? <span class="g">Jawab yahan hain.</span>',
-                fq1: "Website banne mein kitna time lagta hai?",
-                fa1: "Yeh pages aur features ki sankhya par depend karta hai. Requirements discuss karne ke baad hum clear timeline share karte hain.",
-                fq2: "Kya meri website mobile par chalegi?",
-                fa2: "Haan. Hamari har website responsive hoti hai aur common screen sizes par test ki jaati hai.",
-                fq3: "Kya launch ke baad support milega?",
-                fa3: "Haan. Updates, content changes aur improvements mein help karte hain.",
-                fq4: "Kya aap meri existing website redesign kar sakte hain?",
-                fa4: "Haan. Hum layout refresh kar sakte hain, mobile experience better bana sakte hain aur aapka content rakh sakte hain.",
-                fq5: "Start karne ke liye mujhe kya chahiye?",
-                fa5: "Bas aapke business ki details aur idea. Logo, content aur reference sites help karte hain — nahi hain to hum plan karne mein madad karenge.",
-                vn1: "Kripya apna naam likhein.",
-                vn2: "Naam kam se kam 2 characters ka hona chahiye.",
-                vn3: "Naam bahut lamba hai.",
-                vp1: "Kripya WhatsApp/mobile number likhein.",
-                vp2: "Valid 10-digit Indian mobile number likhein (+91 optional).",
-                ve1: "Kripya email address likhein.",
-                ve2: "Kripya valid email address likhein.",
-                vs: "Kripya service select karein.",
-                vm1: "Kripya apne project ke baare mein batayein.",
-                vm2: "Kam se kam 15 characters likhein.",
-                vm3: "Message 1200 characters se kam rakhein."
-            },
-            hi: {
-                title: "DDSOLUTIONS — डिजिटल सोच। स्मार्ट सॉल्यूशंस। असली ग्रोथ।",
-                mq: ["वेबसाइट", "लैंडिंग पेज", "ई-कॉमर्स", "वेब ऐप", "रीडिज़ाइन", "सपोर्ट"],
-                demo: "▶ लाइव डेमो",
-                c0: "रियल एस्टेट",
-                c1: "शिक्षा",
-                c2: "फ़ूड एंड बेवरेज",
-                c3: "हेल्थकेयर",
-                c4: "फ़ाइनेंस",
-                c5: "फ़ैशन",
-                c6: "लीगल",
-                c7: "लॉजिस्टिक्स",
-                c8: "लीगल सर्विसेज़",
-                c9: "न्यूज़ और मीडिया",
-                o0: "सेवा चुनें",
-                o1: "बिज़नेस वेबसाइट",
-                o2: "लैंडिंग पेज",
-                o3: "ई-कॉमर्स वेबसाइट",
-                o4: "वेब एप्लिकेशन",
-                o5: "वेबसाइट रीडिज़ाइन",
-                o6: "अन्य",
-                wf0: "क्लाइंट जर्नी · DDSOLUTIONS",
-                wf1: 'आइडिया से <span class="g">लाइव वेबसाइट</span> तक — हर कदम प्लान्ड।',
-                wf2: "हम आपके साथ मिलकर ज़रूरतें समझते हैं, डिज़ाइन का प्रीव्यू दिखाते हैं, फीडबैक लेते हैं और अप्रूवल के बाद वेबसाइट बनाकर लॉन्च करते हैं।",
-                wn1: "01 / समझना",
-                wt1: "क्लाइंट चर्चा और ज़रूरतें",
-                wd1: "आपके बिज़नेस लक्ष्य, ग्राहक, पेज, फीचर्स, रेफ़रेंस वेबसाइट और ज़रूरी कंटेंट को विस्तार से समझते हैं।",
-                wn2: "02 / प्लानिंग",
-                wt2: "स्ट्रक्चर और वायरफ्रेम प्लानिंग",
-                wd2: "वेबसाइट का पेज स्ट्रक्चर, नेविगेशन, यूज़र जर्नी और मोबाइल लेआउट प्लान करके दिशा दिखाते हैं।",
-                wn3: "03 / डिज़ाइन प्रीव्यू",
-                wt3: "डिज़ाइन प्रेज़ेंटेशन और फीडबैक",
-                wd3: "विज़ुअल स्टाइल और पेज प्रीव्यू आपके साथ साझा करते हैं और आपके फीडबैक के अनुसार बदलाव फ़ाइनल करते हैं।",
-                wn4: "04 / डेवलपमेंट",
-                wt4: "डेवलपमेंट, टेस्टिंग और लॉन्च",
-                wd4: "अप्रूव्ड डिज़ाइन को responsive वेबसाइट में बदलते हैं, मुख्य स्क्रीन टेस्ट करते हैं और लॉन्च में मदद करते हैं।",
-                wnote: "<strong>क्लाइंट कम्युनिकेशन:</strong> हर अहम चरण पर प्रगति और प्रीव्यू साझा किया जाता है, ताकि आपको पता रहे कि प्रोजेक्ट किस चरण में है और आगे क्या होगा।",
-                y0: "DDSOLUTIONS क्यों",
-                y1: 'आपकी ग्रोथ के लिए <span class="g">बनाया गया।</span>',
-                yt1: "मोबाइल-फर्स्ट डिज़ाइन",
-                yd1: "ज़्यादातर लोग फोन पर ब्राउज़ करते हैं, इसलिए हर लेआउट मोबाइल स्क्रीन से शुरू होता है।",
-                yt2: "तेज़ और हल्की",
-                yd2: "साफ़ कोड और ऑप्टिमाइज़्ड एसेट्स के साथ तेज़ लोडिंग।",
-                yt3: "SEO-फ्रेंडली स्ट्रक्चर",
-                yd3: "सिमैंटिक मार्कअप और साफ़ पेज स्ट्रक्चर जिसे सर्च इंजन समझ सकें।",
-                yt4: "पारदर्शी कम्युनिकेशन",
-                yd4: "नियमित प्रीव्यू और अपडेट — लॉन्च पर कोई सरप्राइज़ नहीं।",
-                yt5: "साफ़ और आसान कोड",
-                yd5: "व्यवस्थित कोड जिसे बाद में अपडेट और बढ़ाना आसान हो।",
-                yt6: "लॉन्च के बाद सपोर्ट",
-                yd6: "वेबसाइट लाइव होने के बाद कंटेंट बदलाव, फिक्स और सुधार।",
-                tc0: "हमारी टेक्नोलॉजी",
-                tc1: 'सही काम के लिए <span class="g">सही टूल्स।</span>',
-                q0: "अक्सर पूछे जाने वाले सवाल",
-                q1: 'सवाल हैं? <span class="g">जवाब यहाँ हैं।</span>',
-                fq1: "वेबसाइट बनने में कितना समय लगता है?",
-                fa1: "यह पेज और फीचर्स की संख्या पर निर्भर करता है। ज़रूरतें समझने के बाद हम साफ़ टाइमलाइन बताते हैं।",
-                fq2: "क्या मेरी वेबसाइट मोबाइल पर चलेगी?",
-                fa2: "हाँ। हमारी हर वेबसाइट responsive होती है और आम स्क्रीन साइज़ पर टेस्ट की जाती है।",
-                fq3: "क्या लॉन्च के बाद सपोर्ट मिलेगा?",
-                fa3: "हाँ। अपडेट, कंटेंट बदलाव और सुधार में हम मदद करते हैं।",
-                fq4: "क्या आप मेरी मौजूदा वेबसाइट रीडिज़ाइन कर सकते हैं?",
-                fa4: "हाँ। हम लेआउट नया कर सकते हैं, मोबाइल अनुभव बेहतर बना सकते हैं और आपका कंटेंट रख सकते हैं।",
-                fq5: "शुरू करने के लिए मुझे क्या चाहिए?",
-                fa5: "बस आपके बिज़नेस की जानकारी और आइडिया। लोगो, कंटेंट और रेफ़रेंस साइट मदद करते हैं — न हों तो हम प्लानिंग में मदद करेंगे।",
-                vn1: "कृपया अपना नाम लिखें।",
-                vn2: "नाम कम से कम 2 अक्षरों का होना चाहिए।",
-                vn3: "नाम बहुत लंबा है।",
-                vp1: "कृपया WhatsApp/मोबाइल नंबर लिखें।",
-                vp2: "सही 10 अंकों का भारतीय मोबाइल नंबर लिखें (+91 वैकल्पिक)।",
-                ve1: "कृपया ईमेल एड्रेस लिखें।",
-                ve2: "कृपया सही ईमेल एड्रेस लिखें।",
-                vs: "कृपया सेवा चुनें।",
-                vm1: "कृपया अपने प्रोजेक्ट के बारे में बताएं।",
-                vm2: "कम से कम 15 अक्षर लिखें।",
-                vm3: "संदेश 1200 अक्षरों से कम रखें।"
+                y0: "Kyun DDSOLUTIONS", y1: 'Aapki growth ke liye <span class="g">banaya gaya.</span>',
+                wy: [["Mobile-first design", "Zyada visitors phone par browse karte hain, isliye har layout mobile screen se start hota hai."], ["Fast & lightweight", "Clean code aur optimized assets ke saath quick loading."], ["SEO-friendly structure", "Semantic markup aur clear page structure jo search engines samajh sakein."], ["Transparent communication", "Regular previews aur updates — launch par koi surprise nahi."], ["Clean, maintainable code", "Well-organised code jise baad mein update aur extend karna easy ho."], ["Post-launch support", "Website live hone ke baad content changes, fixes aur improvements."]],
+                tc0: "Our toolkit", tc1: 'Right tools for <span class="g">the right job.</span>',
+                r0: "Client reviews", r1: 'Hamare clients <span class="g">kya kehte hain.</span>',
+                rt: ["Hamare school ki website bahut professional lagti hai aur parents ko admission details aasani se mil jaati hain. Communication bhi fast tha.", "Clinic ki website mobile par bahut smooth chalti hai, appointment enquiries badh gayi hain.", "Clean design aur clear services. Ab clients hamari firm ko zyada seriously lete hain.", "Menu aur photos kamaal ke lagte hain. Time par delivery mili aur saare changes bhi hue.", "Ab listings dikhana bahut easy ho gaya. Fast, responsive aur launch ke baad bhi support."],
+                q0: "FAQ", q1: 'Sawaal hain? <span class="g">Jawab yahan hain.</span>',
+                fq: [["Website banne mein kitna time lagta hai?", "Yeh pages aur features ki sankhya par depend karta hai. Requirements discuss karne ke baad hum clear timeline share karte hain."], ["Kya meri website mobile par chalegi?", "Haan. Hamari har website responsive hoti hai aur common screen sizes par test ki jaati hai."], ["Kya launch ke baad support milega?", "Haan. Updates, content changes aur improvements mein help karte hain."], ["Kya aap meri existing website redesign kar sakte hain?", "Haan. Hum layout refresh kar sakte hain, mobile experience better bana sakte hain aur aapka content rakh sakte hain."], ["Start karne ke liye mujhe kya chahiye?", "Bas aapke business ki details aur idea. Logo, content aur reference sites help karte hain — nahi hain to hum plan karne mein madad karenge."]],
+                ct: "Business idea hai? Chaliye use website bana dete hain.", cd: "Apna plan share karein — hum right approach aur next steps batayenge.", cb: "Let's build something →",
+                k0: "Let's connect", k1: 'Aapki next website ek <span class="g">conversation</span> se start hoti hai.', k2: "Apne business aur requirements ke baare mein batayein. Hum aapse contact karenge.",
+                ke: "Email", kl: "Based in", kw: "WhatsApp / Call", kr: "Response time", krt: "Usually 1–2 business days mein",
+                l1: "Aapka naam", l2: "Phone / WhatsApp", l3: "Email address", l4: "Aapko kya chahiye?", l5: "Project ke baare mein batayein",
+                p1: "Apna naam likhein", p2: "Apne idea ki kuch details...",
+                o0: "Service select karein", o1: "Business Website", o2: "Landing Page", o3: "E-commerce Website", o4: "Web Application", o5: "Website Redesign", o6: "Other",
+                send: "Project enquiry bhejein ✈️", note: "Submit karte hi enquiry WhatsApp par ready message ke roop mein open hogi — bas send dabayein.",
+                fh: ["Services", "Company", "Contact"], ft: "Digital Soch. Smart Solutions. Real Growth.",
+                vl: ["Kripya apna naam likhein.", "Naam kam se kam 2 characters ka hona chahiye.", "Naam bahut lamba hai.", "Kripya WhatsApp/mobile number likhein.", "Valid 10-digit Indian mobile number likhein (+91 optional).", "Kripya email address likhein.", "Kripya valid email address likhein.", "Kripya service select karein.", "Kripya apne project ke baare mein batayein.", "Kam se kam 15 characters likhein.", "Message 1200 characters se kam rakhein."]
             }
         };
-        for (const k in X) Object.assign(T[k], X[k]);
 
-        /* Next-project card + reviews translations */
-        Object.assign(T.e, {
-            nx1: "Your Project Next?",
-            nx2: "Your business could be the next success story here. Let's plan your website together.",
-            nx3: "Start your project",
-            nxc: "Next",
-            r0: "Client reviews",
-            r1: 'What our <span class="g">clients say.</span>',
-            rt1: "Our school website looks professional and parents find admission details easily. Quick communication throughout.",
-            rt2: "The clinic website runs very smoothly on mobile, and appointment enquiries have increased.",
-            rt3: "Clean design and clear services. Clients now take our firm more seriously.",
-            rt4: "Menu and photos look amazing. Delivered on time with all my changes done.",
-            rt5: "Showing listings is so much easier now. Fast, responsive, and support even after launch."
-        });
-        Object.assign(T.h, {
-            nx1: "Next: Aapka Project?",
-            nx2: "Agla success story aapka business ho sakta hai. Chaliye saath mein website plan karte hain.",
-            nx3: "Project start karein",
-            nxc: "Next",
-            r0: "Client reviews",
-            r1: 'Hamare clients <span class="g">kya kehte hain.</span>',
-            rt1: "Hamare school ki website bahut professional lagti hai aur parents ko admission details aasani se mil jaati hain. Communication bhi fast tha.",
-            rt2: "Clinic ki website mobile par bahut smooth chalti hai, appointment enquiries badh gayi hain.",
-            rt3: "Clean design aur clear services. Ab clients hamari firm ko zyada seriously lete hain.",
-            rt4: "Menu aur photos kamaal ke lagte hain. Time par delivery mili aur saare changes bhi hue.",
-            rt5: "Ab listings dikhana bahut easy ho gaya. Fast, responsive aur launch ke baad bhi support."
-        });
-        Object.assign(T.hi, {
-            nx1: "अगला प्रोजेक्ट आपका?",
-            nx2: "अगली सफलता की कहानी आपका बिज़नेस हो सकता है। चलिए साथ मिलकर वेबसाइट प्लान करते हैं।",
-            nx3: "प्रोजेक्ट शुरू करें",
-            nxc: "अगला",
-            r0: "क्लाइंट रिव्यू",
-            r1: 'हमारे क्लाइंट <span class="g">क्या कहते हैं।</span>',
-            rt1: "हमारे स्कूल की वेबसाइट बहुत प्रोफेशनल लगती है और पैरेंट्स को एडमिशन की जानकारी आसानी से मिल जाती है।",
-            rt2: "क्लिनिक की वेबसाइट मोबाइल पर बहुत स्मूद चलती है और अपॉइंटमेंट की पूछताछ बढ़ी है।",
-            rt3: "साफ़ डिज़ाइन और स्पष्ट सेवाएँ। अब क्लाइंट हमारी फर्म को ज़्यादा गंभीरता से लेते हैं।",
-            rt4: "मेन्यू और फोटो शानदार लगते हैं। समय पर डिलीवरी मिली और सारे बदलाव भी हुए।",
-            rt5: "अब लिस्टिंग दिखाना बहुत आसान हो गया। तेज़, responsive और लॉन्च के बाद भी सपोर्ट।"
-        });
+        /* expand arrays into flat data-t keys */
+        const ex = (d, p, a, ks) => a.forEach((r, i) => ks.forEach((k, j) => d[p + k + (i + 1)] = r[j]));
+        for (const l in T) {
+            const d = T[l];
+            d.c.forEach((v, i) => d["c" + i] = v); d.d.forEach((v, i) => d["d" + i] = v);
+            ex(d, "v", d.sv, ["t", "d"]); ex(d, "g", d.pr, ["t", "d"]);
+            d.wk.forEach((r, i) => { d["wn" + (i + 1)] = r[0]; d["wt" + (i + 1)] = r[1]; d["wd" + (i + 1)] = r[2] });
+            ex(d, "y", d.wy, ["t", "d"]); ex(d, "f", d.fq, ["q", "a"]);
+            d.rt.forEach((v, i) => d["rt" + (i + 1)] = v); d.fh.forEach((v, i) => d["fh" + (i + 1)] = v);
+            ["vn1", "vn2", "vn3", "vp1", "vp2", "ve1", "ve2", "vs", "vm1", "vm2", "vm3"].forEach((k, i) => d[k] = d.vl[i]);
+        }
 
+        /* ---------- RENDER ---------- */
         let cur = "e";
-        const $ = s => document.querySelector(s),
-            $$ = s => [...document.querySelectorAll(s)];
+        const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+        const rep = (n, f) => Array.from({ length: n }, (_, i) => f(i + 1)).join("");
+        const SI = ["🌐", "🚀", "💻", "🛒", "📱", "🛠️"], WI = ["🗣️", "🧩", "🎨", "🚀"], YI = ["📲", "⚡", "🔍", "🤝", "🧼", "🛟"];
 
-        const NEXT =
-            `<a class="pc nx rv" data-c="next" href="#contact" aria-label="Your project">
-<div class="shot" style="background:linear-gradient(135deg,var(--a),var(--c))"><div class="mock"><div class="bar"><i></i><i></i><i></i></div><div class="big">✨</div><div class="ln" style="width:70%"></div><div class="ln" style="width:45%"></div></div><span class="chip" data-t="nxc"></span></div>
-<div class="pb"><small>11 / ∞</small><h3 data-t="nx1"></h3><p data-t="nx2"></p><span class="go"><span data-t="nx3"></span><span class="ar">↗</span></span></div></a>`;
+        $("#svc").innerHTML = rep(6, i => `<div class="card rv"><div class="ico">${SI[i - 1]}</div><h3 data-t="vt${i}"></h3><p data-t="vd${i}"></p></div>`);
+        $("#steps").innerHTML = rep(4, i => `<div class="step rv" style="transition-delay:${(i - 1) * .1}s"><b>0${i}</b><h3 data-t="gt${i}"></h3><p data-t="gd${i}"></p></div>`);
+        $("#wgal").innerHTML = rep(4, i => `<article class="wcard rv" style="transition-delay:${(i - 1) * .1}s"><div class="wimg">${WI[i - 1]}<img loading="lazy" src="images/1${i}.png" alt="" onerror="this.remove()" /></div><div class="wcopy"><span class="num" data-t="wn${i}"></span><h3 data-t="wt${i}"></h3><p data-t="wd${i}"></p></div></article>`);
+        $("#whyg").innerHTML = rep(6, i => `<div class="card rv"><div class="ico">${YI[i - 1]}</div><h3 data-t="yt${i}"></h3><p data-t="yd${i}"></p></div>`);
+        $("#tech").innerHTML = TECH.map(t => `<span class="tech">${t}</span>`).join("");
+        $("#faqs").innerHTML = rep(5, i => `<details class="fq rv"><summary data-t="fq${i}"></summary><p data-t="fa${i}"></p></details>`);
+        $("#rtrack").innerHTML = REV.map((r, i) => `<article class="rc"><div class="stars">★★★★★</div><p data-t="rt${i + 1}"></p><div class="who"><b>${r[0].replace("Dr. ", "").replace("CA ", "").split(" ").map(w => w[0]).slice(0, 2).join("")}</b><div><strong>${r[0]}</strong><span>${r[1]}</span></div></div></article>`).join("");
 
-        $("#grid").innerHTML = P.map((p, i) =>
-            `<a class="pc rv" data-c="${p[1]}" href="${p[2]}" target="_blank" rel="noopener" aria-label="${p[0]}" style="transition-delay:${(i%3)*.1}s">
-<div class="shot" style="background:linear-gradient(135deg,${p[4]},${p[5]})"><div class="mock"><div class="bar"><i></i><i></i><i></i></div><div class="big">${p[6]}</div><div class="ln" style="width:70%"></div><div class="ln" style="width:45%"></div></div>
-<img loading="lazy" alt="${p[0]}" src="images/${i+1}.png" onerror="this.remove()">
-<video muted loop playsinline preload="metadata" src="video/${i+1}.mp4" onloadedmetadata="this.closest('.pc').classList.add('hasv')" onerror="this.remove()"></video>
-<span class="demo" data-t="demo"></span><span class="chip" data-t="c${i}"></span></div>
-<div class="pb"><small>${String(i+1).padStart(2,"0")} / 10</small><h3>${p[0]}</h3><p data-t="d${i}"></p><span class="go"><span data-t="live"></span><span class="ar">↗</span></span></div></a>`
-            ).join("") + NEXT;
+        const NEXT = `<a class="pc nx rv" data-c="next" href="#contact" aria-label="Your project"><div class="shot" style="background:linear-gradient(135deg,var(--a),var(--c))"><div class="mock"><div class="bar"><i></i><i></i><i></i></div><div class="big">✨</div><div class="ln" style="width:70%"></div><div class="ln" style="width:45%"></div></div><span class="chip" data-t="nxc"></span></div><div class="pb"><small>11 / ∞</small><h3 data-t="nx1"></h3><p data-t="nx2"></p><span class="go"><span data-t="nx3"></span><span class="ar">↗</span></span></div></a>`;
+        $("#grid").innerHTML = P.map((p, i) => `<a class="pc rv" data-c="${p[1]}" href="${p[2]}" target="_blank" rel="noopener" aria-label="${p[0]}" style="transition-delay:${(i % 3) * .1}s"><div class="shot" style="background:linear-gradient(135deg,${p[3]},${p[4]})"><div class="mock"><div class="bar"><i></i><i></i><i></i></div><div class="big">${p[5]}</div><div class="ln" style="width:70%"></div><div class="ln" style="width:45%"></div></div><img loading="lazy" alt="${p[0]}" src="images/${i + 1}.png" onerror="this.remove()"><video muted loop playsinline preload="metadata" src="video/${i + 1}.mp4" onloadedmetadata="this.closest('.pc').classList.add('hasv')" onerror="this.remove()"></video><span class="demo" data-t="demo"></span><span class="chip" data-t="c${i}"></span></div><div class="pb"><small>${String(i + 1).padStart(2, "0")} / 10</small><h3>${p[0]}</h3><p data-t="d${i}"></p><span class="go"><span data-t="live"></span><span class="ar">↗</span></span></div></a>`).join("") + NEXT;
 
-        /* Reviews */
-        const REV = [
-            ["Rajesh Tripathi", "Principal · Kanpur"],
-            ["Dr. Neha Srivastava", "Clinic Owner · Lucknow"],
-            ["CA Amit Agarwal", "CA Firm · Kanpur"],
-            ["Priya Sharma", "Restaurant Owner · Prayagraj"],
-            ["Vikram Singh Chauhan", "Property Dealer · Agra"]
-        ];
-        $("#rtrack").innerHTML = REV.map((r, i) =>
-            `<article class="rc"><div class="stars">★★★★★</div><p data-t="rt${i+1}"></p><div class="who"><b>${r[0].replace("Dr. ","").replace("CA ","").split(" ").map(w=>w[0]).slice(0,2).join("")}</b><div><strong>${r[0]}</strong><span>${r[1]}</span></div></div></article>`
-            ).join("");
+        /* reviews autoplay on mobile */
         (() => {
-            const rt = $("#rtrack");
-            let ri = 0,
-                hold = false,
-                t;
-            const pause = () => {
-                hold = true;
-                clearTimeout(t);
-                t = setTimeout(() => {
-                    hold = false;
-                    ri = Math.round(rt.scrollLeft / (rt.children[0].offsetWidth + 14))
-                }, 4000)
-            };
-            rt.addEventListener("touchstart", pause, {
-                passive: true
-            });
-            rt.addEventListener("touchmove", pause, {
-                passive: true
-            });
-            setInterval(() => {
-                if (hold || !matchMedia("(max-width:760px)").matches) return;
-                ri = (ri + 1) % rt.children.length;
-                rt.scrollTo({
-                    left: rt.children[ri].offsetLeft,
-                    behavior: "smooth"
-                });
-            }, 3000);
+            const rt = $("#rtrack"); let ri = 0, hold = false, t;
+            const pause = () => { hold = true; clearTimeout(t); t = setTimeout(() => { hold = false; ri = Math.round(rt.scrollLeft / (rt.children[0].offsetWidth + 14)) }, 4000) };
+            rt.addEventListener("touchstart", pause, { passive: true }); rt.addEventListener("touchmove", pause, { passive: true });
+            setInterval(() => { if (hold || !matchMedia("(max-width:760px)").matches) return; ri = (ri + 1) % rt.children.length; rt.scrollTo({ left: rt.children[ri].offsetLeft, behavior: "smooth" }) }, 3000)
         })();
 
-        const play = c => {
-                const v = c.querySelector("video");
-                if (!v) return;
-                v.muted = true;
-                const r = v.play();
-                if (r && r.then) r.then(() => c.classList.add("play")).catch(() => {});
-                else c.classList.add("play")
-            },
-            stop = c => {
-                c.classList.remove("play");
-                const v = c.querySelector("video");
-                if (v) {
-                    v.pause();
-                    try {
-                        v.currentTime = 0
-                    } catch (e) {}
-                }
-            };
-        const vio = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? play(e.target) : stop(e.target)), {
-            threshold: .75
-        });
-        $$(".pc").forEach(c => {
-            if (matchMedia("(hover:hover)").matches) {
-                c.onmouseenter = () => play(c);
-                c.onmouseleave = () => stop(c);
-                c.onfocus = () => play(c);
-                c.onblur = () => stop(c)
-            } else vio.observe(c);
-        });
+        /* video preview */
+        const play = c => { const v = c.querySelector("video"); if (!v) return; v.muted = true; const r = v.play(); if (r && r.then) r.then(() => c.classList.add("play")).catch(() => { }); else c.classList.add("play") },
+            stop = c => { c.classList.remove("play"); const v = c.querySelector("video"); if (v) { v.pause(); try { v.currentTime = 0 } catch (e) { } } };
+        const vio = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? play(e.target) : stop(e.target)), { threshold: .75 });
+        $$(".pc").forEach(c => { if (matchMedia("(hover:hover)").matches) { c.onmouseenter = () => play(c); c.onmouseleave = () => stop(c); c.onfocus = () => play(c); c.onblur = () => stop(c) } else vio.observe(c) });
 
-        const get = k => {
-                try {
-                    return localStorage.getItem(k)
-                } catch (e) {
-                    return null
-                }
-            },
-            set = (k, v) => {
-                try {
-                    localStorage.setItem(k, v)
-                } catch (e) {}
-            };
-
+        /* storage + lang + theme */
+        const get = k => { try { return localStorage.getItem(k) } catch (e) { return null } }, set = (k, v) => { try { localStorage.setItem(k, v) } catch (e) { } };
         function lang(l) {
-            if (!T[l]) l = "e";
-            const d = T[l];
-            $$("[data-t]").forEach(e => {
-                if (d[e.dataset.t] !== undefined) e.innerHTML = d[e.dataset.t]
-            });
+            if (!T[l]) l = "e"; const d = T[l]; cur = l;
+            $$("[data-t]").forEach(e => { if (d[e.dataset.t] !== undefined) e.innerHTML = d[e.dataset.t] });
             $$("[data-tp]").forEach(e => e.placeholder = d[e.dataset.tp]);
-            cur = l;
             $("#mq").innerHTML = [...d.mq, ...d.mq, ...d.mq, ...d.mq].map(w => `<span>${w}</span><span>✦</span>`).join("");
-            document.title = d.title;
             const vd = window.jQuery && jQuery("#cf").data("validator");
-            if (vd) jQuery("#cf .error").each((i, e) => vd.element(e));
-            document.documentElement.lang = l === "hi" ? "hi" : "en";
-            $("#lang").value = l;
-            set("dd-l", l);
+            if (vd) jQuery("#cf input.error,#cf textarea.error,#cf select.error").each((i, e) => vd.element(e));
+            document.documentElement.lang = "en"; $("#lang").value = l; set("dd-l", l);
         }
-
-        function theme(t) {
-            document.documentElement.dataset.theme = t;
-            $("#tg").textContent = t === "dark" ? "☀️" : "🌙";
-            $("#tg").title = t === "dark" ? "Light mode" : "Dark mode";
-            set("dd-t", t);
-        }
-        lang(get("dd-l") || "e");
-        theme(get("dd-t") || "dark");
+        function theme(t) { document.documentElement.dataset.theme = t; $("#tg").textContent = t === "dark" ? "☀️" : "🌙"; $("#tg").title = t === "dark" ? "Light mode" : "Dark mode"; set("dd-t", t) }
+        lang(get("dd-l") || "e"); theme(get("dd-t") || "dark");
         $("#lang").onchange = e => lang(e.target.value);
         $("#tg").onclick = () => theme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
-        const menu = o => {
-            $("#links").classList.toggle("open", o);
-            $("#bg").textContent = o ? "✕" : "☰";
-            $("#bg").setAttribute("aria-expanded", o)
-        };
-        $("#bg").onclick = e => {
-            e.stopPropagation();
-            menu(!$("#links").classList.contains("open"))
-        };
+
+        /* menu */
+        const menu = o => { $("#links").classList.toggle("open", o); $("#bg").textContent = o ? "✕" : "☰"; $("#bg").setAttribute("aria-expanded", o) };
+        $("#bg").onclick = e => { e.stopPropagation(); menu(!$("#links").classList.contains("open")) };
         $$("#links a").forEach(a => a.onclick = () => menu(false));
-        document.addEventListener("click", e => {
-            if (!e.target.closest("nav")) menu(false)
-        });
+        document.addEventListener("click", e => { if (!e.target.closest("nav")) menu(false) });
         $("#yr").textContent = new Date().getFullYear();
 
+        /* filters */
         $("#fl").onclick = e => {
-            const b = e.target.closest(".fl");
-            if (!b) return;
-            $$(".fl").forEach(x => x.classList.remove("on"));
-            b.classList.add("on");
-            $$(".pc").forEach(c => c.style.display = b.dataset.f === "all" || c.dataset.c === b.dataset.f || c.classList
-                .contains("nx") ? "" : "none");
+            const b = e.target.closest(".fl"); if (!b) return; $$(".fl").forEach(x => x.classList.remove("on")); b.classList.add("on");
+            $$(".pc").forEach(c => c.style.display = b.dataset.f === "all" || c.dataset.c === b.dataset.f || c.classList.contains("nx") ? "" : "none")
         };
 
+        /* reveal + counters */
         const io = new IntersectionObserver(es => es.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add("v");
-                io.unobserve(e.target);
-                const n = e.target.querySelector("[data-n]");
-                if (n) {
-                    const to = +n.dataset.n,
-                        s = n.dataset.s || "+";
-                    let t0 = null;
-                    const f = t => {
-                        t0 = t0 || t;
-                        const p = Math.min((t - t0) / 1400, 1);
-                        n.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + (p === 1 ? s : "");
-                        if (p < 1) requestAnimationFrame(f)
-                    };
-                    requestAnimationFrame(f);
-                }
+            if (!e.isIntersecting) return; e.target.classList.add("v"); io.unobserve(e.target);
+            const n = e.target.querySelector("[data-n]"); if (n) {
+                const to = +n.dataset.n, s = n.dataset.s || "+"; let t0 = null;
+                const f = t => { t0 = t0 || t; const p = Math.min((t - t0) / 1400, 1); n.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + (p === 1 ? s : ""); if (p < 1) requestAnimationFrame(f) }; requestAnimationFrame(f)
             }
-        }), {
-            threshold: .12
-        });
+        }), { threshold: .12 });
         $$(".rv").forEach(e => io.observe(e));
 
-        addEventListener("scroll", () => {
-            const h = document.documentElement;
-            $("#bar").style.width = (scrollY / (h.scrollHeight - innerHeight)) * 100 + "%"
-        }, {
-            passive: true
-        });
+        /* progress bar, glow, 3D tilt */
+        addEventListener("scroll", () => { const h = document.documentElement; $("#bar").style.width = (scrollY / (h.scrollHeight - innerHeight)) * 100 + "%" }, { passive: true });
         document.addEventListener("mousemove", e => {
-            const g = $("#glow");
-            g.style.left = e.clientX + "px";
-            g.style.top = e.clientY + "px";
+            const g = $("#glow"); g.style.left = e.clientX + "px"; g.style.top = e.clientY + "px";
             const c = e.target.closest && e.target.closest(".card,.pc");
-            $$(".card,.pc").forEach(x => {
-                if (x !== c) x.style.transform = ""
-            });
+            $$(".card,.pc").forEach(x => { if (x !== c) x.style.transform = "" });
             if (!c) return;
-            const r = c.getBoundingClientRect(),
-                x = (e.clientX - r.left) / r.width,
-                y = (e.clientY - r.top) / r.height;
-            c.style.setProperty("--x", x * 100 + "%");
-            c.style.setProperty("--y", y * 100 + "%");
-            c.style.transform =
-                `perspective(900px) rotateX(${(.5-y)*7}deg) rotateY(${(x-.5)*9}deg) translateY(-6px)`;
+            const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+            c.style.setProperty("--x", x * 100 + "%"); c.style.setProperty("--y", y * 100 + "%");
+            c.style.transform = `perspective(900px) rotateX(${(.5 - y) * 7}deg) rotateY(${(x - .5) * 9}deg) translateY(-6px)`;
         });
 
-        jQuery(function($) {
+        /* form validation → WhatsApp */
+        jQuery(function ($) {
             const m = k => () => T[cur][k];
             $("#cf").validate({
-                errorElement: "span",
-                errorClass: "field-error",
+                errorElement: "span", errorClass: "field-error",
                 errorPlacement: (er, el) => er.insertAfter(el),
                 highlight: el => $(el).addClass("error").removeClass("valid"),
                 unhighlight: el => $(el).removeClass("error").addClass("valid"),
                 rules: {
-                    name: {
-                        required: true,
-                        minlength: 2,
-                        maxlength: 60
-                    },
-                    phone: {
-                        required: true,
-                        normalizer: v => $.trim(v),
-                        pattern: /^(?:\+91[- ]?)?[6-9]\d{9}$/
-                    },
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    service: {
-                        required: true
-                    },
-                    message: {
-                        required: true,
-                        minlength: 15,
-                        maxlength: 1200
-                    }
+                    name: { required: true, minlength: 2, maxlength: 60 },
+                    phone: { required: true, normalizer: v => $.trim(v), pattern: /^(?:\+91[- ]?)?[6-9]\d{9}$/ },
+                    email: { required: true, email: true },
+                    service: { required: true },
+                    message: { required: true, minlength: 15, maxlength: 1200 }
                 },
                 messages: {
-                    name: {
-                        required: m("vn1"),
-                        minlength: m("vn2"),
-                        maxlength: m("vn3")
-                    },
-                    phone: {
-                        required: m("vp1"),
-                        pattern: m("vp2")
-                    },
-                    email: {
-                        required: m("ve1"),
-                        email: m("ve2")
-                    },
-                    service: {
-                        required: m("vs")
-                    },
-                    message: {
-                        required: m("vm1"),
-                        minlength: m("vm2"),
-                        maxlength: m("vm3")
-                    }
+                    name: { required: m("vn1"), minlength: m("vn2"), maxlength: m("vn3") },
+                    phone: { required: m("vp1"), pattern: m("vp2") },
+                    email: { required: m("ve1"), email: m("ve2") },
+                    service: { required: m("vs") },
+                    message: { required: m("vm1"), minlength: m("vm2"), maxlength: m("vm3") }
                 },
                 submitHandler: form => {
                     const d = Object.fromEntries(new FormData(form));
-                    const b =
-                        `New Website Enquiry - DDSOLUTIONS\n\nName: ${d.name}\nPhone: ${d.phone}\nEmail: ${d.email}\nService: ${d.service}\n\nDetails: ${d.message}`;
-                    window.open("https://wa.me/919369822886?text=" + encodeURIComponent(b), "_blank",
-                        "noopener,noreferrer");
+                    const b = `New Website Enquiry - DDSOLUTIONS\n\nName: ${d.name}\nPhone: ${d.phone}\nEmail: ${d.email}\nService: ${d.service}\n\nDetails: ${d.message}`;
+                    window.open("https://wa.me/919369822886?text=" + encodeURIComponent(b), "_blank", "noopener,noreferrer");
+                    form.reset(); $(form).find(".valid").removeClass("valid");
                 }
             });
         });
